@@ -1,6 +1,6 @@
 # firebase-react-todo
 
-A simple React todo app with Firebase.
+A simple React todo app with Firebase and Google Authentication.
 
 ## Built with
 

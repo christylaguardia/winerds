@@ -10,10 +10,7 @@ function TodoList({ user, items, handleToggle, handleRemove }) {
             <div className="box" >
               <article className="media">
                 <div className="media-left">
-                {item.email === user.email
-                  ? <i className={item.completed ? "fa fa-check-square-o fa-2x" : "fa fa-square-o fa-2x"} aria-hidden="true" onClick={() => handleToggle(item)}></i>
-                  : <i className={item.completed ? "fa fa-check-square-o fa-2x" : "fa fa-square-o fa-2x"}></i>
-                }
+                  <i className={item.completed ? "fa fa-check-square-o fa-2x" : "fa fa-square-o fa-2x"} aria-hidden="true" onClick={() => handleToggle(item)}></i>
                 </div>
                 <div className="media-content">
                   <div className="content">
@@ -22,10 +19,7 @@ function TodoList({ user, items, handleToggle, handleRemove }) {
                   </div>
                 </div>
                 <div className="media-right">
-                  {item.email === user.email
-                    ? <i className="fa fa-times fa-2x" aria-hidden="true" onClick={() => handleRemove(item.id)}></i>
-                    : null
-                  }
+                  <i className="fa fa-times fa-2x" aria-hidden="true" onClick={() => handleRemove(item.id)}></i>
                 </div>
               </article>
             </div>
