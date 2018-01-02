@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-function TodoList({ user, items, handleToggle, handleRemove }) {
+function WineList({ user, items, handleToggle, handleRemove }) {
   return (
     <ul>
       {items.map((item) => {
@@ -30,7 +30,7 @@ function TodoList({ user, items, handleToggle, handleRemove }) {
   );
 }
 
-TodoList.propTypes = {
+WineList.propTypes = {
   user: propTypes.shape({
     displayName: propTypes.string.isRequired,
     email: propTypes.string.isRequired
@@ -47,4 +47,4 @@ TodoList.propTypes = {
   handleRemove: propTypes.func.isRequired,
 };
 
-export default TodoList;
+export default WineList;

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import firebase, { auth, provider, tastingNotes } from './firebase';
+import firebase, { auth, provider, tastingNotes } from '../services/firebase';
 import Auth from './Auth';
-import TodoList from './TodoList';
-import WineForm from './WineForm';
+import Home from './Home';
 
 class App extends Component {
   constructor() {
@@ -97,15 +96,9 @@ class App extends Component {
     return (
       <div>
         <Auth user={this.state.user} login={this.login} logout={this.logout} />
-        <section className="section">
-          {this.state.user
-            ? (<div>
-                <WineForm user={this.state.user} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-                {/* <TodoList user={this.state.user} items={this.state.items} handleToggle={this.handleToggle} handleRemove={this.handleRemove} /> */}
-              </div>)
-            : null
-          }
-        </section>
+        {this.state.user
+          ? <Home props={this.state} />
+          : null}
       </div>
     );
   }

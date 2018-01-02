@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Categories, Profiles } from './data.json';
+import { Categories, Profiles } from '../data/tastingRubic.json';
 
 function WineForm({ user, handleChange, handleSubmit }) {
   const categories = Object.keys(Categories).map(category => category);
