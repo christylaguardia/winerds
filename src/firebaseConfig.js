@@ -1,8 +1,8 @@
 export default {
-  apiKey: 'AIzaSyCXW9a_5K4f5y1nTg1FU72QqHcJFQdH6DI',
-  authDomain: 'todo-6d87a.firebaseapp.com',
-  databaseURL: 'https://todo-6d87a.firebaseio.com',
-  projectId: 'todo-6d87a',
-  storageBucket: 'todo-6d87a.appspot.com',
-  messagingSenderId: '521590260262'
+  apiKey: "AIzaSyAwn8SlUXRd0eBwBc-KxRhv1X5ugg98pyw",
+  authDomain: "wine-notes-3d066.firebaseapp.com",
+  databaseURL: "https://wine-notes-3d066.firebaseio.com",
+  projectId: "wine-notes-3d066",
+  storageBucket: "wine-notes-3d066.appspot.com",
+  messagingSenderId: "616855521766"
 }

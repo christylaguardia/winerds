@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import firebase, { auth, provider } from './firebase';
+import firebase, { auth, provider, tastingNotes } from './firebase';
 import Auth from './Auth';
 import TodoList from './TodoList';
-import TodoForm from './TodoForm';
+import WineForm from './WineForm';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       currentItem: '',
-      items: [],
+      notes: [],
       user: null
     }
     this.login = this.login.bind(this);
@@ -29,9 +29,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const itemsRef = firebase.database().ref('items');
-
-    itemsRef.on('value', (snapshot) => {
+    tastingNotes.on('value', (snapshot) => {
       let items = snapshot.val();
       let newState = [];
       for (let item in items) {
@@ -74,7 +72,6 @@ class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const itemsRef = firebase.database().ref('items');
     const item = {
       title: this.state.currentItem,
       completed: false,
@@ -82,7 +79,7 @@ class App extends Component {
       email: this.state.user.email,
     }
     console.log('new item', item);
-    itemsRef.push(item);
+    tastingNotes.push(item);
     this.setState({ currentItem: null });
   }
 
@@ -103,8 +100,8 @@ class App extends Component {
         <section className="section">
           {this.state.user
             ? (<div>
-                <TodoForm user={this.state.user} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-                <TodoList user={this.state.user} items={this.state.items} handleToggle={this.handleToggle} handleRemove={this.handleRemove} />
+                <WineForm user={this.state.user} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+                {/* <TodoList user={this.state.user} items={this.state.items} handleToggle={this.handleToggle} handleRemove={this.handleRemove} /> */}
               </div>)
             : null
           }

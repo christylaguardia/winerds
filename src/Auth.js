@@ -13,7 +13,7 @@ function Auth({ user, login, logout }) {
               <button className="button is-primary" onClick={logout}>Log Out</button>
             </div>)
           : (<div>
-              <p className="notification is-danger">You must be logged in to view the list.</p>
+              <p className="notification is-danger">You must be logged in to view the wine notes.</p>
               <button className="button is-primary" onClick={login}>Log In</button>
             </div>)
         }
