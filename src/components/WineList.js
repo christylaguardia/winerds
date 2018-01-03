@@ -8,7 +8,7 @@ class WineList extends React.Component {
     super(props);
 
     this.state = {
-      user: this.props.user,
+      email: props.user.email,
       notes: []
     }
 
@@ -19,16 +19,20 @@ class WineList extends React.Component {
   componentDidMount() {
     tastingNotes.on('value', (snapshot) => {
       let notes = snapshot.val();
+      const notesArray = Object.keys(notes);
       let newState = [];
-      
-      notes.forEach(item => {
+      console.log('notes', notes);
+      console.log('notesArray', notesArray);
+      notesArray.forEach(note => {
         newState.push({
-          id: item,
-          wine: notes[item].wine
+          id: note,
+          wine: notes[note].wine,
+          username: notes[note].username,
+          email: notes[note].email
         });
       });
-
-      this.setState({ items: newState });
+      this.setState({ notes: newState });
+      console.log(this.state);
     });
   }
 
@@ -44,32 +48,39 @@ class WineList extends React.Component {
 
   render() {
     return (
-      <ul>
-
-
-        {/* {this.items.map((item) => {
+      <section className="section">
+        {this.state.notes.map(note => {
           return (
-            <li key={item.id}>
-              <div className="box" >
-                <article className="media">
-                  <div className="media-left">
-                    <i className={item.completed ? "fa fa-check-square-o fa-2x" : "fa fa-square-o fa-2x"} aria-hidden="true" onClick={() => this.handleToggle(item)}></i>
-                  </div>
-                  <div className="media-content">
-                    <div className="content">
-                      <p className="title is-4">{item.title}</p>
-                      <p className="subtitle is-6">{item.email === this.state.user.email ? "you" : item.displayName}</p>
-                    </div>
-                  </div>
-                  <div className="media-right">
-                    <i className="fa fa-times fa-2x" aria-hidden="true" onClick={() => this.handleRemove(item.id)}></i>
-                  </div>
-                </article>
-              </div>
-            </li>
+            <div className="box">
+              <p>{note.wine}</p>
+              <p><small>{note.email === this.state.email ? "you" : note.username}</small></p>
+            </div>
           )
-        })} */}
-      </ul>
+        })}
+
+          {/* {this.items.map((item) => {
+            return (
+              <li key={item.id}>
+                <div className="box" >
+                  <article className="media">
+                    <div className="media-left">
+                      <i className={item.completed ? "fa fa-check-square-o fa-2x" : "fa fa-square-o fa-2x"} aria-hidden="true" onClick={() => this.handleToggle(item)}></i>
+                    </div>
+                    <div className="media-content">
+                      <div className="content">
+                        <p className="title is-4">{item.title}</p>
+                        <p className="subtitle is-6">{item.email === this.state.user.email ? "you" : item.displayName}</p>
+                      </div>
+                    </div>
+                    <div className="media-right">
+                      <i className="fa fa-times fa-2x" aria-hidden="true" onClick={() => this.handleRemove(item.id)}></i>
+                    </div>
+                  </article>
+                </div>
+              </li>
+            )
+          })} */}
+      </section>
     );
   }
 }

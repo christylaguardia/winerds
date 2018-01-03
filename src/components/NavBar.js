@@ -26,7 +26,7 @@ function NavBar({ user, logout }) {
       <div className="navbar-menu">
         <div className="navbar-start">
           <Link className="navbar-item" to="/new">New</Link>
-          <Link className="navbar-item" to="/notes">My Tasting Notes</Link>
+          <Link className="navbar-item" to="/notes">Tasting Notes</Link>
           <Link className="navbar-item" to="/search">Search</Link>
         </div>
 

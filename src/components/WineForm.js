@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { Categories, Profiles } from '../data/tastingRubic.json';
-import firebase, { tastingNotes } from '../services/firebase';
+import { tastingNotes } from '../services/firebase';
 
 class WineForm extends React.Component {
 
@@ -9,7 +9,8 @@ class WineForm extends React.Component {
     super(props);
     
     this.state = {
-      user: this.props.user.email,
+      email: props.user.email,
+      username: props.user.displayName,
       wine: null
     };
 
@@ -27,7 +28,8 @@ class WineForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const note = {
-      user: this.state.user.email,
+      email: this.state.email,
+      username: this.state.username,
       wine: this.state.wine
     }
     tastingNotes.push(note);
