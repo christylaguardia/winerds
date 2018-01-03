@@ -1,20 +1,24 @@
 import React from 'react';
 
-export default function Home({ props }) {
+function Home({ login }) {
   return (
-    <div className="buttons is-centered">
-      <span className="button is-primary is-large">New</span>
-      <span className="button is-primary is-large">My Tasting Notes</span>
-      <span className="button is-primary is-large">Search</span>
-    </div>
+    <section className="hero is-fullheight is-primary is-bold">
+      <div className="hero-body">
+        <div className="container has-text-centered">
+          <h1 className="title">
+            Wine Tasting Notes
+          </h1>
+          <h2 className="subtitle">
+            subtitle
+          </h2>
+          <span className="button is-medium is-primary is-inverted" onClick={login}>
+            <span className="icon"><i className="fa fa-google" aria-hidden="true"></i></span>
+            <span>Sign In With Google</span>
+          </span>
+        </div>
+      </div>
+    </section>
   );
 }
-    // <section>
-    // {
-    //   props.user
-    //     ? (<div>
-    //       <WineForm user={this.state.user} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-    //       {/* <WineList user={this.state.user} items={this.state.items} handleToggle={this.handleToggle} handleRemove={this.handleRemove} /> */}
-    //     </div>)
-    //     : null
-    // }
+
+export default Home;
