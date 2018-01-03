@@ -26,13 +26,12 @@ class WineList extends React.Component {
       notesArray.forEach(note => {
         newState.push({
           id: note,
-          wine: notes[note].wine,
+          email: notes[note].email,
           username: notes[note].username,
-          email: notes[note].email
+          wine: notes[note].wine
         });
       });
       this.setState({ notes: newState });
-      console.log(this.state);
     });
   }
 
@@ -86,17 +85,13 @@ class WineList extends React.Component {
 }
 
 WineList.propTypes = {
-  user: propTypes.shape({
-    displayName: propTypes.string.isRequired,
-    email: propTypes.string.isRequired
-  }).isRequired,
+  email: propTypes.string.isRequired,
   items: propTypes.arrayOf(
     propTypes.shape({
       id: propTypes.string.isRequired,
-      title: propTypes.string.isRequired,
-      completed: propTypes.bool.isRequired,
       email: propTypes.string.isRequired,
-      displayName: propTypes.string.isRequired,
+      username: propTypes.string.isRequired,
+      wine: propTypes.string.isRequired,
     }).isRequired
   ).isRequired,
   handleRemove: propTypes.func.isRequired,

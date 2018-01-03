@@ -99,13 +99,16 @@ class WineForm extends React.Component {
   }
 }
 
-// WineForm.propTypes = {
-//   user: propTypes.shape({
-//     displayName: propTypes.string.isRequired,
-//     email: propTypes.string.isRequired
-//   }).isRequired,
-//   handleChange: propTypes.func.isRequired,
-//   handleSubmit: propTypes.func.isRequired
-// };
-
+WineList.propTypes = {
+  email: propTypes.string.isRequired,
+  items: propTypes.arrayOf(
+    propTypes.shape({
+      id: propTypes.string.isRequired,
+      email: propTypes.string.isRequired,
+      username: propTypes.string.isRequired,
+      wine: propTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
+  handleRemove: propTypes.func.isRequired,
+};
 export default WineForm;
