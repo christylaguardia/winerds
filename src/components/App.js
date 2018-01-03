@@ -56,8 +56,8 @@ class App extends React.Component {
         {this.state.user ? (
           <div>
             <NavBar user={this.state.user} logout={this.logout} />
-            <Route path="/new" component={WineForm} />
-            <Route path="/notes" component={WineList} />
+            <Route path="/new" component={() => <WineForm user={this.state.user} />} />
+            <Route path="/notes" component={() => <WineList user={this.state.user} />} />
             <Route path="/search" component={Search} />
           </div>
           ) : <Route path="/" component={() => <Home login={this.login} />} />
