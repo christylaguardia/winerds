@@ -20,10 +20,16 @@ function NavBar({ user, logout }) {
             </div>
           </article>
 
+          <button className="navbar-burger burger" data-target="burger-options" onClick={() => { }}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
         </div>
       </div>
 
-      <div className="navbar-menu">
+      <div id="burger-options" className="navbar-menu">
         <div className="navbar-start">
           <Link className="navbar-item" to="/new">New</Link>
           <Link className="navbar-item" to="/notes">Tasting Notes</Link>

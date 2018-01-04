@@ -14,6 +14,8 @@ firebase.initializeApp(config);
 
 export const provider = new firebase.auth.GoogleAuthProvider();
 export const auth = firebase.auth();
+export const tastingGuide = firebase.database().ref('tasting-guide');
+export const tastingProfiles = firebase.database().ref('tasting-profiles');
 export const tastingNotes = firebase.database().ref('tasting-notes');
 
 export default firebase;

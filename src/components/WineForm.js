@@ -1,7 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Categories, Profiles } from '../data/tastingRubic.json';
-import { tastingNotes } from '../services/firebase';
+import { tastingNotes, tastingGuide, tastingProfiles } from '../services/firebase';
 
 class WineForm extends React.Component {
 
@@ -9,37 +8,55 @@ class WineForm extends React.Component {
     super(props);
     
     this.state = {
-      email: props.user.email,
-      username: props.user.displayName,
-      wine: null
+      wine: null,
+      guide: null,
+      profiles: null
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    tastingGuide.on('value', snapshot => this.setState({ guide: snapshot.val() }));
+    tastingProfiles.on('value', snapshot => this.setState({ profiles: snapshot.val() }));
+  }
 
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+  handleChange(e, category, profile, tag) {
+    // console.log('handleChange', e.target);
+    // const category = e.target.attributes.getNamedItems('data-category').value;
+    // const tag = e.target.attributes.getNamedItems('name').value;
+    console.log('handleChange', category, profile, tag);
+
+    if (e.target.className === "tag") {
+      e.target.className = "tag is-primary";
+      
+      this.setState({
+        [category]: {
+          [profile]: [ ...this.state[category][profile], tag ]}
+      });
+    } else {
+      e.target.className = "tag";
+      // clear state
+    }
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const note = {
-      email: this.state.email,
-      username: this.state.username,
-      wine: this.state.wine
+      email: this.props.email,
+      username: this.props.displayName,
+      ...this.state
     }
     tastingNotes.push(note);
     this.setState({ wine: null });
   }
 
   render() {
-
-    const categories = Object.keys(Categories).map(category => category);
-    const profiles = Object.keys(Profiles).map(profile => profile);
+    // const guide = Object.keys(this.state.guide).map(g => g);
+    // const profiles = Object.keys(tastingProfiles).map(p => p);
+    // console.log('guide', guide);
+    // console.log('profiles', profiles);
 
     return (
       <section className="section">
@@ -54,44 +71,52 @@ class WineForm extends React.Component {
               placeholder="Winery, Style, Vintage"
               onChange={(e) => this.handleChange(e)}
             />
-            </label>
+          </label>
 
-            <div className="content">
-              {categories.map((category, index) => {
+          <div className="content">
+            {guide.map((category, index) => {
+              return (
+                <div key={index} className="box">
+                  <h3>{category}</h3>
+                </div>
+
+
+              )
+            })}
+
+
+              {/* {categories.map((category, index) => {
                 return (
-                <table key={index}>
-                  <thead>
-                    <tr>
-                      <th colSpan="2">{category}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+                  <div key={index} className="box">
+                    <h3>{category}</h3>
+
                     {Categories[category].map((profile, index) => {
                       return (
-                        <tr key={index}>
-                          <td>{profile}</td>
-                          <td>
-                            <div className="tags">
-                              {Profiles[profile].map((profileItem, index) => {
-                                return (
-                                  <span key={index}
-                                    className="tag"
-                                    name={`${category}-${profileItem}`}
-                                    onClick={(e) => this.handleChange(e)} >
-                                    {profileItem}
-                                  </span>
-                              )})}
-                            </div>
-                          </td>
-                        </tr>
-                      )
+                        <div key={index}>
+                          <span key={index}><strong>{profile}</strong></span>
+                          <span className="tags">
+                            {Profiles[profile].map((tag, index) => {
+
+                              return (
+                                <span key={index}
+                                  className="tag"
+                                  onClick={(e) => this.handleChange(e, category, profile, tag)} >
+                                  {tag}
+                                </span>
+                              )
+                            })}
+                          </span>
+                        </div>
+                      );
                     })}
-                  </tbody>
-                </table>
-              )})}
+
+                  </div>
+                );
+              })} */}
+              
             </div>
 
-            <button className="button is-primary" type="submit">Add Wine</button>
+            {/* <button className="button is-primary" type="submit">Add Wine</button> */}
           </div>
         </form>
       </section>
@@ -99,16 +124,18 @@ class WineForm extends React.Component {
   }
 }
 
-WineList.propTypes = {
-  email: propTypes.string.isRequired,
-  items: propTypes.arrayOf(
-    propTypes.shape({
-      id: propTypes.string.isRequired,
-      email: propTypes.string.isRequired,
-      username: propTypes.string.isRequired,
-      wine: propTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
-  handleRemove: propTypes.func.isRequired,
-};
+// WineForm.propTypes = {
+  // email: propTypes.string.isRequired,
+  // username: propTypes.string.isRequired
+  // items: propTypes.arrayOf(
+  //   propTypes.shape({
+  //     id: propTypes.string.isRequired,
+  //     email: propTypes.string.isRequired,
+  //     username: propTypes.string.isRequired,
+  //     wine: propTypes.string.isRequired,
+  //   }).isRequired
+  // ).isRequired,
+  // handleRemove: propTypes.func.isRequired,
+// };
+
 export default WineForm;
