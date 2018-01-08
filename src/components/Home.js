@@ -9,12 +9,34 @@ function Home({ login }) {
             Wine Tasting Notes
           </h1>
           <h2 className="subtitle">
-            subtitle
+            A guide for taking notes
           </h2>
-          <span className="button is-medium is-primary is-inverted" onClick={login}>
-            <span className="icon"><i className="fa fa-google" aria-hidden="true"></i></span>
-            <span>Sign In With Google</span>
-          </span>
+          {/* <div className="box"> */}
+            <div className="container content">
+              <p className="button is-medium is-primary is-inverted" onClick={login}>
+                <span className="icon"><i className="fa fa-google" aria-hidden="true"></i></span>
+                <span>Sign In With Google</span>
+              </p>
+            </div>
+            {/* <hr />
+            <form >
+              <div className="field">
+                <label className="visually-hidden" for="email" >Email</label>
+                <div className="control is-expanded">
+                  <input className="input" name="email" type="email" placeholder="email" required />
+                </div>
+              </div>
+              <div className="field">
+                <label className="visually-hidden" for="password" >Password</label>
+                <div className="control is-expanded">
+                  <input className="input" name="password" type="password" placeholder="password" required />
+                </div>
+              </div>
+              <div className="control buttons is-centered">
+                <input className="button is-medium is-primary" type="submit" value="Sign In"/>
+              </div>
+            </form>
+          </div> */}
         </div>
       </div>
     </section>

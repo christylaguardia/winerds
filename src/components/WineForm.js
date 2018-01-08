@@ -8,6 +8,7 @@ class WineForm extends React.Component {
     super(props);
     
     this.state = {
+      ready: false,
       wine: null,
       guide: null,
       profiles: null
@@ -18,8 +19,15 @@ class WineForm extends React.Component {
   }
 
   componentDidMount() {
-    tastingGuide.on('value', snapshot => this.setState({ guide: snapshot.val() }));
-    tastingProfiles.on('value', snapshot => this.setState({ profiles: snapshot.val() }));
+    tastingGuide.on('value', snapshot => {
+      this.setState({ guide: snapshot.val() });
+      tastingProfiles.on('value', snapshot => {
+        this.setState({
+          ready: true,
+          profiles: snapshot.val()
+        });
+      });
+    })
   }
 
   handleChange(e, category, profile, tag) {
@@ -31,10 +39,10 @@ class WineForm extends React.Component {
     if (e.target.className === "tag") {
       e.target.className = "tag is-primary";
       
-      this.setState({
-        [category]: {
-          [profile]: [ ...this.state[category][profile], tag ]}
-      });
+      // this.setState({
+      //   [category]: {
+      //     [profile]: [ ...this.state[category][profile], tag ]}
+      // });
     } else {
       e.target.className = "tag";
       // clear state
@@ -73,48 +81,43 @@ class WineForm extends React.Component {
             />
           </label>
 
-          <div className="content">
-            {guide.map((category, index) => {
-              return (
-                <div key={index} className="box">
-                  <h3>{category}</h3>
-                </div>
-
-
-              )
-            })}
-
-
-              {/* {categories.map((category, index) => {
+          {this.state.ready ? (
+            <div className="content">
+              {Object.keys(this.state.guide).map((category, index) => {
                 return (
-                  <div key={index} className="box">
-                    <h3>{category}</h3>
+                  <div key={index} className="container">
+                    <p className="title">{category}</p>
 
-                    {Categories[category].map((profile, index) => {
+                    {this.state.guide[category].map((profile, index) => {
                       return (
-                        <div key={index}>
-                          <span key={index}><strong>{profile}</strong></span>
-                          <span className="tags">
-                            {Profiles[profile].map((tag, index) => {
+                        <div key={index} className="box">
+                          <p className="subtitle">{profile}</p>
 
+                          <div className="tags">
+                            {this.state.profiles[profile].map((tag, index) => {
                               return (
-                                <span key={index}
-                                  className="tag"
-                                  onClick={(e) => this.handleChange(e, category, profile, tag)} >
-                                  {tag}
-                                </span>
+                                // <div className="container content">
+                                  <span key={index}
+                                    className="tag"
+                                    onClick={(e) => this.handleChange(e, category, profile, tag)} >
+                                    {tag}
+                                  </span>
+                                // </div>
                               )
                             })}
-                          </span>
+                          </div>
+
                         </div>
-                      );
+                      )
+                      
                     })}
 
                   </div>
-                );
-              })} */}
-              
+                )}
+              )}
             </div>
+
+            ) : <span>Loading...</span> }
 
             {/* <button className="button is-primary" type="submit">Add Wine</button> */}
           </div>

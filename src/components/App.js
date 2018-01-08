@@ -6,7 +6,7 @@ import Home from './Home';
 import NavBar from './NavBar';
 import WineForm from './WineForm';
 import WineList from './WineList';
-import Search from './Search';
+import style from '../styles/style.css';
 
 class App extends React.Component {
 
@@ -56,9 +56,8 @@ class App extends React.Component {
         {this.state.user ? (
           <div>
             <NavBar user={this.state.user} logout={this.logout} />
-            <Route path="/new" component={() => <WineForm user={this.state.user} />} />
+            <Route path="/" component={() => <WineForm user={this.state.user} />} />
             <Route path="/notes" component={() => <WineList user={this.state.user} />} />
-            <Route path="/search" component={Search} />
           </div>
           ) : <Route path="/" component={() => <Home login={this.login} />} />
         }
