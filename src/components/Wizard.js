@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import guide from '../data/guide';
 
-class Card extends React.Component {
+class Wizard extends React.Component {
 
   state = {
     user: this.props.user,
@@ -40,6 +40,7 @@ class Card extends React.Component {
       }
     }
 
+    // TODO:
     // if (this.state.configIndex > 0 && this.state.configIndex < maxConfigIndex) {
     //   this.setState({ hasPrev: true, hasNext: true })
     // }
@@ -50,6 +51,7 @@ class Card extends React.Component {
 
     if (e.target.className === "tag is-large") {
       e.target.className = "tag is-large is-primary";
+      // TODO:
       // this.setState({
       //   [title]: {
       //     [name]: [ ...this.state[title][name], tag ]}
@@ -65,44 +67,36 @@ class Card extends React.Component {
     const { configIndex, profileIndex } = this.state;
 
     return (
-      <section className="section is-fullheight">
+      <section className="section">
         <div className="content">
           <p className="title">{guide[configIndex].title}</p>
           <p className="subtitle">{guide[configIndex].profiles[profileIndex].name}</p>
-          {/* <Tags tags={guide[configIndex].profiles[profileIndex].tags} handleOnClick={this.handleChange} /> */}
 
-          <div className="tags">
-            {guide[configIndex].profiles[profileIndex].tags.map((tag, index) => {
-              return (
-                <span
-                  key={index}
-                  className="tag is-large"
-                  onClick={e => this.handleChange(e, guide[configIndex].title, guide[configIndex].profiles[profileIndex].name, tag)}
-                >
-                  {tag}
-                </span>
-              );
-            })}
+          <div className="container" style={{ minHeight: '50vh' }}>
+            <div className="tags">
+              {guide[configIndex].profiles[profileIndex].tags.map((tag, index) => {
+                return (
+                  <span
+                    key={index}
+                    className="tag is-large"
+                    onClick={e => this.handleChange(e, guide[configIndex].title, guide[configIndex].profiles[profileIndex].name, tag)}
+                  >
+                    {tag}
+                  </span>
+                );
+              })}
+            </div>
           </div>
 
           <div className="buttons has-addons is-centered">
             {this.state.hasPrev && <span className="button" onClick={this.prev}>Previous</span>}
             {this.state.hasNext && <span className="button" onClick={this.next}>Next</span>}
           </div>
+          
         </div>
       </section>
     );
   }
 }
 
-function Tags({ tags, handleOnClick }) {
-  return (
-    <div className="tags">
-        {tags.map((tag, index) => {
-          return <span className="tag is-large" key={index} onClick={e => console.log('you clicked it')}>{tag}</span>;
-        })}
-    </div>
-  );
-}
-
-export default Card;
+export default Wizard;
