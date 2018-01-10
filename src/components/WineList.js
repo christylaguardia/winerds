@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import firebase, { tastingNotes } from '../services/firebase';
+import firebase, { wineNotesRef } from '../services/firebase';
 
 class WineList extends React.Component {
 
@@ -17,7 +17,7 @@ class WineList extends React.Component {
   }
  
   componentDidMount() {
-    tastingNotes.on('value', (snapshot) => {
+    wineNotesRef.on('value', (snapshot) => {
       let notes = snapshot.val();
       const notesArray = Object.keys(notes);
       let newState = [];
@@ -36,12 +36,12 @@ class WineList extends React.Component {
   }
 
   handleToggle(item) {
-    const itemRef = firebase.database().ref(`/tastingNotes/${item.id}`);
+    const itemRef = firebase.database().ref(`/notes/${item.id}`);
     itemRef.update({ completed: !item.completed })
   }
 
   handleRemove(itemId) {
-    const itemRef = firebase.database().ref(`/tastingNotes/${itemId}`);
+    const itemRef = firebase.database().ref(`/notes/${itemId}`);
     itemRef.remove();
   }
 
