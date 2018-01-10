@@ -1,14 +1,15 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
 import guide from '../data/guide';
-console.log('Guide', guide);
 
 class Card extends React.Component {
 
   state = {
+    user: this.props.user,
     configIndex: 0,
     profileIndex: 0,
     hasNext: true,
-    hasPrev: false
+    hasPrev: true
   }
 
   prev = () => {
@@ -38,6 +39,25 @@ class Card extends React.Component {
         this.setState({ profileIndex: nextProfileIndex });
       }
     }
+
+    // if (this.state.configIndex > 0 && this.state.configIndex < maxConfigIndex) {
+    //   this.setState({ hasPrev: true, hasNext: true })
+    // }
+  }
+
+  handleChange(e, title, name, tag) {
+    console.log('handleChange', title, name, tag);
+
+    if (e.target.className === "tag is-large") {
+      e.target.className = "tag is-large is-primary";
+      // this.setState({
+      //   [title]: {
+      //     [name]: [ ...this.state[title][name], tag ]}
+      // });
+    } else {
+      e.target.className = "tag is-large";
+      // TODO: clear state
+    }
   }
 
   render() {
@@ -45,35 +65,42 @@ class Card extends React.Component {
     const { configIndex, profileIndex } = this.state;
 
     return (
-      <div className="card">
-        <header className="card-header">
-          <p className="card-header-title">{guide[configIndex].title}</p>
-        </header>
+      <section className="section is-fullheight">
+        <div className="content">
+          <p className="title">{guide[configIndex].title}</p>
+          <p className="subtitle">{guide[configIndex].profiles[profileIndex].name}</p>
+          {/* <Tags tags={guide[configIndex].profiles[profileIndex].tags} handleOnClick={this.handleChange} /> */}
 
-        <div className="card-content">
-          <div className="content">
-            <p>{guide[configIndex].profiles[profileIndex].name}</p>
-            <Tags tags={guide[configIndex].profiles[profileIndex].tags}/>
+          <div className="tags">
+            {guide[configIndex].profiles[profileIndex].tags.map((tag, index) => {
+              return (
+                <span
+                  key={index}
+                  className="tag is-large"
+                  onClick={e => this.handleChange(e, guide[configIndex].title, guide[configIndex].profiles[profileIndex].name, tag)}
+                >
+                  {tag}
+                </span>
+              );
+            })}
+          </div>
+
+          <div className="buttons has-addons is-centered">
+            {this.state.hasPrev && <span className="button" onClick={this.prev}>Previous</span>}
+            {this.state.hasNext && <span className="button" onClick={this.next}>Next</span>}
           </div>
         </div>
-
-        <footer className="card-footer">
-          {this.state.hasPrev && <span className="button is-link card-footer-item" onClick={this.prev}>Previous</span>}
-          {this.state.hasNext && <span className="button is-link card-footer-item" onClick={this.next}>Next</span>}
-        </footer>
-      </div>
+      </section>
     );
   }
 }
 
-function Tags({ tags }) {
+function Tags({ tags, handleOnClick }) {
   return (
-    <div className="menu">
-      <ul className="menu-list">
+    <div className="tags">
         {tags.map((tag, index) => {
-          return <li key={index} onClick={(e) => console.log('you clicked it')}>{tag}</li>;
+          return <span className="tag is-large" key={index} onClick={e => console.log('you clicked it')}>{tag}</span>;
         })}
-      </ul>
     </div>
   );
 }

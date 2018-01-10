@@ -14,21 +14,14 @@ firebase.initializeApp(config);
 export const provider = new firebase.auth.GoogleAuthProvider();
 export const auth = firebase.auth();
 
-export let wineConfig;
-const wineConfigRef = firebase.database().ref('configuration')
-wineConfigRef.on('value', snapshot => wineConfig = snapshot.val());
+// export let wineConfig;
+// const wineConfigRef = firebase.database().ref('configuration')
+// wineConfigRef.on('value', snapshot => wineConfig = snapshot.val());
 
-export let wineProfiles;
-const wineProfilesRef = firebase.database().ref('profiles')
-wineProfilesRef.on('value', snapshot => wineProfiles = snapshot.val());
+// export let wineProfiles;
+// const wineProfilesRef = firebase.database().ref('profiles')
+// wineProfilesRef.on('value', snapshot => wineProfiles = snapshot.val());
 
 export const wineNotesRef = firebase.database().ref('notes');
-
-
-
-
-
-
-
 
 export default firebase;

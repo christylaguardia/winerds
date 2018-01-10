@@ -4,11 +4,9 @@ import { auth, provider } from '../services/firebase';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Home';
 import NavBar from './NavBar';
-import WineForm from './WineForm';
+import Wizard from './Wizard';
 import WineList from './WineList';
 import style from '../styles/style.css';
-import Wizard from './Wizard';
-import Wizard1 from './Wizard1';
 
 class App extends React.Component {
 
@@ -58,8 +56,7 @@ class App extends React.Component {
         {this.state.user ? (
           <div>
             <NavBar user={this.state.user} logout={this.logout} />
-            <Route path="/" component={() => <WineForm user={this.state.user} />} />
-            {/* <Route path="/" component={Wizard1} /> */}
+            <Route path="/" component={() => <Wizard user={this.state.user} />} />
             <Route path="/notes" component={() => <WineList user={this.state.user} />} />
           </div>
           ) : <Route path="/" component={() => <Home login={this.login} />} />
