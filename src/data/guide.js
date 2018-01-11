@@ -1,11 +1,11 @@
 
-const config = {
+export const config = {
+  "Sight": ["Clarity", "Concentration", "Color"],
   "Nose": ["Fruit", "Fruit-Character", "Non-Fruit", "Earth", "Mineral", "Wood"],
-  "Palate": ["Sweetness", "Fruit", "Fruit-Character", "Non-Fruit", "Earth", "Mineral", "Wood"],
-  "Sight": ["Clarity", "Concentration"]
+  "Palate": ["Sweetness", "Fruit", "Fruit-Character", "Non-Fruit", "Earth", "Mineral", "Wood"]
 };
 
-const profiles = {
+export const profiles = {
   'Clarity': ['Clear', 'Hazy', 'Turbid'],
   'Color': ['Water White', 'Straw', 'Yellow', 'Gold', 'Purple', 'Ruby', 'Red', 'Garnet'],
   'Concentration': ['Pale', 'Medium', 'Deep'],
