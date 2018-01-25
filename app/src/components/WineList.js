@@ -1,6 +1,5 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import firebase, { wineNotesRef } from '../services/firebase';
 
 class WineList extends React.Component {
 
@@ -17,32 +16,12 @@ class WineList extends React.Component {
   }
  
   componentDidMount() {
-    wineNotesRef.on('value', (snapshot) => {
-      let notes = snapshot.val();
-      const notesArray = Object.keys(notes);
-      let newState = [];
-      console.log('notes', notes);
-      console.log('notesArray', notesArray);
-      notesArray.forEach(note => {
-        newState.push({
-          id: note,
-          email: notes[note].email,
-          username: notes[note].username,
-          wine: notes[note].wine
-        });
-      });
-      this.setState({ notes: newState });
-    });
   }
 
   handleToggle(item) {
-    const itemRef = firebase.database().ref(`/notes/${item.id}`);
-    itemRef.update({ completed: !item.completed })
   }
 
   handleRemove(itemId) {
-    const itemRef = firebase.database().ref(`/notes/${itemId}`);
-    itemRef.remove();
   }
 
   render() {
