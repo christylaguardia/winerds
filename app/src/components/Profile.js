@@ -10,9 +10,15 @@ class Profile extends React.Component {
             <TagPicker />
           </div>
           <div className="column">
+            <div className="field">
+              <label className="label">Wine Name</label>
+              <div className="control">
+                <input className="input" type="text" placeholder="Winery, Style, Vintage" />
+              </div>
+            </div>
 
-            <label>Wine</label>
-            <input type="text"/>
+            {/* <label>Wine</label>
+            <input type="text"/> */}
           </div>
         </div>
       </section>
