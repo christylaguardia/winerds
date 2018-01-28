@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { auth, provider } from '../services/firebase';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './Home';
+import Auth from './Auth';
 import NavBar from './NavBar';
 import Profile from './Profile';
 import WineList from './WineList';
@@ -59,7 +59,7 @@ class App extends React.Component {
             <Route path="/" component={() => <Profile user={this.state.user} />} />
             <Route path="/notes" component={() => <WineList user={this.state.user} />} />
           </div>
-          ) : <Route path="/" component={() => <Home login={this.login} />} />
+          ) : <Route path="/" component={() => <Auth login={this.login} />} />
         }
       </Router>
     );

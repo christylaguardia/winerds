@@ -6,10 +6,10 @@ function Home({ login }) {
       <div className="hero-body">
         <div className="container has-text-centered">
           <h1 className="title">
-            Wine Tasting Notes
+            Winerds
           </h1>
           <h2 className="subtitle">
-            A guide for taking notes
+            A guide for wine tasting notes
           </h2>
           {/* <div className="box"> */}
             <div className="container content">
@@ -35,8 +35,7 @@ function Home({ login }) {
               <div className="control buttons is-centered">
                 <input className="button is-medium is-primary" type="submit" value="Sign In"/>
               </div>
-            </form>
-          </div> */}
+            </form> */}
         </div>
       </div>
     </section>
