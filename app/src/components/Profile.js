@@ -11,9 +11,9 @@ class Profile extends React.Component {
           </div>
           <div className="column">
             <div className="field">
-              <label className="label">Wine Name</label>
+              <label className="label" htmlFor="wine-name">Wine Name</label>
               <div className="control">
-                <input className="input" type="text" placeholder="Winery, Style, Vintage" />
+                <input className="input" name="wine-name" type="text" placeholder="Winery, Style, Vintage" />
               </div>
             </div>
 
