@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { auth, provider } from '../services/firebase';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { auth } from '../services/firebase';
 import Auth from './Auth';
 import NavBar from './NavBar';
 import Profile from './Profile';
@@ -15,30 +15,9 @@ class App extends React.Component {
 
     this.state = {
       user: null
-    };
+    }
 
-    this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
-  }
-
-  componentWillMount() {
-    const credential = JSON.parse(localStorage.getItem('credential'));
-    if (!credential) return console.log('no credential');
-    let token = provider.credential(credential.idToken);
-
-    auth.signInWithCredential(token)
-      .then(user => this.setState({ user }))
-      .catch(error => console.log('Error:', error));
-  }
-
-  login() {
-    auth.signInWithPopup(provider)
-      .then((result) => {
-        localStorage.setItem('credential', JSON.stringify(result.credential));
-        const user = result.user;
-        this.setState({ user });
-      })
-      .catch(error => console.log(error));
   }
 
   logout() {
@@ -55,11 +34,11 @@ class App extends React.Component {
       <Router>
         {this.state.user ? (
           <div>
-            <NavBar user={this.state.user} logout={this.logout} />
-            <Route path="/" component={() => <Profile user={this.state.user} />} />
-            <Route path="/notes" component={() => <WineList user={this.state.user} />} />
+          <NavBar user={this.state.user} logout={this.logout} />
+          <Route path="/" component={() => <Profile user={this.state.user} />} />
+          <Route path="/notes" component={() => <WineList user={this.state.user} />} />
           </div>
-          ) : <Route path="/" component={() => <Auth login={this.login} />} />
+          ) : <Auth user={this.state.user} handleUser={user => this.setState({ user })} />
         }
       </Router>
     );
