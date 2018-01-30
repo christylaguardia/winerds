@@ -6,14 +6,16 @@ class Auth extends React.Component {
   componentWillMount() {
     const credential = JSON.parse(localStorage.getItem('credential'));
     if (!credential) return console.log('no credential');
+    console.log('found credential');
 
+    // TODO: get provider
     // credential.providerId
+    let token = googleProvider.credential(credential.idToken);
+    console.log('got token', token);
 
-    // let token = provider.credential(credential.idToken);
-
-    // auth.signInWithCredential(token)
-    //   .then(user => this.setState({ user }))
-    //   .catch(error => console.log('Error:', error));
+    auth.signInWithCredential(token)
+      .then(this.props.handleUser)
+      .catch(error => console.log('Error:', error));
   }
 
   login(provider) {
