@@ -1,5 +1,8 @@
 import React from 'react';
 import TagPicker from './TagPicker';
+import TagTarget from './TagTarget';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 class Profile extends React.Component {
   render() {
@@ -16,6 +19,8 @@ class Profile extends React.Component {
                 <input className="input" name="wine-name" type="text" placeholder="Winery, Style, Vintage" />
               </div>
             </div>
+            
+            <TagTarget />
 
             {/* <label>Wine</label>
             <input type="text"/> */}
@@ -26,4 +31,5 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile;
+// export default Profile;
+export default DragDropContext(HTML5Backend)(Profile);

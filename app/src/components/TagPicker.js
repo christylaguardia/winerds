@@ -1,5 +1,6 @@
 import React from 'react';
 import { profiles } from '../data/guide';
+import Tag from './Tag';
 
 class TagPicker extends React.Component {
   render() {
@@ -9,10 +10,10 @@ class TagPicker extends React.Component {
       <div>
         {prof.map((p,i) => {
           return (
-            <div>
-              <p key={i}>{p}</p>
+            <div key={i}>
+              <p>{p}</p>
               <div className="tags">
-                  {profiles[p].map((t,i) => <span key={i} className="tag">{t}</span>)}
+                {profiles[p].map((t,i) => <Tag key={i} name={t}/> )}
               </div>
             </div>
           )}
