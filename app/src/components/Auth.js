@@ -8,14 +8,34 @@ class Auth extends React.Component {
     if (!credential) return console.log('no credential');
     console.log('found credential');
 
-    // TODO: get provider
-    // credential.providerId
-    let token = googleProvider.credential(credential.idToken);
-    console.log('got token', token);
+    // // {"accessToken":"3259367419-F28iaCCKJYXGN0aRTawrZ9vKJNmsnLZB1KmMGJg","secret":"RKFaxgVxTfKhAXyyhWpMUa1RTlEokKGWmVZTHgQWCnX2x","providerId":"twitter.com"}
 
-    auth.signInWithCredential(token)
-      .then(this.props.handleUser)
-      .catch(error => console.log('Error:', error));
+    // let token;
+    // const { idToken, providerId } = credential;
+
+    // switch (providerId) {
+    //   case 'twitter.com':
+    //     token = twitterProvider.credential(idToken);
+    //   case 'google.com':
+    //     token = googleProvider.credential(idToken);
+    //   case 'facebook.com':
+    //     token = facebookProvider.credential(idToken);
+    //   default:
+    //     token = null;
+    // }
+    
+    if (credential.providerId === 'google.com') {
+      let token = googleProvider.credential(credential.idToken);
+      auth.signInWithCredential(token)
+        .then(this.props.handleUser)
+        .catch(error => console.log('Error:', error));
+    }
+    // else if (credential.providerId === 'twitter.com') {
+    //   token = twitterProvider.credential(credential.idToken);
+    // } else if (credential.providerId === 'facebook.com') {
+    //   token = facebookProvider.credential(credential.idToken);
+    // }
+
   }
 
   login(provider) {

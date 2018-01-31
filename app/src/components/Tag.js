@@ -5,20 +5,20 @@ const types = { ITEM: 'tag' };
 
 const itemSource = {
   beginDrag(props) {
-    /* code here */
-    console.log('start drag');
-    return {};
+    return { name: props.name };
   },
-  endDrag(props) {
-    /* code here */
-    console.log('stop drag');
+  endDrag(props, monitor) {
+    const item = monitor.getItem();
+    const dropResult = monitor.getDropResult();
+    console.log('dropResult', props.name);
   }
 }
 
 function collect(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
+    isDragging: monitor.isDragging(),
+    // name: 
   }
 }
 
@@ -27,7 +27,7 @@ class Tag extends React.Component {
     const { name, isDragging, connectDragSource, src } = this.props;
 
     return connectDragSource(
-      <span className="tag">{name}</span>
+      <span className={`tag ${isDragging ? 'is-primary' : ''}`}>{name}</span>
     );
   }
 }
