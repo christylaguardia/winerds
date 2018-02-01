@@ -1,0 +1,256 @@
+{
+  "Alcohol": [
+    "Jammy",
+    "Hot",
+    "Burn",
+    "Legs",
+    "Spicy"
+  ],
+  "Acidity": [
+    "Bright",
+    "Astringent",
+    "Austere",
+    "Thin",
+    "Lean",
+    "Angular",
+    "Racy",
+    "Tart",
+    "Edgy",
+    "Nerve",
+    "Zippy",
+    "Zesty",
+    "Lively",
+    "Fresh",
+    "Crisp",
+    "Delicate",
+    "Soft",
+    "Flabby",
+    "Fallen Over",
+    "Flat"
+  ],
+  "Body": [
+    "Thin",
+    "Cliff-Edge",
+    "Hollow",
+    "Mellow",
+    "Short",
+    "Austere",
+    "Angular",
+    "Delicate",
+    "Elegant",
+    "Light-Bodied",
+    "Finesse",
+    "Closed",
+    "Tight",
+    "Firm",
+    "Polished",
+    "Complex",
+    "Full-Bodied",
+    "Powerful",
+    "Concentrated",
+    "Dense",
+    "Opulent",
+    "Rich",
+    "Extracted",
+    "Flabby",
+    "Fat"
+  ],
+  "Clarity": [
+    "Clear",
+    "Hazy",
+    "Turbid"
+  ],
+  "Color": [
+    "Water White",
+    "Straw",
+    "Yellow",
+    "Gold",
+    "Purple",
+    "Ruby",
+    "Red",
+    "Garnet"
+  ],
+  "Concentration": [
+    "Pale",
+    "Medium",
+    "Deep"
+  ],
+  "Earth": [
+    "Forest Floor",
+    "Compost",
+    "Mushrooms",
+    "Potting Soil"
+  ],
+  "Fruit": [
+    {
+      "Citrus": [
+        "Lime",
+        "Lemon",
+        "Orange",
+        "Grapefruit",
+        "Citrus Zest"
+      ]
+    },
+    "Apple",
+    "Pear",
+    {
+      "Stone/Pit": [
+        "Apricot",
+        "Nectarine",
+        "Peach"
+      ]
+    },
+    {
+      "Tropical": [
+        "Banana",
+        "Pineapple",
+        "Lychee",
+        "Coconut"
+      ]
+    },
+    "Melon",
+    "Dark",
+    "Red",
+    "Black",
+    "Blue",
+    {
+      "Berry": [
+        "Strawberry",
+        "Raspberry",
+        "Cherry",
+        "Blueberry",
+        "Blackberry"
+      ]
+    },
+    "Cassis"
+  ],
+  "Fruit-Character": [
+    "Ripe",
+    "Fresh",
+    "Tart",
+    "Baked",
+    "Stewed",
+    "Dried",
+    "Desiccated",
+    "Bruised",
+    "Jammy",
+    "Juicy",
+    "Flamboyant",
+    "Fleshy",
+    "Extracted",
+    "Plummy"
+  ],
+  "Inorganic": [
+    {
+      "Mineral": [
+        "Mineral",
+        "Wet Stone",
+        "Limestone",
+        "Chalk",
+        "Slate",
+        "Flint"
+      ]
+    },
+    "Graphite",
+    "Wet Asphalt",
+    "Unctuous",
+    "Oily",
+    "Petroleum",
+    "Plastic",
+    "Tar",
+    "Rubber",
+    "Diesel",
+    "Smoky"
+  ],
+  "Non-Fruit": [
+    {
+      "Floral": [
+        "White Flowers",
+        "Violet",
+        "Perfumed",
+        "Lavender",
+        "Rose",
+        "Citrus Blossom",
+        "Geranium"
+      ]
+    },
+    "Vegetal",
+    "Herbal",
+    "Spice",
+    "Animal",
+    "Barn",
+    "Petrol",
+    "Fermentation"
+  ],
+  "Oak": [
+    "Smoky",
+    "Charcoal",
+    "Sweet Tobacco",
+    "Toasty",
+    "Spicy",
+    "Clove",
+    "Nutty",
+    "Coconut",
+    "Caramel",
+    "Vanilla",
+    "Buttery",
+    "Dill",
+    "Creamy"
+  ],
+  "Spice": [
+    {
+      "Spicy": [
+        "Pepper",
+        "Anise",
+        "Clove",
+        "Cinnamon",
+        "Nutmeg",
+        "Saffron",
+        "Ginger"
+      ]
+    },
+    "Bright",
+    "Musky"
+  ],
+  "Sweetness": [
+    "Bone Dry",
+    "Dry",
+    "Off-Dry",
+    "Medium Sweet",
+    "Sweet",
+    "Lusciously Sweet"
+  ],
+  "Tannin": [
+    "Bitter",
+    "Harsh",
+    "Aggressive",
+    "Grippy",
+    "Angular",
+    "Powerful",
+    "Coarse",
+    "Leathery",
+    "Rigid",
+    "Muscular",
+    "Firm",
+    "Structured",
+    "Chewy",
+    "Chocolate",
+    "Silky",
+    "Smooth",
+    "Round",
+    "Opulent",
+    "Velvety",
+    "Voluptuous",
+    "Supple",
+    "Soft",
+    "Spineless",
+    "Flabby"
+  ],
+  "Yeast": [
+    "Sour",
+    "Cheesy",
+    "Biscuit",
+    "Creamy",
+    "Buttery"
+  ]
+}

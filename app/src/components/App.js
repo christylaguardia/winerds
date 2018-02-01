@@ -7,6 +7,7 @@ import NavBar from './NavBar';
 import Profile from './Profile';
 import WineList from './WineList';
 import style from '../styles/style.css';
+import TreeView from './TreeView';
 
 class App extends React.Component {
 
@@ -32,18 +33,19 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        {this.state.user ? (
-          <div>
-          <NavBar user={this.state.user} logout={this.logout} />
-          <Route path="/" component={() => <Profile user={this.state.user} />} />
-          <Route path="/notes" component={() => <WineList user={this.state.user} />} />
-          </div>
-          ) : <Auth user={this.state.user} handleUser={user => this.setState({ user })} />
-        }
+        <TreeView />
       </Router>
     );
   }
 }
+              // {this.state.user ? (
+              //   <div>
+              //   <NavBar user={this.state.user} logout={this.logout} />
+              //   <Route path="/" component={() => <Profile user={this.state.user} />} />
+              //   <Route path="/notes" component={() => <WineList user={this.state.user} />} />
+              //   </div>
+              //   ) : <Auth user={this.state.user} handleUser={user => this.setState({ user })} />
+              // }
 
 App.propTypes = {
   user: propTypes.shape({
