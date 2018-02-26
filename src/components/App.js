@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { auth } from '../services/firebase';
 import Auth from './Auth';
 import NavBar from './NavBar';
 import Profile from './Profile';
-import WineList from './WineList';
+// import WineList from './WineList';
 import style from '../styles/style.css';
-import TreeView from './TreeView';
+// import TreeView from './TreeView';
 
-class App extends React.Component {
+class App extends Component {
 
   constructor(props) {
     super(props);
@@ -30,22 +30,41 @@ class App extends React.Component {
       .catch(error => console.log(error));
   }
 
-  render() {
+  // render() {
+  //   return (
+  //     <Router>
+  //       <TreeView />
+  //     </Router>
+  //   );
+  // }
+
+  render () {
+    const { user } = this.state;
+
     return (
       <Router>
-        <TreeView />
+        <div>
+          <header>
+            {user && <NavBar user={user} logout={this.logout}/>}
+          </header>
+          <main>
+            <Auth user={this.state.user} handleUser={user => this.setState({ user })} />
+          </main>
+          <footer>
+          </footer>
+        </div>
       </Router>
-    );
+    )
   }
 }
-              // {this.state.user ? (
-              //   <div>
-              //   <NavBar user={this.state.user} logout={this.logout} />
-              //   <Route path="/" component={() => <Profile user={this.state.user} />} />
-              //   <Route path="/notes" component={() => <WineList user={this.state.user} />} />
-              //   </div>
-              //   ) : <Auth user={this.state.user} handleUser={user => this.setState({ user })} />
-              // }
+          // {this.state.user ? (
+          //   <div>
+          //   <NavBar user={this.state.user} logout={this.logout} />
+          //   <Route path="/" component={() => <Profile user={this.state.user} />} />
+          //   <Route path="/notes" component={() => <WineList user={this.state.user} />} />
+          //   </div>
+          //   ) : <Auth user={this.state.user} handleUser={user => this.setState({ user })} />
+          // }
 
 App.propTypes = {
   user: propTypes.shape({

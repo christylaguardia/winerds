@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { auth, googleProvider, twitterProvider, facebookProvider } from '../services/firebase';
 
-class Auth extends React.Component {
+const LoginButton = ({ icon, name, onClick }) => (
+  <div className="field">
+    <p className="control button is-medium is-primary" onClick={onClick}>
+      <span className="icon"><i className={`fa fa-${icon}`} aria-hidden="true"></i></span>
+      <span>{`Sign In With ${name}`}</span>
+    </p>
+  </div>
+)
+
+class Auth extends Component {
 
   componentWillMount() {
     const credential = JSON.parse(localStorage.getItem('credential'));
@@ -99,28 +108,13 @@ class Auth extends React.Component {
           <h1 className="title">Winerds</h1>
           <h2 className="subtitle">A guide for wine tasting notes</h2>
 
-          <div className="field is-grouped is-grouped-centered">
-            <p className="control button is-medium is-primary" onClick={() => this.login(googleProvider)}>
-              <span className="icon"><i className="fa fa-google" aria-hidden="true"></i></span>
-              <span>Sign In With Google</span>
-            </p>
+          <div className="has-text-centered">
+            <LoginButton icon="google" name="Google" onClick={() => this.login(googleProvider)} />
+            <LoginButton icon="twitter" name="Twitter" onClick={() => this.login(twitterProvider)} />
+            <LoginButton icon="facebook" name="Facebook" onClick={() => this.login(facebookProvider)} />
           </div>
 
-          <div className="field is-grouped is-grouped-centered">
-            <p className="control button is-medium is-primary" onClick={() => this.login(twitterProvider)}>
-              <span className="icon"><i className="fa fa-twitter" aria-hidden="true"></i></span>
-              <span>Sign In With Twitter</span>
-            </p>
-          </div>
-
-          <div className="field is-grouped is-grouped-centered">
-            <p className="control button is-medium is-primary" onClick={() => this.login(facebookProvider)}>
-              <span className="icon"><i className="fa fa-facebook" aria-hidden="true"></i></span>
-              <span>Sign In With Facebook</span>
-            </p>
-          </div>
-
-          <hr />
+          {/* <hr />
 
           <form
             onSubmit={e => {
@@ -146,7 +140,7 @@ class Auth extends React.Component {
                 <input className="button is-medium is-primary" type="submit" value="Sign In"/>
               </div>
             </div>
-          </form>
+          </form> */}
 
         </div>
       </section>

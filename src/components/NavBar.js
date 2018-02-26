@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class NavBar extends React.Component {
+class NavBar extends Component {
 
   state = {
     open: false
@@ -11,6 +11,7 @@ class NavBar extends React.Component {
 
   render() {
     const { user, logout } = this.props;
+    
     return (
       <nav className="navbar" aria-label="main navigation">
         <div className="navbar-brand">
@@ -30,8 +31,7 @@ class NavBar extends React.Component {
             </article>
           </div>
 
-          <button
-            className={`navbar-burger burger ${this.state.open ? 'is-active' : ''}`}
+          <button className={`navbar-burger burger ${this.state.open ? 'is-active' : ''}`}
             data-target="burger-options" onClick={this.toggleMenu}>
             <span></span>
             <span></span>
@@ -40,11 +40,9 @@ class NavBar extends React.Component {
 
         </div>
 
-        <div
-          id="burger-options"
+        <div id="burger-options"
           className={`navbar-menu ${this.state.open ? 'is-active' : ''}`}
-          onClick={this.toggleMenu}
-        >
+          onClick={this.toggleMenu} >
           <div className="navbar-start">
             <Link className="navbar-item" to="/">New</Link>
             <Link className="navbar-item" to="/notes">Tasting Notes</Link>
