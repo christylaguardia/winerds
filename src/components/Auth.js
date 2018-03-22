@@ -3,7 +3,7 @@ import { auth, googleProvider, twitterProvider, facebookProvider } from '../serv
 
 const LoginButton = ({ icon, name, onClick }) => (
   <div className="field">
-    <p className="control button is-medium is-primary" onClick={onClick}>
+    <p className="control button is-medium is-primary" style={{ width: '300px' }} onClick={onClick}>
       <span className="icon"><i className={`fa fa-${icon}`} aria-hidden="true"></i></span>
       <span>{`Sign In With ${name}`}</span>
     </p>
@@ -13,38 +13,25 @@ const LoginButton = ({ icon, name, onClick }) => (
 class Auth extends Component {
 
   componentWillMount() {
+    // check if user credential already exists
     const credential = JSON.parse(localStorage.getItem('credential'));
+
     if (!credential) return console.log('no credential');
     console.log('found credential');
 
-    // // {"accessToken":"3259367419-F28iaCCKJYXGN0aRTawrZ9vKJNmsnLZB1KmMGJg","secret":"RKFaxgVxTfKhAXyyhWpMUa1RTlEokKGWmVZTHgQWCnX2x","providerId":"twitter.com"}
-
-    // let token;
-    // const { idToken, providerId } = credential;
-
-    // switch (providerId) {
-    //   case 'twitter.com':
-    //     token = twitterProvider.credential(idToken);
-    //   case 'google.com':
-    //     token = googleProvider.credential(idToken);
-    //   case 'facebook.com':
-    //     token = facebookProvider.credential(idToken);
-    //   default:
-    //     token = null;
-    // }
-    
+    // sign user in with their provider 
     if (credential.providerId === 'google.com') {
       let token = googleProvider.credential(credential.idToken);
       auth.signInWithCredential(token)
         .then(this.props.handleUser)
         .catch(error => console.log('Error:', error));
     }
+    // TODO
     // else if (credential.providerId === 'twitter.com') {
     //   token = twitterProvider.credential(credential.idToken);
     // } else if (credential.providerId === 'facebook.com') {
     //   token = facebookProvider.credential(credential.idToken);
     // }
-
   }
 
   login(provider) {
@@ -114,7 +101,9 @@ class Auth extends Component {
             <LoginButton icon="facebook" name="Facebook" onClick={() => this.login(facebookProvider)} />
           </div>
 
-          {/* <hr />
+          {/* TODO: add email signin/up
+          
+          <hr />
 
           <form
             onSubmit={e => {

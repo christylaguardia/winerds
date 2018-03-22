@@ -3,26 +3,19 @@ import propTypes from 'prop-types';
 
 class WineList extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      email: props.user.email,
-      notes: []
-    }
-
-    this.handleToggle = this.handleToggle.bind(this);
-    this.handleRemove = this.handleRemove.bind(this);
-  }
- 
-  componentDidMount() {
+  state = {
+    email: props.user.email,
+    notes: []
   }
 
-  handleToggle(item) {
-  }
+  // componentDidMount() {
+  // }
 
-  handleRemove(itemId) {
-  }
+  // handleToggle(item) {
+  // }
+
+  // handleRemove(itemId) {
+  // }
 
   render() {
     return (

@@ -1,27 +1,19 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { auth } from '../services/firebase';
-import Auth from './Auth';
 import NavBar from './NavBar';
-import Profile from './Profile';
-// import WineList from './WineList';
+import Auth from './Auth';
+import Routes from './Routes';
 import style from '../styles/style.css';
-// import TreeView from './TreeView';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      user: null
-    }
-
-    this.logout = this.logout.bind(this);
+  state = {
+    user: null
   }
 
-  logout() {
+  logout = () => {
     auth.signOut()
       .then(() => {
         this.setState({ user: null });
@@ -30,46 +22,23 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  // render() {
-  //   return (
-  //     <Router>
-  //       <TreeView />
-  //     </Router>
-  //   );
-  // }
-
   render () {
     const { user } = this.state;
 
     return (
       <Router>
-        <div>
-          <header>
-            {user && <NavBar user={user} logout={this.logout}/>}
-          </header>
-          <main>
-            <Auth user={this.state.user} handleUser={user => this.setState({ user })} />
-          </main>
-          <footer>
-          </footer>
-        </div>
+        {user
+          ? <Routes user={user} logout={this.logout} />
+          : <Auth user={user} handleUser={user => this.setState({ user })} />}
       </Router>
     )
   }
 }
-          // {this.state.user ? (
-          //   <div>
-          //   <NavBar user={this.state.user} logout={this.logout} />
-          //   <Route path="/" component={() => <Profile user={this.state.user} />} />
-          //   <Route path="/notes" component={() => <WineList user={this.state.user} />} />
-          //   </div>
-          //   ) : <Auth user={this.state.user} handleUser={user => this.setState({ user })} />
-          // }
 
 App.propTypes = {
   user: propTypes.shape({
-    displayName: propTypes.string.isRequired,
-    email: propTypes.string.isRequired
+    displayName: propTypes.string,
+    email: propTypes.string
   })
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
-import guide from '../data/guide';
+import { guide } from '../data/guide';
 
 class Wizard extends React.Component {
 
@@ -67,7 +67,7 @@ class Wizard extends React.Component {
     const { configIndex, profileIndex } = this.state;
 
     return (
-      <section className="section">
+      <section>
         <div className="content">
           <p className="title">{guide[configIndex].title}</p>
           <p className="subtitle">{guide[configIndex].profiles[profileIndex].name}</p>

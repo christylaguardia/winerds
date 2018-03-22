@@ -11,6 +11,8 @@ class NavBar extends Component {
 
   render() {
     const { user, logout } = this.props;
+
+    if (!user) return null;
     
     return (
       <nav className="navbar" aria-label="main navigation">
@@ -44,8 +46,8 @@ class NavBar extends Component {
           className={`navbar-menu ${this.state.open ? 'is-active' : ''}`}
           onClick={this.toggleMenu} >
           <div className="navbar-start">
-            <Link className="navbar-item" to="/">New</Link>
-            <Link className="navbar-item" to="/notes">Tasting Notes</Link>
+            <Link className="navbar-item" to="/">New Tasting Note</Link>
+            <Link className="navbar-item" to="/tags">Tag List</Link>
           </div>
 
           <div className="navbar-end">

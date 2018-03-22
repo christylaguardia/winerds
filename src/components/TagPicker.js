@@ -1,26 +1,41 @@
 import React from 'react';
-import { profiles } from '../data/guide';
-import Tag from './Tag';
+import { guide } from '../data/guide';
 
-class TagPicker extends React.Component {
-  render() {
-    const prof = Object.keys(profiles);
+// const Tags = ({ profile }) => (
+//   <div>
+//     {/* <p className="title">{profile.name}</p> */}
+//     {profile.tags.map((t, i) => <span key={i} className="tag is-large" onClick={e => console.log(t)}>{t}</span>)}
+//   </div>
+// );
 
-    return (
-      <div>
-        {prof.map((p,i) => {
-          return (
-            <div key={i}>
-              <p>{p}</p>
-              <div className="tags">
-                {profiles[p].map((t,i) => <Tag key={i} name={t}/> )}
-              </div>
-            </div>
-          )}
+const Tag = ({ name, onClick }) => (
+  <span className="tag is-medium" onClick={onClick}>{name}</span>
+);
+
+const TagPicker = () => (
+  <section className="section">
+    <div>
+      {guide.map(g => {
+        return (
+          <div>
+            <p className="title">{g.title}</p>
+            
+            {g.profiles.map(p => {
+              return (
+                <div>
+                  <p className="title">{p.name}</p>
+                  <div className="tags">
+                    {p.tags.map((t, i) => <Tag key={i} name={t} onClick={e => console.log(t)} />)}
+                  </div>
+                </div>
+              )}
+            )}
+              
+          </div>
         )}
-      </div>
-    );
-  }
-}
+      )}
+    </div>
+  </section>
+);
 
 export default TagPicker;
