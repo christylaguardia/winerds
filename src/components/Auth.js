@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { auth, googleProvider, twitterProvider, facebookProvider } from '../services/firebase';
 
+
 const LoginButton = ({ icon, name, onClick }) => (
   <div className="field">
     <p className="control button is-medium is-primary" style={{ width: '300px' }} onClick={onClick}>
@@ -8,7 +9,7 @@ const LoginButton = ({ icon, name, onClick }) => (
       <span>{`Sign In With ${name}`}</span>
     </p>
   </div>
-)
+);
 
 class Auth extends Component {
 
@@ -19,25 +20,28 @@ class Auth extends Component {
     if (!credential) return console.log('no credential');
     console.log('found credential');
 
-    // sign user in with their provider 
-    if (credential.providerId === 'google.com') {
-      let token = googleProvider.credential(credential.idToken);
-      auth.signInWithCredential(token)
-        .then(this.props.handleUser)
-        .catch(error => console.log('Error:', error));
-    }
-    // TODO
-    // else if (credential.providerId === 'twitter.com') {
-    //   token = twitterProvider.credential(credential.idToken);
-    // } else if (credential.providerId === 'facebook.com') {
-    //   token = facebookProvider.credential(credential.idToken);
-    // }
+    let token;
+    if (credential.providerId === 'google.com') token = googleProvider.credential(credential.idToken);
+    if (credential.providerId === 'twitter.com') token = twitterProvider.credential(credential.idToken);
+    if (credential.providerId === 'facebook.com') token = facebookProvider.credential(credential.idToken);
+    
+    auth.signInWithCredential(token)
+      .then(result => {
+        console.log('user', result.user);
+        this.props.handleUser(result.user);
+      })
+      .catch(error => console.log('Error:', error));
   }
 
   login(provider) {
-    auth.signInWithPopup(provider)
+    // auth.signInWithPopup(provider)
+    //   .then(result => this.handleLogin(result))
+    //   .catch(error => this.handleLoginError(error));
+
+    auth.signInWithRedirect(provider)
       .then(result => this.handleLogin(result))
       .catch(error => this.handleLoginError(error));
+
   }
 
   loginWithEmailAndPassword(email, password) {
@@ -57,10 +61,19 @@ class Auth extends Component {
   }
 
   handleLogin(result) {
-    if (result.credential) {
-      localStorage.setItem('credential', JSON.stringify(result.credential));
-      this.props.handleUser(result.user);
-    }
+    // if (result.credential) {
+    //   localStorage.setItem('credential', JSON.stringify(result.credential));
+    //   this.props.handleUser(result.user);
+    // }
+
+    auth.getRedirectResult()
+      .then(result => {
+        if (result.credential) {
+          localStorage.setItem('credential', JSON.stringify(result.credential));
+          this.props.handleUser(result.user);
+        }
+      })
+      .catch(this.handleLoginError);
   }
 
   handleLoginError(error) {
@@ -89,20 +102,27 @@ class Auth extends Component {
 
   render() {
     return (
-      <section className="section">
-        <div className="container has-text-centered">
+      <div>
+        <section className="hero">
+          <div className="hero-body" style={{ background: 'linear-gradient(to right, #1686D9, #8FD3C5)' }}>
+            <div className="container has-text-centered">
+              <h1 className="title" style={{ color: '#FFF' }}>
+                Winerds
+              </h1>
+              <h2 className="subtitle" style={{ color: '#FFF' }}>
+                A guide for wine tasting notes
+              </h2>
+            </div>
+          </div>
+        </section>
 
-          <h1 className="title">Winerds</h1>
-          <h2 className="subtitle">A guide for wine tasting notes</h2>
-
+        <section className="section" style={{ minHeight: '60vh' }}>
           <div className="has-text-centered">
             <LoginButton icon="google" name="Google" onClick={() => this.login(googleProvider)} />
             <LoginButton icon="twitter" name="Twitter" onClick={() => this.login(twitterProvider)} />
             <LoginButton icon="facebook" name="Facebook" onClick={() => this.login(facebookProvider)} />
           </div>
 
-          {/* TODO: add email signin/up
-          
           <hr />
 
           <form
@@ -129,10 +149,10 @@ class Auth extends Component {
                 <input className="button is-medium is-primary" type="submit" value="Sign In"/>
               </div>
             </div>
-          </form> */}
+          </form>
 
-        </div>
-      </section>
+        </section>
+      </div>
     );
   }
 }
