@@ -2,17 +2,20 @@ import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { auth } from '../services/firebase';
-import NavBar from './NavBar';
-import Auth from './Auth';
+import Loading from './Loading';
 import Routes from './Routes';
-import Footer from './Footer';
-import style from '../styles/style.css';
+import Auth from '../containers/Auth';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 class App extends Component {
 
   state = {
+    loading: true,
     user: null
   }
+
+  componentDidMount = () => this.setState({ loading: false })
 
   logout = () => {
     auth.signOut()
@@ -24,17 +27,18 @@ class App extends Component {
   }
 
   render () {
-    const { user } = this.state;
+    const { loading, user } = this.state;
+
+    if (loading) return <Loading />
 
     return (
-      <div>
-        <Router>
-          {user
-            ? <Routes user={user} logout={this.logout} />
-            : <Auth user={user} handleUser={user => this.setState({ user })} />}
-        </Router>
-        <Footer />
-      </div>
+      <Router>
+        <div>
+          <NavBar user={user} logout={this.logout} />
+          <Routes isAuthenticated={!!user} />
+          <Footer />
+        </div>
+      </Router>
     )
   }
 }

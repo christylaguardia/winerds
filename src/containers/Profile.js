@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import WineForm from './WineForm';
 import { guide } from '../data/guide';
-import TagPicker from './TagPicker';
-import Wizard from './Wizard';
+import WineForm from '../components/WineForm';
+import TagPicker from '../components/TagPicker';
+// import Wizard from './Wizard';
 
 console.log('guide', guide);
 
