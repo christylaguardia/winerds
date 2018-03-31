@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from '../services/firebase';
 import UserMedia from './UserMedia';
 
 class NavBar extends Component {
@@ -8,18 +9,30 @@ class NavBar extends Component {
     open: false
   }
 
+  logout = () => {
+    auth.signOut()
+      .then(() => {
+        this.setState({ user: null });
+        localStorage.clear();
+      })
+      .catch(error => console.log(error));
+  }
+
   toggleMenu = () => this.setState(state => ({ open: !state.open }))
 
   render() {
-    const { user, logout } = this.props;
+    const { user } = this.props;
 
     return (
       <nav className="navbar is-fixed-top is-transparent">
         <div className="navbar-brand">
-          <Link className="navbar-item" to="/">WINERDS</Link>
-          <div name="navbar-item">
-            {user && <UserMedia user={user} />}
-          </div>
+          <Link className="navbar-item" to="/">
+            <h1 className="logo is-size-5">WINERDS</h1>
+          </Link>
+
+          {user && <div name="navbar-item">
+              <UserMedia user={user} />
+            </div>}
 
           <button className={`navbar-burger burger is-transparent ${this.state.open ? 'is-active' : ''}`}
             data-target="burger-options" onClick={this.toggleMenu}>
@@ -36,12 +49,12 @@ class NavBar extends Component {
           <div className="navbar-end">
             {user && <Link className="navbar-item" to="/new">NEW TASTING NOTE</Link>}
             {user && <Link className="navbar-item" to="/tags">TAGS</Link>}
-            <Link className="navbar-item" to="/about">ABOUT</Link>
             <Link className="navbar-item" to="/contact">CONTACT</Link>
-            {user &&
-              <div className="navbar-item">
-                <button className="button is-primary" onClick={logout}>Log Out</button>
-              </div>}
+            {user
+              ? <div className="navbar-item">
+                <button className="button is-primary" onClick={this.logout}>Log Out</button>
+              </div>
+              : <Link className="navbar-item" to="/login">LOGIN</Link>}
           </div>
         </div>
 

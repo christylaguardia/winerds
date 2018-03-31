@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 const UserMedia = ({ user }) => (
   <article className="media">
@@ -16,8 +16,8 @@ const UserMedia = ({ user }) => (
   </article>
 );
 
-UserMedia.PropTypes = {
-  user: PropTypes.object.isRequired
+UserMedia.propTypes = {
+  user: propTypes.object.isRequired
 };
 
 export default UserMedia;

@@ -18,6 +18,7 @@ import firebase from 'firebase';
 
 // export default firebase;
 
+// TODO: GET NEW KEYS
 
 var config = {
   apiKey: "AIzaSyDentSyeuYzR9MBLwq030hUsRbiY25Nhmk",

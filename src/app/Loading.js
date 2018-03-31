@@ -7,7 +7,7 @@ const Loading = () => (
       <div className="hero">
         <div className="hero-body">
           <div className="container has-text-centered">
-            <h1 className="title">
+            <h1 className="title logo">
               WINERDS
             </h1>
             <p className="subtitle">

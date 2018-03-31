@@ -1,8 +1,8 @@
 import React from 'react';
-import guide from '../data/guide.json';
+import tags from '../data/tags.json';
 
 const TreeView = () => {
-  const level1 = Object.keys(guide);
+  const level1 = Object.keys(tags);
   
   return (
     <section className="section">
@@ -16,7 +16,7 @@ const TreeView = () => {
               <li key={i}>
                 {a}
                 <ul>
-                  {guide[a].map((b,i) => {
+                  {tags[a].map((b,i) => {
                     console.log('level2', b);
                     console.log(typeof b);
                     

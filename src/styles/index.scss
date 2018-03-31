@@ -38,6 +38,16 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $family-sans-serif-headers
 }
 
+.logo {
+  background: -webkit-linear-gradient($blue, $green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.control .button .is-medium .is-primary {
+  background-color: linear-gradient(to right, $blue, $green);
+}
+
 .full-screen-height {
   min-height: calc(100vh - 3.25rem); // subtract navbar height
 }

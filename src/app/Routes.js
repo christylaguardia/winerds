@@ -1,11 +1,11 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import About from '../components/About';
-import Contact from '../components/Contact';
-import Auth from '../containers/Auth';
-import Profile from '../containers/Profile';
-import TreeView from '../components/TreeView';
+import Home from './Home';
+import Contact from './Contact';
+import Auth from '../auth/Auth';
+import Profile from '../profile/Profile';
+import TreeView from '../tags/TreeView';
 
 const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => (
   <Route {...rest}
@@ -21,16 +21,25 @@ const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => (
   />
 );
 
-const Routes = ({ isAuthenticated }) => (
-  <Switch>
-    <Route path="/" component={Auth} />
-    <PrivateRoute exact path="/new" component={Profile} isAuthenticated={isAuthenticated} />
-    <PrivateRoute exact path="/tags" component={TreeView} isAuthenticated={isAuthenticated} />
-  </Switch>
-);
+const Routes = ({ user, handleUser }) => {
+
+  const isAuthenticated = !!user;
+
+  return (
+    <Switch>
+      <Route exact path="/" render={() => <Home isAuthenticated={isAuthenticated} />} />
+      <Route path="/login" render={() => <Auth user={user} handleUser={handleUser} />} />
+      {/* <Route path="/login" component={Auth} /> */}
+      <Route path="/contact" component={Contact} />
+      <PrivateRoute path="/new" component={Profile} isAuthenticated={isAuthenticated} />
+      <PrivateRoute path="/tags" component={TreeView} isAuthenticated={isAuthenticated} />
+    </Switch>
+  );
+}
 
 Routes.propTypes = {
-  isAuthenticated: propTypes.bool.isRequired
+  isAuthenticated: propTypes.bool,
+  handleUser: propTypes.func
 };
 
 export default Routes;

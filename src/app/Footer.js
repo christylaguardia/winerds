@@ -7,7 +7,7 @@ const Footer = () => (
         <p>
           <small>
             <span>&copy; 2018 Christy La&nbsp;Guardia</span>
-            <a href="http://www.laguardia.io/" target="_blank" style={{ marginLeft: '6px' }}>
+            <a href="http://www.laguardia.io/" target="_blank" rel="noopener noreferrer" style={{ marginLeft: '6px' }}>
               <span className="icon is-small">
                 <i className="fa fa-paper-plane fa-sm" aria-hidden="true"></i>
               </span>

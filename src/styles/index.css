@@ -6509,6 +6509,14 @@ label.panel-block {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Rubik", sans-serif; }
 
+.logo {
+  background: -webkit-linear-gradient(#1686D9, #8FD3C5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
+.control .button .is-medium .is-primary {
+  background-color: linear-gradient(to right, #1686D9, #8FD3C5); }
+
 .full-screen-height {
   min-height: calc(100vh - 3.25rem); }
 

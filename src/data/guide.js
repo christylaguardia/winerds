@@ -1,8 +1,8 @@
 
 export const config = {
-  sight: ['Clarity', 'Concentration', 'Color'],
-  nose: ['Fruit', 'Fruit-Character', 'Non-Fruit', 'Earth', 'Mineral', 'Wood'],
-  palate: ['Sweetness', 'Fruit', 'Fruit-Character', 'Non-Fruit', 'Earth', 'Mineral', 'Wood'],
+  "Sight": ['Clarity', 'Concentration', 'Color'],
+  "Nose": ['Fruit', 'Fruit-Character', 'Non-Fruit', 'Earth', 'Mineral', 'Wood'],
+  "Palate": ['Sweetness', 'Fruit', 'Fruit-Character', 'Non-Fruit', 'Earth', 'Mineral', 'Wood'],
 };
 
 export const profiles = {
