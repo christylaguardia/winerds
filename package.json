@@ -7,23 +7,23 @@
     "node-sass-chokidar": "^1.2.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "react-scripts": "1.0.17"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run build-css && react-scripts build",
+    "copy": "rm -rf ./public && cp -R ./build ./public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "firebase deploy"
+    "deploy": "npm run build && npm run copy && firebase deploy",
+    "flow": "flow"
   },
   "devDependencies": {
     "bulma": "^0.6.2",
+    "flow-bin": "^0.69.0",
     "font-awesome": "^4.7.0"
   }
 }
