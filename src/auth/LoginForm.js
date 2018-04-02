@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-class LoginForm extends PureComponent {
+export default class LoginForm extends PureComponent {
 
   state = {
     email: null,
@@ -43,5 +43,3 @@ class LoginForm extends PureComponent {
     );
   }
 }
-
-export default LoginForm;

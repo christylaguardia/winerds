@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react';
 import { WineTypes, WineYears, WineText } from './WineFormFields';
+import Card from './Card';
 
-class WineForm extends Component {
+export default class WineForm extends Component {
 
   render() {
     return (
@@ -15,5 +16,3 @@ class WineForm extends Component {
     );
   }
 }
-
-export default WineForm;

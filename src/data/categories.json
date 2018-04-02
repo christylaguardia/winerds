@@ -252,5 +252,19 @@
     "Biscuit",
     "Creamy",
     "Buttery"
+  ],
+  "Mineral": [
+    "Mineral",
+    "Wet Stone",
+    "Limestone",
+    "Chalk",
+    "Slate",
+    "Flint"
+  ],
+  "Wood": [
+    "None",
+    "Old vs New",
+    "Large vs Small",
+    "French vs American"
   ]
 }

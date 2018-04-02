@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { auth } from '../services/firebase';
 import UserMedia from './UserMedia';
 
-class NavBar extends Component {
+export default class NavBar extends Component {
 
   state = {
     open: false
@@ -47,8 +47,9 @@ class NavBar extends Component {
           className={`navbar-menu has-text-centered ${this.state.open ? 'is-active' : ''}`}
           onClick={this.toggleMenu} >
           <div className="navbar-end">
-            {user && <Link className="navbar-item" to="/new">NEW TASTING NOTE</Link>}
-            {user && <Link className="navbar-item" to="/tags">TAGS</Link>}
+            {user && <Link className="navbar-item" to="/tasting">NEW TASTING NOTE</Link>}
+            {user && <Link className="navbar-item" to="/profile">CREATE TASTING PROFILE</Link>}
+            {user && <Link className="navbar-item" to="/tags">TAG REFERENCE</Link>}
             <Link className="navbar-item" to="/contact">CONTACT</Link>
             {user
               ? <div className="navbar-item">
@@ -62,5 +63,3 @@ class NavBar extends Component {
     );
   }
 }
-
-export default NavBar;

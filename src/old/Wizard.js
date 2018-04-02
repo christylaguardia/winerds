@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+// import { Route, Link } from 'react-router-dom';
 import { guide } from '../data/guide';
 
 class Wizard extends React.Component {

@@ -6,6 +6,8 @@
 ///// custom variables /////
 
 $blue-darker: #0b436d;
+$blue-1: #66ADE4;
+$blue-2: #3D98DE;
 $blue: #1686D9;
 $blue-lighter: #51accf;
 $green: #8FD3C5;
@@ -13,6 +15,7 @@ $green-darker: #4a6e66;
 $grey: #D8D8D8;
 $grey-darker: #5A636A;
 $black: #000;
+$white: #FFF;
 
 // $yellow: yellow;
 // $red: red;
@@ -28,6 +31,8 @@ $family-sans-serif-headers: "Rubik", sans-serif;
 $family-primary: $family-sans-serif;
 
 $modal-background-background-color: $grey;
+// $card-header-color: $blue-darker;
+// $card-background-color: $grey;
 
 @import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
 @import "../../node_modules/bulma/bulma.sass";
@@ -81,13 +86,31 @@ hr {
 }
 
 .loader {
-  border: 16px solid $blue-lighter;
+  border: 16px solid $blue;
   border-radius: 50%;
-  border-top: 16px solid $blue-darker;
+  border-top: 16px solid $blue-lighter;
   height: 120px;
   margin: 0 auto;
   width: 120px;
   animation: spin 2s linear infinite;
+}
+
+.card-header {
+  background-color: $blue;
+}
+
+.card-header-title, .card-header-icon {
+  color: $white;
+}
+
+.tag {
+  transition: font-size 500ms;
+  transition: background-color 500ms;
+  -webkit-user-select: none;
+}
+
+.tag:hover {
+  cursor: pointer;
 }
 
 @keyframes spin {

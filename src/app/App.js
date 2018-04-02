@@ -7,7 +7,7 @@ import Routes from './Routes';
 import NavBar from '../navbar/NavBar';
 import Footer from './Footer';
 
-class App extends Component {
+export default class App extends Component {
 
   state = {
     loading: true,
@@ -67,5 +67,3 @@ App.propTypes = {
     email: propTypes.string
   })
 };
-
-export default App;

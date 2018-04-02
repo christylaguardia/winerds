@@ -1,5 +1,5 @@
 import React from 'react';
-import tags from '../data/tags.json';
+import tags from '../data/categories.json';
 
 const TreeView = () => {
   const level1 = Object.keys(tags);
@@ -7,7 +7,7 @@ const TreeView = () => {
   return (
     <section className="section">
       <div className="content">
-        <h1>Winerds</h1>
+        <h1>Tag Reference</h1>
         <ul>
           {level1.map((a,i) => {
             console.log('level1',a);

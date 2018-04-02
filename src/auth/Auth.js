@@ -5,7 +5,7 @@ import { auth, googleProvider, twitterProvider, facebookProvider } from '../serv
 import LoginButton from './LoginButton';
 import LoginForm from './LoginForm';
 
-class Auth extends PureComponent {
+export default class Auth extends PureComponent {
 
   componentWillMount() {
     console.log('Auth props', this.props);
@@ -95,7 +95,7 @@ class Auth extends PureComponent {
 
     const { user, handleUser } = this.props;
 
-    if (user) return <Redirect to="/new" />;
+    if (user) return <Redirect to="/tasting" />;
 
     return (
       <section className="section">
@@ -122,5 +122,3 @@ class Auth extends PureComponent {
 Auth.propTypes = {
   handleUser: propTypes.func.isRequired
 };
-
-export default Auth;

@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Home = ({ isAuthenticated }) => {
-  if (isAuthenticated) return <Redirect to="/new" />;
+  if (isAuthenticated) return <Redirect to="/tasting" />;
   
   return (
     <div className="hero is-fullheight" style={{ marginTop: '-3.25rem' }}>
