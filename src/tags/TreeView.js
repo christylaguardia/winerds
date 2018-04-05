@@ -28,7 +28,7 @@ const TreeView = () => {
                       return (
                         <li>
                           {c}
-                          <ul classNam="collapsed">
+                          <ul className="collapsed">
                             {b[c].map(a => <li>{a}</li>)}
                           </ul>
                         </li>)
