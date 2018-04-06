@@ -1,0 +1,14 @@
+{
+  "price": {
+    "list_endpoint": "/api/v1/price/",
+    "schema": "/api/v1/price/schema/"
+  },
+  "product": {
+    "list_endpoint": "/api/v1/product/",
+    "schema": "/api/v1/product/schema/"
+  },
+  "store": {
+    "list_endpoint": "/api/v1/store/",
+    "schema": "/api/v1/store/schema/"
+  }
+}

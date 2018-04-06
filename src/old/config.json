@@ -1,0 +1,24 @@
+{
+  "Sight": [
+    "Clarity",
+    "Concentration",
+    "Color"
+  ],
+  "Nose": [
+    "Fruit",
+    "Fruit-Character",
+    "Non-Fruit",
+    "Earth",
+    "Mineral",
+    "Wood"
+  ],
+  "Pallet": [
+    "Sweetness",
+    "Fruit",
+    "Fruit-Character",
+    "Non-Fruit",
+    "Earth",
+    "Mineral",
+    "Wood"
+  ]
+}
