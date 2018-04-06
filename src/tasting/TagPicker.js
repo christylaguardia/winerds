@@ -8,22 +8,11 @@ class Tag extends PureComponent {
     prevVote: 3
   }
 
-  // 0 1 2 3 2 1 0
-
   handleClick = () => {
     const { vote, prevVote } = this.state; // 1
-    let newVote;
-
-    if (vote === 3) newVote = 2;
-    else if (vote === 2 && prevVote === 3) newVote = 1;
-    // else if (vote === 2 && prevVote === 1) newVote = 3;
-    else if (vote === 1 && prevVote === 2) newVote = 0;
-    // else if (vote === 1 && prevVote === 0) newVote = 2;
-    else newVote = vote + 1;
-
-    // else if (vote > newVote) newVote = vote - 1;
-    // else newVote = vote + 1; // 4
-    
+    const newVote = vote === 3 ? 2 :
+      (vote === 2 && prevVote === 3) ? 1 :
+        (vote === 1 && prevVote === 2) ? 0 : vote + 1;
     this.setState({ vote: newVote, prevVote: vote });
   }
   
@@ -76,21 +65,17 @@ const Category = ({ category, even }) => (
   </div>
 );
 
-const TagPicker = ({ sections }) => {
-  console.log('tag picker sections', sections);
-
-  return (
-    <div>
-      {sections.map((section, sectionIndex) => {
-        return (
-          <Card key={sectionIndex}
-            title={section.name}
-            content={section.categories.map((c, ci) => <Category key={`category-${ci}`} category={c} even={ci%2===0} />)}
-          />
-        )}
+const TagPicker = ({ sections }) => (
+  <div>
+    {sections.map((section, sectionIndex) => {
+      return (
+        <Card key={sectionIndex}
+          title={section.name}
+          content={section.categories.map((c, ci) => <Category key={`category-${ci}`} category={c} even={ci%2===0} />)}
+        />
       )}
-    </div>
-  );
-}
+    )}
+  </div>
+);
 
 export default TagPicker;

@@ -6567,6 +6567,9 @@ hr {
 .tag:hover {
   cursor: pointer; }
 
+.rating-star:hover {
+  color: #1686D9; }
+
 @keyframes spin {
   0% {
     transform: rotate(0deg); }

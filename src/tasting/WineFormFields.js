@@ -1,12 +1,13 @@
 import React from 'react';
 
+// TODO: add on click methods
+
 export const WineProfiles = ({ value, handleChange }) => (
   <div className="field">
     <label className="label">Tasting Note Profile</label>
     <div className="control">
       <div className="select">
         <select value={value} onChange={handleChange}>
-          <option value="">Select Tasting Profile</option>
           <option value="Classic">Classic</option>
           <option value="Easy">Easy</option>
           <option value="Advanced">Advanced</option>
@@ -62,11 +63,28 @@ export const WineText = ({ title }) => (
   </div>
 );
 
-export const WineReview = () => (
+export const WineTextArea = ({ title }) => (
   <div className="field">
-    <label className="label">Message</label>
+    <label className="label">{title}</label>
     <div className="control">
-      <textarea className="textarea is-expanded" placeholder="Textarea"></textarea>
+      <textarea className="textarea is-expanded" placeholder={title}></textarea>
     </div>
+  </div>
+);
+
+const Star = ({ active }) => (
+  <span className={`icon rating-star ${active ? 'is-warning' : ''}`}>
+    <i className="fa fa-star"></i>
+  </span>
+);
+
+export const WineRating = ({ value }) => (
+  <div className="field">
+    <label className="label">Rating</label>
+    <Star active={value < 2} />
+    <Star active={value < 3} />
+    <Star active={value < 4} />
+    <Star active={value < 5} />
+    <Star active={value < 6} />
   </div>
 );

@@ -18,12 +18,10 @@
     "copy": "rm -rf ./public && cp -R ./build ./public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && npm run copy && firebase deploy",
-    "flow": "flow"
+    "deploy": "npm run build && npm run copy && firebase deploy"
   },
   "devDependencies": {
     "bulma": "^0.6.2",
-    "flow-bin": "^0.69.0",
     "font-awesome": "^4.7.0"
   }
 }

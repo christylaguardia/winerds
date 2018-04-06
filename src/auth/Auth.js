@@ -4,57 +4,61 @@ import propTypes from 'prop-types';
 import { auth, googleProvider, twitterProvider, facebookProvider } from '../services/firebase';
 import LoginButton from './LoginButton';
 import LoginForm from './LoginForm';
+import Loading from '../app/Loading';
 
 export default class Auth extends PureComponent {
 
-  componentWillMount() {
-    console.log('Auth props', this.props);
-    this.login();
-    // this.loginFromToken();
+  state = {
+    loading: false
   }
 
-  // loginFromToken = () => {
+  componentWillMount() {
+    this.loginFromRedirect();
+  }
 
-  //   // check if user credential already exists
-  //   const credential = JSON.parse(localStorage.getItem('credential'));
+  handleLogin = (result) => {
+    console.log('handleLogin result', result);
+    if (result.credential) {
+      localStorage.setItem('token', JSON.stringify(result.credential));
+      this.props.handleUser(result.user);
+      this.setState({ loading: false });
+    }
+  }
 
-  //   if (!credential) return console.log('no credential');
-  //   console.log('found credential', credential);
-
-  //   let token = null;
-    
-  //   if (credential.providerId === 'google.com') token = googleProvider.credential(credential.idToken, credential.accessToken);
-  //   if (credential.providerId === 'twitter.com') token = twitterProvider.credential(credential.idToken);
-  //   if (credential.providerId === 'facebook.com') token = facebookProvider.credential(credential.idToken);
-    
-  //   if (token) {
-  //     auth.signInWithCredential(token)
-  //       .then(user => {
-  //         console.log('signInWithCredential user', user);
-  //         this.props.handleUser(user);
-  //       })
-  //       .catch(error => console.log('Error:', error));
-  //   }
-  // }
-
-  login = () => {
+  loginFromRedirect = () => {
     auth.getRedirectResult()
       .then(result => {
-        console.log('login getRedirectResult result', result);
-        if (result.credential) {
-          localStorage.setItem('credential', JSON.stringify(result.credential));
-          this.props.handleUser(result.user);
-        }
+        this.handleLogin(result);
+        this.setState({ loading: false });
       })
       .catch(this.handleLoginError);
   }
 
-  loginWithProvider = (provider) => auth.signInWithRedirect(provider)
+  loginWithProvider = (provider) => {
+    this.setState({ loading: true });
+    auth.signInWithRedirect(provider);
+  }
 
   loginWithEmailAndPassword = (email, password) => {
-    // auth.signInWithEmailAndPassword(email, password)
-    //   .then(this.handleLogin)
-    //   .catch(this.handleLoginError);
+    this.setState({ loading: true });
+
+    auth.signInWithEmailAndPassword(email, password)
+      .then(token => {
+        localStorage.setItem('token', JSON.stringify(token.credential));
+        this.setState({ loading: false });
+      })
+      .catch(err => {
+        if (err.code === 'auth/user-not-found') {
+          auth.createUserWithEmailAndPassword(email, password)
+            .then(user => {
+              this.props.handleUser(user);
+              this.loginWithEmailAndPassword(email, password);
+            })
+            .catch(this.handleLoginError);
+        } else {
+          this.handleLoginError;
+        }
+      });
   }
 
   promptUserForPassword() {
@@ -67,7 +71,7 @@ export default class Auth extends PureComponent {
     // TODO
   }
 
-  handleLoginError(error) {
+  handleLoginError = (error) => {
     if (error.code === 'auth/account-exists-with-different-credential') {
       const pendingCred = error.credential;
       const email = error.email;
@@ -83,19 +87,18 @@ export default class Auth extends PureComponent {
           }
 
           var provider = this.getProviderForProviderId(providers[0]);
-          auth.signInWithPopup(provider).then(result => {
-            result.user.link(pendingCred)
-              .then(user => this.props.handleUser(user));
-          });
+          auth.signInWithPopup(provider)
+            .then(result => {
+              result.user.link(pendingCred)
+                .then(user => this.props.handleUser(user));
+            });
         });
     }
   }
 
   render() {
-
-    const { user, handleUser } = this.props;
-
-    if (user) return <Redirect to="/tasting" />;
+    if (this.props.user) return <Redirect to="/tasting" />;
+    if (this.state.loading) return <Loading />;
 
     return (
       <section className="section">

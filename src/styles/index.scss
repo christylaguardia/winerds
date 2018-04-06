@@ -113,6 +113,10 @@ hr {
   cursor: pointer;
 }
 
+.rating-star:hover {
+  color: $primary
+}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

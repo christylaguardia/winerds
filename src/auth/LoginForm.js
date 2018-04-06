@@ -9,7 +9,10 @@ export default class LoginForm extends PureComponent {
 
   handleChange = (event) => this.setState({ [event.target.name]: event.target.value })
 
-  handleSubmit = () => this.props.handleSubmit(this.state)
+  handleSubmit = () => {
+    console.log('form handleSubmit', this.state);
+    this.props.handleSubmit(this.state.email, this.state.password);
+  }
 
   render() {
     return (
@@ -22,14 +25,14 @@ export default class LoginForm extends PureComponent {
           <div className="field">
             <label className="label" htmlFor="email">Email</label>
             <div className="control">
-              <input className="input" name="email" type="email" placeholder="email" required />
+              <input className="input" name="email" type="email" placeholder="email" required onChange={this.handleChange} />
             </div>
           </div>
 
           <div className="field">
             <label className="label" htmlFor="password">Password</label>
             <div className="control">
-              <input className="input" name="password" type="password" placeholder="password" required />
+              <input className="input" name="password" type="password" placeholder="password" required onChange={this.handleChange} />
             </div>
           </div>
 

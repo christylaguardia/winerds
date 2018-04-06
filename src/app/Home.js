@@ -1,6 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 const Home = ({ isAuthenticated }) => {
   if (isAuthenticated) return <Redirect to="/tasting" />;
@@ -23,26 +22,3 @@ const Home = ({ isAuthenticated }) => {
 }
 
 export default Home;
-
-// {/* <section className="section">
-//   <nav className="level is-mobile">
-//     <div className="level-item has-text-centered">
-//       <div>
-//         <p className="heading">Tasting Notes</p>
-//         <p className="title">3,456</p>
-//       </div>
-//     </div>
-//     <div className="level-item has-text-centered">
-//       <div>
-//         <p className="heading">Wines</p>
-//         <p className="title">1,230</p>
-//       </div>
-//     </div>
-//     <div className="level-item has-text-centered">
-//       <div>
-//         <p className="heading">Tasters</p>
-//         <p className="title">456K</p>
-//       </div>
-//     </div>
-//   </nav>
-// </section> */}

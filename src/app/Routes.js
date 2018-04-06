@@ -25,6 +25,7 @@ const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => (
 const Routes = ({ user, handleUser }) => {
 
   const isAuthenticated = !!user;
+  console.log('isAuthenticated', isAuthenticated);
 
   return (
     <Switch>
