@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import propTypes from 'prop-types';
 import { auth, getCredentialFromToken } from '../services/firebase';
-import Loading from './Loading';
 import Routes from './Routes';
-import NavBar from '../navbar/NavBar';
-import Footer from './Footer';
+import Loading from '../components/Loading';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 export default class App extends Component {
 

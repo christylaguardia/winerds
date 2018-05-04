@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import { Redirect } from 'react-router-dom';
 import propTypes from 'prop-types';
 import { auth, googleProvider, twitterProvider, facebookProvider } from '../services/firebase';
-import LoginButton from './LoginButton';
-import LoginForm from './LoginForm';
-import Loading from '../app/Loading';
+import LoginButton from '../components/LoginButton';
+import LoginForm from '../components/LoginForm';
+import Loading from '../components/Loading';
 
 export default class Auth extends PureComponent {
 
@@ -29,7 +29,6 @@ export default class Auth extends PureComponent {
     auth.getRedirectResult()
       .then(result => {
         this.handleLogin(result);
-        this.setState({ loading: false });
       })
       .catch(this.handleLoginError);
   }

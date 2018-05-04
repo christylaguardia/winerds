@@ -1,49 +1,5 @@
 import categories from './categories.json';
-// console.log('categories', Object.keys(categories));
-
-export const config = {
-  'Classic': {
-    'Sight': ['Clarity', 'Concentration', 'Color'],
-    'Nose': ['Fruit', 'Fruit-Character', 'Non-Fruit', 'Earth', 'Mineral', 'Wood'],
-    'Palate': ['Sweetness', 'Fruit', 'Fruit-Character', 'Non-Fruit', 'Earth', 'Mineral', 'Wood'],
-  },
-  'Easy': {
-    'Sight': ['Clarity'],
-    'Palate': ['Sweetness'],
-  },
-  'Advanced': {
-    'Sight': ['Clarity', 'Concentration', 'Color'],
-    'Nose': ['Fruit', 'Fruit-Character', 'Non-Fruit', 'Earth', 'Mineral', 'Wood'],
-    'Palate': ['Acidity', 'Sweetness', 'Fruit', 'Fruit-Character', 'Non-Fruit', 'Earth', 'Mineral', 'Wood'],
-  }
-};
-
-
-/*
-
-Example Tree Structure:
-
-- profile
-  |- section
-    |- category
-      |- tag
-      |- tag
-      |- tag
-    |- category
-      |- tag
-      |- tag
-      |- tag
-  |- section
-    |- category
-      |- tag
-      |- tag
-      |- tag
-    |- category
-      |- tag
-      |- tag
-      |- tag
-
-*/
+import config from './config.json';
 
 function makeTags(category) {
   return categories[category].map((tag, index) => {

@@ -1,12 +1,12 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Home from './Home';
-import Contact from './Contact';
-import Auth from '../auth/Auth';
-import Profile from '../profile/Profile';
-import Tasting from '../tasting/Tasting';
-import TreeView from '../tags/TreeView';
+import Home from '../components/Home';
+import Contact from '../components/Contact';
+import Auth from '../containers/Auth';
+// import Profile from '../profile/Profile';
+import Tasting from '../containers/Tasting';
+import TreeView from '../components/TreeView';
 
 const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => (
   <Route {...rest}
@@ -33,7 +33,7 @@ const Routes = ({ user, handleUser }) => {
       <Route path="/login" render={() => <Auth user={user} handleUser={handleUser} />} />
       <Route path="/contact" component={Contact} />
       <PrivateRoute path="/tasting" component={Tasting} isAuthenticated={isAuthenticated} />
-      <PrivateRoute path="/profile" component={Profile} isAuthenticated={isAuthenticated} />
+      {/* <PrivateRoute path="/profile" component={Profile} isAuthenticated={isAuthenticated} /> */}
       <PrivateRoute path="/tags" component={TreeView} isAuthenticated={isAuthenticated} />
     </Switch>
   );

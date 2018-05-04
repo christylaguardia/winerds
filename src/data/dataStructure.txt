@@ -1,0 +1,21 @@
+Example Tree Structure:
+
+- profile
+  |- section
+    |- category
+      |- tag
+      |- tag
+      |- tag
+    |- category
+      |- tag
+      |- tag
+      |- tag
+  |- section
+    |- category
+      |- tag
+      |- tag
+      |- tag
+    |- category
+      |- tag
+      |- tag
+      |- tag
