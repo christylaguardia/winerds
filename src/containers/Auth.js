@@ -96,7 +96,8 @@ export default class Auth extends PureComponent {
   }
 
   render() {
-    if (this.props.user) return <Redirect to="/tasting" />;
+    if (this.props.user) return <Redirect to="/welcome" />;
+    
     if (this.state.loading) return <Loading />;
 
     return (

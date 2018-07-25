@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter, Redirect } from 'react-router-dom';
 import propTypes from 'prop-types';
 import { auth, getCredentialFromToken } from '../services/firebase';
 import Routes from './Routes';
@@ -38,13 +38,13 @@ export default class App extends Component {
     if (loading) return <Loading />;
 
     return (
-      <Router>
+      <BrowserRouter>
         <div>
           <NavBar user={user} handleLogout={this.handleLogout} />
           <Routes user={user} handleUser={this.handleUser} />
           <Footer />
         </div>
-      </Router>
+      </BrowserRouter>
     )
   }
 }

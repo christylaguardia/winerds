@@ -1,11 +1,11 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import Auth from './Auth';
+import Tasting from './Tasting';
 import Home from '../components/Home';
 import Contact from '../components/Contact';
-import Auth from '../containers/Auth';
 // import Profile from '../profile/Profile';
-import Tasting from '../containers/Tasting';
 import TreeView from '../components/TreeView';
 
 const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => (
