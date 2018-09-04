@@ -10,3 +10,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [Flamelink CMS](https://flamelink.io/)
 - [Redux](https://redux.js.org/)
 - [Material UI](https://material-ui.com/)
+
+## Deployment
+
+```bash
+npm install -g firebase-tools
+npm run build
+firebase deploy
+```
