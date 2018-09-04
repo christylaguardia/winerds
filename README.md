@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/christylaguardia/winerds.svg?branch=master)](https://travis-ci.org/christylaguardia/winerds)
+
 # winerds
 
 ## About
