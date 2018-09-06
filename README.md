@@ -1,5 +1,7 @@
 # winerds
 
+[Go to the app](https://wine-nerds.firebaseapp.com/)
+
 ## About
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
