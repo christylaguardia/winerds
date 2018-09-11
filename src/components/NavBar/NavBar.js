@@ -48,5 +48,4 @@ NavBar.propTypes = {
   logout: PropTypes.func.isRequired
 };
 
-// export default withStyles(styles)(NavBar);
 export default connect(null, { logout })(withStyles(styles)(NavBar)); 

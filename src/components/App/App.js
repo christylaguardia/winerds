@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import Loading from './Loading';
+import Routes from './Routes';
 import NavBar from '../NavBar/NavBar';
 import Login from '../Auth/Login';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
-import { loginFromLocalStorage } from './actions';
 
 const theme = createMuiTheme({
   palette: {
@@ -16,11 +16,8 @@ const theme = createMuiTheme({
   // }
 });
 
-class App extends React.Component {
 
-  componentWillMount() {
-    loginFromLocalStorage();
-  }
+class App extends React.Component {
 
   render() {
     const { loading, user } = this.props;
@@ -31,7 +28,7 @@ class App extends React.Component {
           <div>
             <NavBar />
             {loading && <Loading />}
-            {user ? <p>hello user</p> : <Login />}
+            {user ? <Routes /> : <Login />}
           </div>
         </BrowserRouter>
       </MuiThemeProvider>

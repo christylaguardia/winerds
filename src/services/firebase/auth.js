@@ -1,43 +1,32 @@
-import { auth } from './firebase';
+import firebase from 'firebase';
+import store from '../../store';
+import { LOGIN, LOGOUT } from '../../components/Auth/reducers';
+import { firebaseApp } from './firebase';
 
-// Sign Up
-export const doCreateUserWithEmailAndPassword = (email, password) =>
-  auth.createUserWithEmailAndPassword(email, password);
+export const auth = firebaseApp.auth();
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+export const twitterProvider = new firebase.auth.TwitterAuthProvider();
+export const facebookProvider = new firebase.auth.FacebookAuthProvider();
+export const uiConfig = {
+  signInSuccessUrl: '/welcome',
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+  ],
+};
 
-// Sign In
-export const doSignInWithEmailAndPassword = (email, password) =>
-  auth.signInWithEmailAndPassword(email, password);
-
-// Sign out
-export const doSignOut = () =>
-  auth.signOut();
-
-// Password Reset
-export const doPasswordReset = (email) =>
-  auth.sendPasswordResetEmail(email);
-
-// Password Change
-export const doPasswordUpdate = (password) =>
-  auth.currentUser.updatePassword(password);
-
-export const getCredentialFromToken = () => {
-  const token = JSON.parse(localStorage.getItem('WINERDS_USER'));
-
-  if (!token) return console.log('no token');
-  console.log('found token', token);
-
-  const { idToken, accessToken, secret } = token;
-
-  switch (token.providerId) {
-    case 'google.com':
-      return auth.GoogleAuthProvider.credential(idToken, accessToken);
-    case 'twitter.com':
-      return auth.TwitterAuthProvider.credential(accessToken, secret);
-    case 'facebook.com':
-      return auth.FacebookAuthProvider.credential(accessToken);
-    // case 'email':
-    //   return auth.EmailAuthProvider.credential(email, password);
-    default:
-      return null
+// Listen for changes to auth state
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    firebase.auth().currentUser.getIdToken(true).then(idToken => {
+      store.dispatch({ type: LOGIN, payload: idToken });
+    });
+  } else {
+    localStorage.clear();
+    store.dispatch({ type: LOGOUT });
   }
-}
+});
+
+export const doSignOut = () => auth.signOut();

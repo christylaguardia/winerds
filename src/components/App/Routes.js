@@ -29,9 +29,8 @@ const Routes = ({ user, handleUser }) => {
 
   return (
     <Switch>
-      <Route exact path="/" render={() => <p>Welcome!</p>} />
+      <Route exact path="/welcome" render={() => <p>Welcome!</p>} />
       <PrivateRoute path="/tasting" component={<p>Tasting</p>} isAuthenticated={isAuthenticated} />
-
       {/* <Route exact path="/" render={() => <Home isAuthenticated={isAuthenticated} />} />
       <Route path="/login" render={() => <Auth user={user} handleUser={handleUser} />} />
       <Route path="/contact" component={Contact} />
