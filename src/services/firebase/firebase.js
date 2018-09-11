@@ -9,22 +9,4 @@ const config = {
   messagingSenderId: process.env.REACT_APP_SENDER_ID
 };
 
-const firebaseApp = firebase.initializeApp(config);
-
-export const auth = firebaseApp.auth();
-
-// Login with other services
-export const googleProvider = new firebase.auth.GoogleAuthProvider();
-export const twitterProvider = new firebase.auth.TwitterAuthProvider();
-export const facebookProvider = new firebase.auth.FacebookAuthProvider();
-
-// Listen for changes to auth state
-firebase.auth().onAuthStateChanged(user => {
-  if (user) {
-    console.log('User is signed in.', user);
-    // localStorage.setItem('token', JSON.stringify(user));
-  } else  {
-    console.log('User is NOT signed in.');
-    localStorage.clear();
-  }
-});
+export const firebaseApp = firebase.initializeApp(config);

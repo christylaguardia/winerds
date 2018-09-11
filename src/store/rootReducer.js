@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { loading, errors } from './components/App/reducers';
-import { user, RESET_STORE } from './components/Auth/reducers';
+import { loading, errors } from '../components/App/reducers';
+import { user, RESET_STORE } from '../components/Auth/reducers';
 
 const appReducer = combineReducers({
   loading,
