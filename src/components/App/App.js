@@ -12,7 +12,6 @@ class App extends React.Component {
   render() {
     const { loading, user } = this.props;
     const isAuthenticated = user ? !!user.idToken : false;
-    console.log('>>>> isAuthenticated <<<<', isAuthenticated);
 
     return <MuiThemeProvider theme={theme}>
       <BrowserRouter>

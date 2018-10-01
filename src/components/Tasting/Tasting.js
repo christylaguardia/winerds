@@ -1,28 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
-import classNames from 'classnames';
 import SwipeableViews from 'react-swipeable-views';
-
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import Zoom from '@material-ui/core/Zoom';
 import Button from '@material-ui/core/Button';
-import AddIcon from '@material-ui/icons/Add';
-import EditIcon from '@material-ui/icons/Edit';
-import UpIcon from '@material-ui/icons/KeyboardArrowUp';
-import RightIcon from '@material-ui/icons/KeyboardArrowRight';
-import green from '@material-ui/core/colors/green';
-
+import SaveIcon from '@material-ui/icons/Save';
 import TastingWineLabel from './TastingLabel';
 import TastingSection from './TastingSection';
 import TastingMenu from './TastingMenu';
 import TastingNotes from './TastingNotes';
-import { fetchProfile } from './actions';
+import { fetchProfile, saveTasting } from './actions';
 
 const TabContainer = ({ children, dir }) => (
   <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
@@ -38,129 +29,174 @@ TabContainer.propTypes = {
 const styles = theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: '100%'
-    // backgroundColor: theme.palette.background.paper,
-    // width: 500,
-    // position: 'relative',
-    // minHeight: 200
+    width: '100%',
+    marginBottom: theme.spacing.unit * 8 // large margin for the bottom nav
   },
   fab: {
-    position: 'absolute',
-    bottom: theme.spacing.unit * 2,
+    position: 'fixed',
+    bottom: theme.spacing.unit * 8,
     right: theme.spacing.unit * 2
-  },
-  fabGreen: {
-    color: theme.palette.common.white,
-    backgroundColor: green[500]
   }
 });
 
 class Tasting extends React.PureComponent {
   state = {
     value: 0,
-    profileId: '',
     userInput: {
       profileId: '',
-      label: {
-        type: '',
-        winery: '',
-        vintage: null,
-        style: ''
-      },
-      // [section]: {
-      //   [category]: [
-      //     tag, tag, tag, { subcategory: [ tag, tag, tag ]}
-      //   ]
-      // },
-      notes: {
-        final: ''
-      }
+      type: '',
+      winery: '',
+      vintage: '',
+      style: '',
+      location: '',
+      descriptors: {},
+      notes: ''
     }
   };
 
-  // componentDidMount() {
-  //   const { profiles } = this.props;
-  //   const { profileId } = this.state;
-    
-  //   if (profiles && profileId) {
-  //     const newState = {}
-  //     profiles[profileId].sections.forEach(section => {
-  //       newState[section.section] = [];
-  //     })
-
-  //     this.setState = {
-  //       userInput: 
-  //     }
-  //   }
-  // };
-
-  handleUserInput = (parent, name, value) => {
+  handleUserInput = (name, value) => {
     this.setState(prevState => ({
       userInput: {
         ...prevState.userInput,
-        [parent]: {
-          ...prevState.userInput[parent],
-          [name]: value
-        }
+        [name]: value
       }
     }));
   };
 
-  handleUserInputTag = (section, category, subcategory, tag) => {
+  handleUserInputTag = (section, tag, isAdding) => {
+    console.log('>>>handleUserInputTag', isAdding);
+    if (isAdding) this.handleUserInputAddTag(section, tag);
+    else this.handleUserInputRemoveTag(section, tag);
+  }
+
+  handleUserInputAddTag = (section, tag) => {
+    console.log('>>>> handleUserInputAddTag', section, tag);
     this.setState(prevState => {
-      let prevSection = {};
-      let prevCategory = {};
-      let prevSubcategory = {};
+      let newTags = [];
 
-      // check if objects exist in state yet
-      // only add sections/categories if user has selected tags
-      if (prevState.userInput[section]) {
-        prevSection = prevState.userInput[section];
-        
-        if (prevState.userInput[section][category]) {
-          prevCategory = prevState.userInput[section][category];
-        }
-
-        if (subcategory && prevState.userInput[section][category][subcategory]) {
-          prevSubcategory = prevState.userInput[section][category][subcategory];
-        }
+      if (prevState.userInput.descriptors[section]) {
+        newTags = [...prevState.userInput.descriptors[section], tag];
+      } else {
+        newTags = [tag];
       }
 
-      if (subcategory) return {
+      const newState = {
         userInput: {
           ...prevState.userInput,
-          [section]: {
-            ...prevSection,
-            [category]: [
-              ...prevCategory,
-              {
-                [subcategory]: [
-                  ...prevSubcategory,
-                  tag
-                ]
-              }
-            ]
+          descriptors: {
+            ...prevState.userInput.descriptors,
+            [section]: newTags
           }
         }
       };
+
+      console.log('>>>> handleUserInputAddTag', newState);
+
+      return newState;
+    });
+  };
+
+  handleUserInputRemoveTag = (section, tag) => {
+    console.log('>>>> handleUserInputRemoveTag', section, tag);
+    this.setState(prevState => {
+      const index = prevState.userInput.descriptors[section].indexOf(tag);
+      const newTags = prevState.userInput.descriptors[section];
+      newTags.splice(index, 1);
 
       return {
         userInput: {
           ...prevState.userInput,
-          [section]: {
-            ...prevSection,
-            [category]: [
-              ...prevCategory,
-              tag
-            ]
+          descriptors: {
+            ...prevState.userInput.descriptors,
+            [section]: newTags
           }
         }
       };
-
     });
   };
 
-  // TODO: add, subcategories, remove tag
+  // handleUserInput = (parent, name, value) => {
+  //   this.setState(prevState => ({
+  //     userInput: {
+  //       ...prevState.userInput,
+  //       [parent]: {
+  //         ...prevState.userInput[parent],
+  //         [name]: value
+  //       }
+  //     }
+  //   }));
+  // };
+
+  // handleUserInputTag = (section, category, tag) => {
+  //   // TODO: check if removing or adding tag
+  //   if (!newSection)
+  //     this.setState(prevState => {
+  //       let newSection = {};
+
+  //       const oldSection = userInput.sections.find(s => s.section === section);
+
+  //       return {
+  //         userInput: {
+  //           sections: [...prevState.userInput.sections, newSection]
+  //         }
+  //       };
+  //     });
+  // };
+
+  // handleUserInputTag = (section, category, tag) => {
+  //   // TODO: check if removing or adding tag
+
+  //   this.setState(prevState => {
+  //     let prevSection = {};
+  //     let prevCategory = {};
+  //     let prevSubcategory = {};
+
+  //     // check if objects exist in state yet
+  //     // only add sections/categories if user has selected tags
+  //     if (prevState.userInput[section]) {
+  //       prevSection = prevState.userInput[section];
+
+  //       if (prevState.userInput[section][category]) {
+  //         prevCategory = prevState.userInput[section][category];
+  //       }
+
+  //       // TODO:
+  //       // if (
+  //       //   subcategory &&
+  //       //   prevState.userInput[section][category][subcategory]
+  //       // ) {
+  //       //   prevSubcategory = prevState.userInput[section][category][subcategory];
+  //       // }
+  //     }
+
+  //     // TODO:
+  //     // if (subcategory)
+  //     //   return {
+  //     //     userInput: {
+  //     //       ...prevState.userInput,
+  //     //       [section]: {
+  //     //         ...prevSection,
+  //     //         [category]: [
+  //     //           ...prevCategory,
+  //     //           {
+  //     //             [subcategory]: [...prevSubcategory, tag]
+  //     //           }
+  //     //         ]
+  //     //       }
+  //     //     }
+  //     //   };
+
+  //     return {
+  //       userInput: {
+  //         ...prevState.userInput,
+  //         [section]: {
+  //           ...prevSection,
+  //           [category]: [...prevCategory, tag]
+  //         }
+  //       }
+  //     };
+  //   });
+  // };
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -176,102 +212,94 @@ class Tasting extends React.PureComponent {
   };
 
   handleClick = profileId => {
-    this.setState({ profileId });
+    this.setState(prevState => ({
+      userInput: {
+        ...prevState.userInput,
+        profileId
+      }
+    }));
   };
 
-  saveTasting = () => {
-    console.log('saveTasting');
+  handleSave = () => {
+    console.log('saveTasting', this.state.userInput);
+    this.props.saveTasting(this.state.userInput);
   };
 
   render() {
     const { classes, theme, profiles } = this.props;
-    const { value, profileId, userInput } = this.state;
+    const { value, userInput } = this.state;
 
-    if (profileId === '' || !profiles)
+    if (userInput.profileId === '' || !profiles)
       return <TastingMenu handleClick={this.handleClick} />;
 
-    const lastIndex = profiles[profileId].sections.length;
-    
-    const transitionDuration = {
-      enter: theme.transitions.duration.enteringScreen,
-      exit: theme.transitions.duration.leavingScreen,
-    };
-    const fabs = [
-      {
-        color: 'primary',
-        className: classes.fab,
-        icon: <RightIcon />,
-      },
-      {
-        color: 'secondary',
-        className: classes.fab,
-        icon: <EditIcon />,
-      },
-      {
-        color: 'inherit',
-        className: classNames(classes.fab, classes.fabGreen),
-        icon: <UpIcon />,
-      },
-    ];
+    const lastIndex = profiles[userInput.profileId].sections.length;
+    console.log('lastIndex', lastIndex);
 
-
-    return <div className={classes.root}>
-      <AppBar position="static" color="default">
-        <Tabs value={this.state.value} onChange={this.handleTabChange} indicatorColor="primary" textColor="primary" scrollable scrollButtons="auto">
-          <Tab label="Label" />
-          {profiles[profileId].sections.map((section, index) => (
-            <Tab key={index} label={section.section} />
-          ))}
-          <Tab label="Notes" />
-        </Tabs>
-      </AppBar>
-      <SwipeableViews axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'} index={this.state.value} onChangeIndex={this.handleChangeIndex}>
-        {/* LABEL TAB */}
-        <TabContainer dir={theme.direction}>
-          <TastingWineLabel
-            show={value === 0}
-            userInput={userInput.label}
-            handleUserInput={this.handleUserInput}
-          />
-        </TabContainer>
-        {/* SECTION TABS */}
-        {profiles[profileId].sections.map((section, index) => (
-          <TabContainer key={index} dir={theme.direction}>
-            <TastingSection
-              show={value === index + 1}
-              section={section}
+    return (
+      <div className={classes.root}>
+        <AppBar position="static" color="default">
+          <Tabs
+            value={this.state.value}
+            onChange={this.handleTabChange}
+            indicatorColor="primary"
+            textColor="primary"
+            scrollable
+            scrollButtons="auto"
+          >
+            <Tab label="Label" />
+            {profiles[userInput.profileId].sections.map((section, index) => (
+              <Tab key={index} label={section.section} />
+            ))}
+            <Tab label="Notes" />
+          </Tabs>
+        </AppBar>
+        <SwipeableViews
+          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          index={this.state.value}
+          onChangeIndex={this.handleChangeIndex}
+        >
+          {/* LABEL TAB */}
+          <TabContainer dir={theme.direction}>
+            <TastingWineLabel
+              show={value === 0}
+              type={userInput.type}
+              winery={userInput.winery}
+              vintage={userInput.vintage}
+              style={userInput.style}
+              location={userInput.location}
               handleUserInput={this.handleUserInput}
-              handleUserInputTag={this.handleUserInputTag}
             />
           </TabContainer>
-        ))}
-        {/* NOTES TAB */}
-        <TabContainer dir={theme.direction}>
-          <TastingNotes
-            show={value === lastIndex + 1}
-            notes={userInput.notes.final}
-            name="final"
-            handleUserInput={this.handleUserInput}
-          />
-        </TabContainer>
-      </SwipeableViews>
-
-      {fabs.map((fab, index) => (
-        <Zoom
-          key={fab.color}
-          in={this.state.value === index}
-          timeout={transitionDuration}
-          style={{
-            transitionDelay: `${this.state.value === index ? transitionDuration.exit : 0}ms`,
-          }}
-          unmountOnExit
+          {/* SECTION TABS */}
+          {profiles[userInput.profileId].sections.map((section, index) => (
+            <TabContainer key={index} dir={theme.direction}>
+              <TastingSection
+                show={value === index + 1}
+                section={section}
+                handleUserInputTag={this.handleUserInputTag}
+              />
+            </TabContainer>
+          ))}
+          {/* NOTES TAB */}
+          <TabContainer dir={theme.direction}>
+            <TastingNotes
+              show={value === lastIndex + 1}
+              notes={userInput.notes}
+              handleUserInput={this.handleUserInput}
+            />
+          </TabContainer>
+        </SwipeableViews>
+        {/* FLOATING ACTION BUTTON */}
+        <Button
+          variant="fab"
+          className={classes.fab}
+          color="primary"
+          onClick={this.handleSave}
         >
-          <Button variant="fab" className={fab.className} color={fab.color}>
-            {fab.icon}
-          </Button>
-        </Zoom>
-      ))}
-    </div>;
+          <SaveIcon />
+        </Button>
+      </div>
+    );
   }
 }
 
@@ -284,5 +312,5 @@ const styledTasting = withStyles(styles, { withTheme: true })(Tasting);
 
 export default connect(
   ({ profiles }) => ({ profiles }),
-  { fetchProfile }
+  { fetchProfile, saveTasting }
 )(styledTasting);

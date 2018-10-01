@@ -1,4 +1,4 @@
-import { LOGIN } from '../Auth/reducers';
+import { LOGIN } from '../login/reducers';
 import { auth } from '../../services/firebase';
 
 export const loginFromLocalStorage = () => dispatch => {

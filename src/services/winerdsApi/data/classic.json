@@ -41,51 +41,51 @@
         {
           "category": "fruit",
           "tags": [
-            {
-              "subcategory": "citrus",
-              "tags": [
-                "lime",
-                "lemon",
-                "orange",
-                "grapefruit",
-                "citrus zest"
-              ]
-            },
             "apple",
             "pear",
-            {
-              "subcategory": "stone/pit",
-              "tags": [
-                "apricot",
-                "nectarine",
-                "peach"
-              ]
-            },
-            {
-              "subcategory": "tropical",
-              "tags": [
-                "banana",
-                "pineapple",
-                "lychee",
-                "coconut"
-              ]
-            },
             "melon",
             "dark",
             "red",
             "black",
             "blue",
-            {
-              "subcategory": "berry",
-              "tags": [
-                "strawberry",
-                "raspberry",
-                "cherry",
-                "blueberry",
-                "blackberry"
-              ]
-            },
             "cassis"
+          ]
+        },
+        {
+          "category": "citrus",
+          "tags": [
+            "lime",
+            "lemon",
+            "orange",
+            "grapefruit",
+            "citrus zest"
+          ]
+        },
+        {
+          "category": "stone/pit",
+          "tags": [
+            "apricot",
+            "nectarine",
+            "peach"
+          ]
+        },
+        {
+          "category": "tropical",
+          "tags": [
+            "banana",
+            "pineapple",
+            "lychee",
+            "coconut"
+          ]
+        },
+        {
+          "category": "berry",
+          "tags": [
+            "strawberry",
+            "raspberry",
+            "cherry",
+            "blueberry",
+            "blackberry"
           ]
         },
         {
@@ -110,18 +110,6 @@
         {
           "category": "non-fruit",
           "tags": [
-            {
-              "subcategory": "floral",
-              "tags": [
-                "white flowers",
-                "violet",
-                "perfumed",
-                "lavender",
-                "rose",
-                "citrus blossom",
-                "geranium"
-              ]
-            },
             "vegetal",
             "herbal",
             "spice",
@@ -129,6 +117,18 @@
             "barn",
             "petrol",
             "fermentation"
+          ]
+        },
+        {
+          "category": "floral",
+          "tags": [
+            "white flowers",
+            "violet",
+            "perfumed",
+            "lavender",
+            "rose",
+            "citrus blossom",
+            "geranium"
           ]
         },
         {
@@ -166,64 +166,53 @@
       "section": "palate",
       "categories": [
         {
-          "category": "sweetness",
-          "tags": [
-            "bone dry",
-            "dry",
-            "off-dry",
-            "medium sweet",
-            "sweet",
-            "lusciously sweet"
-          ]
-        },
-        {
           "category": "fruit",
           "tags": [
-            {
-              "subcategory": "citrus",
-              "tags": [
-                "lime",
-                "lemon",
-                "orange",
-                "grapefruit",
-                "citrus zest"
-              ]
-            },
             "apple",
             "pear",
-            {
-              "subcategory": "stone/pit",
-              "tags": [
-                "apricot",
-                "nectarine",
-                "peach"
-              ]
-            },
-            {
-              "subcategory": "tropical",
-              "tags": [
-                "banana",
-                "pineapple",
-                "lychee",
-                "coconut"
-              ]
-            },
             "melon",
             "dark",
             "red",
             "black",
             "blue",
-            {
-              "subcategory": "berry",
-              "tags": [
-                "strawberry",
-                "raspberry",
-                "cherry",
-                "blueberry",
-                "blackberry"
-              ]
-            },
             "cassis"
+          ]
+        },
+        {
+          "category": "citrus",
+          "tags": [
+            "lime",
+            "lemon",
+            "orange",
+            "grapefruit",
+            "citrus zest"
+          ]
+        },
+        {
+          "category": "stone/pit",
+          "tags": [
+            "apricot",
+            "nectarine",
+            "peach"
+          ]
+        },
+        {
+          "category": "tropical",
+          "tags": [
+            "banana",
+            "pineapple",
+            "lychee",
+            "coconut"
+          ]
+        },
+        {
+          "category": "berry",
+          "tags": [
+            "strawberry",
+            "raspberry",
+            "cherry",
+            "blueberry",
+            "blackberry"
           ]
         },
         {
@@ -248,18 +237,6 @@
         {
           "category": "non-fruit",
           "tags": [
-            {
-              "subcategory": "floral",
-              "tags": [
-                "white flowers",
-                "violet",
-                "perfumed",
-                "lavender",
-                "rose",
-                "citrus blossom",
-                "geranium"
-              ]
-            },
             "vegetal",
             "herbal",
             "spice",
@@ -267,6 +244,18 @@
             "barn",
             "petrol",
             "fermentation"
+          ]
+        },
+        {
+          "category": "floral",
+          "tags": [
+            "white flowers",
+            "violet",
+            "perfumed",
+            "lavender",
+            "rose",
+            "citrus blossom",
+            "geranium"
           ]
         },
         {

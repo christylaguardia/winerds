@@ -21,7 +21,7 @@ export const theme = createMuiTheme({
 
 export const layout = {
   width: 'auto',
-  marginTop: theme.spacing.unit,
+  marginTop: theme.spacing.unit * 3,
   marginBottom: theme.spacing.unit,
   marginLeft: theme.spacing.unit * 3,
   marginRight: theme.spacing.unit * 3,

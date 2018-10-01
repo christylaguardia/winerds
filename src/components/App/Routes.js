@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
-import Home from '../Home/Home';
-import About from '../Home/About';
-import Login from '../Home/Login';
+import Home from './Home';
+import About from './About';
+import Login from './Login';
 import Tasting from '../Tasting/Tasting';
 import Profile from '../Profile/Profile';
 import Configure from '../Configure/Configure';
+import Stats from '../Stats/Stats';
 
 const Placeholder = ({ text }) => (
   <Typography variant="display1" gutterBottom>
@@ -16,7 +17,6 @@ const Placeholder = ({ text }) => (
 );
 
 const Error = () => <Placeholder text="Error!" />;
-const Stats = () => <Placeholder text="Stats" />;
 
 const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => (
   <Route {...rest}

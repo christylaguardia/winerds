@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 import store from '../../store';
-import { LOGIN, LOGOUT } from '../../components/Auth/reducers';
+import { LOGIN, LOGOUT } from '../../components/App/reducers';
 import { firebaseApp } from './firebase';
 
 export const auth = firebaseApp.auth();
@@ -23,7 +23,6 @@ export let currentUser = auth.currentUser;
 // Listen for changes to auth state
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    console.log('>>>>> onAuthStateChanged user', user);
     firebase.auth().currentUser.getIdToken(true)
       .then(idToken => {
         const providerData = user.providerData.map(profile => ({

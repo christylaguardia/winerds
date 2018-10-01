@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import History from './History';
 import { getUser, saveUser } from './actions';
 import { layout } from '../App/muiTheme';
 
@@ -89,76 +90,81 @@ class Profile extends React.Component {
 
     return (
       <div className={classes.layout}>
-        <Typography variant="title" gutterBottom>
-          {`welcome ${user.providerData[0].displayName}`}
+        <Typography variant="title" align="center" gutterBottom>
+          {user.providerData[0].displayName}
         </Typography>
 
-        {editorOff
-        ? <Button color="primary" variant="outlined" className={classes.button} onClick={() => this.setState({ editorOff: false })}>
-            edit your profile
-          </Button>
-        : <form
-          className={classes.container}
-          noValidate
-          autoComplete="off"
-          onSubmit={event => {
-            event.preventDefault();
-            this.handleSubmit();
-            // event.target.reset();
-          }}
-        >
-          <TextField
-            id="displayName"
-            name="displayName"
-            label="name"
-            value={displayName}
-            placeholder="your name"
-            // helperText="please enter your name"
-            fullWidth
-            margin="normal"
-            disabled={editorOff}
-            onChange={this.handleChange}
-          />
-          <TextField
-            id="email"
-            name="email"
-            label="email"
-            type="email"
-            value={email}
-            placeholder="email"
-            // helperText="please enter email"
-            fullWidth
-            margin="normal"
-            disabled={editorOff}
-            onChange={this.handleChange}
-          />
-          <TextField
-            id="experience"
-            name="experience"
-            label="wine experience"
-            value={experience}
-            select
-            SelectProps={{ MenuProps: { className: classes.menu } }}
-            // helperText="please select your wine experience"
-            fullWidth
-            margin="normal"
-            disabled={editorOff}
-            onChange={this.handleChange}
-          >
-            {experienceLevels.map(option => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-          <Button type="submit" variant="contained" color="primary" className={classes.button}>
-            save
-          </Button>
-          <Button color="primary" className={classes.button} onClick={() => this.setState({ editorOff: true })}>
-            cancel
-          </Button>
+        <Grid container spacing={16} justify="center">
+          <Grid item>
 
-        </form>}
+            {editorOff
+            ? <Button color="primary" variant="outlined" className={classes.button} onClick={() => this.setState({ editorOff: false })}>
+                edit your profile
+              </Button>
+            : <form
+              className={classes.container}
+              noValidate
+              autoComplete="off"
+              onSubmit={event => {
+                event.preventDefault();
+                this.handleSubmit();
+                // TODO: reset not working
+                // event.target.reset();
+              }}
+            >
+              <TextField
+                id="displayName"
+                name="displayName"
+                label="name"
+                value={displayName}
+                placeholder="your name"
+                fullWidth
+                margin="normal"
+                disabled={editorOff}
+                onChange={this.handleChange}
+              />
+              <TextField
+                id="email"
+                name="email"
+                label="email"
+                type="email"
+                value={email}
+                placeholder="email"
+                fullWidth
+                margin="normal"
+                disabled={editorOff}
+                onChange={this.handleChange}
+              />
+              <TextField
+                id="experience"
+                name="experience"
+                label="wine experience"
+                value={experience}
+                select
+                SelectProps={{ MenuProps: { className: classes.menu } }}
+                fullWidth
+                margin="normal"
+                disabled={editorOff}
+                onChange={this.handleChange}
+              >
+                {experienceLevels.map(option => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+              <Button type="submit" variant="contained" color="primary" className={classes.button}>
+                save
+              </Button>
+              <Button color="primary" className={classes.button} onClick={() => this.setState({ editorOff: true })}>
+                cancel
+              </Button>
+
+            </form>}
+            </Grid>
+          </Grid>
+
+        <History />
       </div>
     );
   }

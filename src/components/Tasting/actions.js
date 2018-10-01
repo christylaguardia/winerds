@@ -1,7 +1,18 @@
-import { FETCHED_PROFILE_NAMES, FETCHED_PROFILE } from './reducers';
+import { FETCHED_PROFILE_NAMES, FETCHED_PROFILE, SAVED_TASTING } from './reducers';
 import profilesApi from '../../services/winerdsApi/profiles';
-// import { getProfile } from '../../services/content/tasting';
+import tastingsApi from '../../services/winerdsApi/tastings';
 
-export const fetchProfiles = () => ({ type: FETCHED_PROFILE_NAMES, payload: profilesApi.getProfiles() });
-export const fetchProfile = id => ({ type: FETCHED_PROFILE, payload: profilesApi.getProfileById(id) });
-// export const fetchProfile = name => ({ type: FETCHED_PROFILE, payload: getProfile(name) });
+export const fetchProfiles = () => ({
+  type: FETCHED_PROFILE_NAMES,
+  payload: profilesApi.getProfiles()
+});
+
+export const fetchProfile = id => ({
+  type: FETCHED_PROFILE,
+  payload: profilesApi.getProfileById(id)
+});
+
+export const saveTasting = tasting => ({
+  type: SAVED_TASTING,
+  payload: tastingsApi.saveTasting(tasting)
+});

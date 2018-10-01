@@ -6,5 +6,5 @@ export default {
   },
   saveUser(user) {
     return request.put('/user', user);
-  },
+  }
 };

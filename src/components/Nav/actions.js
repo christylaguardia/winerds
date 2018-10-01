@@ -1,4 +1,4 @@
-import { LOGOUT } from '../Auth/reducers';
+import { LOGOUT } from '../App/reducers';
 import { auth } from '../../services/firebase';
 
 export const logout = () => dispatch => {

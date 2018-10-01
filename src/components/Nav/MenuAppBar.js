@@ -32,7 +32,10 @@ const MenuAppBar = ({ classes, isAuthenticated, logout }) => (
         </Button>
       </div>
       <Typography variant="caption" color="inherit" className={classes.grow}>
-        <Chip label="BETA" variant="outlined" />
+        <Chip
+          label="BETA"
+          color="secondary"
+        />
       </Typography>
       {isAuthenticated ? (
         <Button color="inherit" onClick={logout}>

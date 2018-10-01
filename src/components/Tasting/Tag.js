@@ -4,19 +4,18 @@ import Chip from '@material-ui/core/Chip';
 
 class Tag extends React.PureComponent {
   state = {
-    color: 'default'
+    value: false, // TODO: this should come from state
   }
 
-  getNextColor = () => {
-    const { color } = this.state;
-    const newColor = color === 'default' ? 'secondary' : 'default';
-    this.setState({ color: newColor });
-    this.props.handleClick();
+  toggle = () => {
+    this.setState(prevState => ({
+      value: !prevState.value
+    }), () => this.props.handleClick(this.state.value));
   }
 
   render() {
-    return <span onClick={this.getNextColor}>
-      <Chip color={this.state.color} label={this.props.label} />
+    return <span onClick={this.toggle}>
+      <Chip color={this.state.value ? 'secondary' : 'default'} label={this.props.label} />
     </span>;
   }
 }
