@@ -3,36 +3,27 @@ import { connect } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import Loading from './Loading';
 import Routes from './Routes';
-import NavBar from '../NavBar/NavBar';
-import Login from '../Auth/Login';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import blue from '@material-ui/core/colors/blue';
-
-const theme = createMuiTheme({
-  palette: {
-    primary: blue
-  },
-  // overrides: {
-  // }
-});
-
+import MenuAppBar from '../Nav/MenuAppBar';
+import BottomNavBar from '../Nav/BottomNavBar';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import { theme } from './muiTheme';
 
 class App extends React.Component {
-
   render() {
     const { loading, user } = this.props;
+    const isAuthenticated = user ? !!user.idToken : false;
+    console.log('>>>> isAuthenticated <<<<', isAuthenticated);
 
-    return (
-      <MuiThemeProvider theme={theme}>
-        <BrowserRouter>
-          <div>
-            <NavBar />
-            {loading && <Loading />}
-            {user ? <Routes /> : <Login />}
-          </div>
-        </BrowserRouter>
-      </MuiThemeProvider>
-    );
+    return <MuiThemeProvider theme={theme}>
+      <BrowserRouter>
+        <div>
+          <MenuAppBar isAuthenticated={isAuthenticated} />
+          {loading && <Loading />}
+          <Routes isAuthenticated={isAuthenticated} />
+          {isAuthenticated && <BottomNavBar />}
+        </div>
+      </BrowserRouter>
+    </MuiThemeProvider>;
   }
 }
 

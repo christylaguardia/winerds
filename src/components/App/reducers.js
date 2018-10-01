@@ -8,6 +8,7 @@ export function loading(state = false, { type }) {
     case LOADING:
       return true;
     case LOADED:
+      return false;
     default:
       return state;
   }

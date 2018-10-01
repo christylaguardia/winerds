@@ -1,0 +1,57 @@
+{
+  "classic": {
+    "sight": ["clarity", "concentration", "color"],
+    "nose": [
+      "fruit",
+      "fruit-character",
+      "non-fruit",
+      "earth",
+      "mineral",
+      "wood"
+    ],
+    "palate": [
+      "sweetness",
+      "fruit",
+      "fruit-character",
+      "non-fruit",
+      "earth",
+      "mineral",
+      "wood"
+    ]
+  },
+  "easy": {
+    "sight": ["clarity"],
+    "palate": ["sweetness"]
+  },
+  "advanced": {
+    "sight": ["clarity", "concentration", "color"],
+    "nose": [
+      "fruit",
+      "fruit-character",
+      "non-fruit",
+      "earth",
+      "mineral",
+      "wood"
+    ],
+    "palate": [
+      "acidity",
+      "sweetness",
+      "fruit",
+      "fruit-character",
+      "non-fruit",
+      "earth",
+      "mineral",
+      "wood"
+    ],
+    "finish": [
+      "acidity",
+      "sweetness",
+      "fruit",
+      "fruit-character",
+      "non-fruit",
+      "earth",
+      "mineral",
+      "wood"
+    ]
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "alcohol": ["jammy", "hot", "burn", "legs", "spicy"],
+  "acidity": [
+    "bright",
+    "astringent",
+    "austere",
+    "thin",
+    "lean",
+    "angular",
+    "racy",
+    "tart",
+    "edgy",
+    "nerve",
+    "zippy",
+    "zesty",
+    "lively",
+    "fresh",
+    "crisp",
+    "delicate",
+    "soft",
+    "flabby",
+    "fallen over",
+    "flat"
+  ],
+  "body": [
+    "thin",
+    "cliff-edge",
+    "hollow",
+    "mellow",
+    "short",
+    "austere",
+    "angular",
+    "delicate",
+    "elegant",
+    "light-bodied",
+    "finesse",
+    "closed",
+    "tight",
+    "firm",
+    "polished",
+    "complex",
+    "full-bodied",
+    "powerful",
+    "concentrated",
+    "dense",
+    "opulent",
+    "rich",
+    "extracted",
+    "flabby",
+    "fat"
+  ],
+  "clarity": ["clear", "hazy", "turbid"],
+  "color": [
+    "water white",
+    "straw",
+    "yellow",
+    "gold",
+    "purple",
+    "ruby",
+    "red",
+    "garnet"
+  ],
+  "concentration": ["pale", "medium", "deep"],
+  "earth": ["forest floor", "compost", "mushrooms", "potting soil"],
+  "fruit": [
+    {
+      "citrus": ["lime", "lemon", "orange", "grapefruit", "citrus zest"]
+    },
+    "apple",
+    "pear",
+    {
+      "stone/pit": ["apricot", "nectarine", "peach"]
+    },
+    {
+      "tropical": ["banana", "pineapple", "lychee", "coconut"]
+    },
+    "melon",
+    "dark",
+    "red",
+    "black",
+    "blue",
+    {
+      "berry": ["strawberry", "raspberry", "cherry", "blueberry", "blackberry"]
+    },
+    "cassis"
+  ],
+  "fruit-character": [
+    "ripe",
+    "fresh",
+    "tart",
+    "baked",
+    "stewed",
+    "dried",
+    "desiccated",
+    "bruised",
+    "jammy",
+    "juicy",
+    "flamboyant",
+    "fleshy",
+    "extracted",
+    "plummy"
+  ],
+  "inorganic": [
+    {
+      "mineral": [
+        "mineral",
+        "wet stone",
+        "limestone",
+        "chalk",
+        "slate",
+        "flint"
+      ]
+    },
+    "graphite",
+    "wet asphalt",
+    "unctuous",
+    "oily",
+    "petroleum",
+    "plastic",
+    "tar",
+    "rubber",
+    "diesel",
+    "smoky"
+  ],
+  "non-fruit": [
+    {
+      "floral": [
+        "white flowers",
+        "violet",
+        "perfumed",
+        "lavender",
+        "rose",
+        "citrus blossom",
+        "geranium"
+      ]
+    },
+    "vegetal",
+    "herbal",
+    "spice",
+    "animal",
+    "barn",
+    "petrol",
+    "fermentation"
+  ],
+  "oak": [
+    "smoky",
+    "charcoal",
+    "sweet tobacco",
+    "toasty",
+    "spicy",
+    "clove",
+    "nutty",
+    "coconut",
+    "caramel",
+    "vanilla",
+    "buttery",
+    "dill",
+    "creamy"
+  ],
+  "spice": [
+    {
+      "spicy": [
+        "pepper",
+        "anise",
+        "clove",
+        "cinnamon",
+        "nutmeg",
+        "saffron",
+        "ginger"
+      ]
+    },
+    "bright",
+    "musky"
+  ],
+  "sweetness": [
+    "bone dry",
+    "dry",
+    "off-dry",
+    "medium sweet",
+    "sweet",
+    "lusciously sweet"
+  ],
+  "tannin": [
+    "bitter",
+    "harsh",
+    "aggressive",
+    "grippy",
+    "angular",
+    "powerful",
+    "coarse",
+    "leathery",
+    "rigid",
+    "muscular",
+    "firm",
+    "structured",
+    "chewy",
+    "chocolate",
+    "silky",
+    "smooth",
+    "round",
+    "opulent",
+    "velvety",
+    "voluptuous",
+    "supple",
+    "soft",
+    "spineless",
+    "flabby"
+  ],
+  "yeast": ["sour", "cheesy", "biscuit", "creamy", "buttery"],
+  "mineral": ["mineral", "wet stone", "limestone", "chalk", "slate", "flint"],
+  "wood": ["none", "old vs new", "large vs small", "french vs american"]
+}
