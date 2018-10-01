@@ -1,12 +1,22 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
-// import Auth from './Auth';
-// import Tasting from './Tasting';
-// import Home from '../components/Home';
-// import Contact from '../components/Contact';
-// // import Profile from '../profile/Profile';
-// import TreeView from '../components/TreeView';
+import Typography from '@material-ui/core/Typography';
+import Home from './Home';
+import About from './About';
+import Login from './Login';
+import Tasting from '../Tasting/Tasting';
+import Profile from '../Profile/Profile';
+import Configure from '../Configure/Configure';
+import Stats from '../Stats/Stats';
+
+const Placeholder = ({ text }) => (
+  <Typography variant="display1" gutterBottom>
+    {text}
+  </Typography>
+);
+
+const Error = () => <Placeholder text="Error!" />;
 
 const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => (
   <Route {...rest}
@@ -22,28 +32,38 @@ const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => (
   />
 );
 
-const Routes = ({ user, handleUser }) => {
-
-  const isAuthenticated = !!user;
-  console.log('isAuthenticated', isAuthenticated);
-
-  return (
-    <Switch>
-      <Route exact path="/welcome" render={() => <p>Welcome!</p>} />
-      <PrivateRoute path="/tasting" component={<p>Tasting</p>} isAuthenticated={isAuthenticated} />
-      {/* <Route exact path="/" render={() => <Home isAuthenticated={isAuthenticated} />} />
-      <Route path="/login" render={() => <Auth user={user} handleUser={handleUser} />} />
-      <Route path="/contact" component={Contact} />
-      <PrivateRoute path="/tasting" component={Tasting} isAuthenticated={isAuthenticated} />
-      <PrivateRoute path="/profile" component={Profile} isAuthenticated={isAuthenticated} />
-      <PrivateRoute path="/tags" component={TreeView} isAuthenticated={isAuthenticated} /> */}
-    </Switch>
-  );
-}
+const Routes = ({ isAuthenticated }) => (
+  <Switch>
+    <Route exact path="/" render={() => <Home isAuthenticated={isAuthenticated} />} />
+    <Route exact path="/about" component={About} />
+    <Route exact path="/login" component={Login} />
+    <PrivateRoute
+      path="/profile"
+      component={Profile}
+      isAuthenticated={isAuthenticated}
+    />
+    <PrivateRoute
+      path="/tasting"
+      component={Tasting}
+      isAuthenticated={isAuthenticated}
+    />
+    <PrivateRoute
+      path="/stats"
+      component={Stats}
+      isAuthenticated={isAuthenticated}
+    />
+    <PrivateRoute
+      path="/configure"
+      component={Configure}
+      isAuthenticated={isAuthenticated}
+      exact
+    />
+    <Route path="/" component={Error} />
+  </Switch>
+);
 
 Routes.propTypes = {
-  isAuthenticated: propTypes.bool,
-  handleUser: propTypes.func
+  isAuthenticated: PropTypes.bool.isRequired
 };
 
 export default Routes;

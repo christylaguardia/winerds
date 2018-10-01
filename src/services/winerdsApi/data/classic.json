@@ -1,0 +1,293 @@
+{
+  "profile": "classic",
+  "sections": [
+    {
+      "section": "sight",
+      "categories": [
+        {
+          "category": "clarity",
+          "tags": [
+            "clear",
+            "hazy",
+            "turbid"
+          ]
+        },
+        {
+          "category": "concentration",
+          "tags": [
+            "pale",
+            "medium",
+            "deep"
+          ]
+        },
+        {
+          "category": "color",
+          "tags": [
+            "water white",
+            "straw",
+            "yellow",
+            "gold",
+            "purple",
+            "ruby",
+            "red",
+            "garnet"
+          ]
+        }
+      ]
+    },
+    {
+      "section": "nose",
+      "categories": [
+        {
+          "category": "fruit",
+          "tags": [
+            "apple",
+            "pear",
+            "melon",
+            "dark",
+            "red",
+            "black",
+            "blue",
+            "cassis"
+          ]
+        },
+        {
+          "category": "citrus",
+          "tags": [
+            "lime",
+            "lemon",
+            "orange",
+            "grapefruit",
+            "citrus zest"
+          ]
+        },
+        {
+          "category": "stone/pit",
+          "tags": [
+            "apricot",
+            "nectarine",
+            "peach"
+          ]
+        },
+        {
+          "category": "tropical",
+          "tags": [
+            "banana",
+            "pineapple",
+            "lychee",
+            "coconut"
+          ]
+        },
+        {
+          "category": "berry",
+          "tags": [
+            "strawberry",
+            "raspberry",
+            "cherry",
+            "blueberry",
+            "blackberry"
+          ]
+        },
+        {
+          "category": "fruit-character",
+          "tags": [
+            "ripe",
+            "fresh",
+            "tart",
+            "baked",
+            "stewed",
+            "dried",
+            "desiccated",
+            "bruised",
+            "jammy",
+            "juicy",
+            "flamboyant",
+            "fleshy",
+            "extracted",
+            "plummy"
+          ]
+        },
+        {
+          "category": "non-fruit",
+          "tags": [
+            "vegetal",
+            "herbal",
+            "spice",
+            "animal",
+            "barn",
+            "petrol",
+            "fermentation"
+          ]
+        },
+        {
+          "category": "floral",
+          "tags": [
+            "white flowers",
+            "violet",
+            "perfumed",
+            "lavender",
+            "rose",
+            "citrus blossom",
+            "geranium"
+          ]
+        },
+        {
+          "category": "earth",
+          "tags": [
+            "forest floor",
+            "compost",
+            "mushrooms",
+            "potting soil"
+          ]
+        },
+        {
+          "category": "mineral",
+          "tags": [
+            "mineral",
+            "wet stone",
+            "limestone",
+            "chalk",
+            "slate",
+            "flint"
+          ]
+        },
+        {
+          "category": "wood",
+          "tags": [
+            "none",
+            "old vs new",
+            "large vs small",
+            "french vs american"
+          ]
+        }
+      ]
+    },
+    {
+      "section": "palate",
+      "categories": [
+        {
+          "category": "fruit",
+          "tags": [
+            "apple",
+            "pear",
+            "melon",
+            "dark",
+            "red",
+            "black",
+            "blue",
+            "cassis"
+          ]
+        },
+        {
+          "category": "citrus",
+          "tags": [
+            "lime",
+            "lemon",
+            "orange",
+            "grapefruit",
+            "citrus zest"
+          ]
+        },
+        {
+          "category": "stone/pit",
+          "tags": [
+            "apricot",
+            "nectarine",
+            "peach"
+          ]
+        },
+        {
+          "category": "tropical",
+          "tags": [
+            "banana",
+            "pineapple",
+            "lychee",
+            "coconut"
+          ]
+        },
+        {
+          "category": "berry",
+          "tags": [
+            "strawberry",
+            "raspberry",
+            "cherry",
+            "blueberry",
+            "blackberry"
+          ]
+        },
+        {
+          "category": "fruit-character",
+          "tags": [
+            "ripe",
+            "fresh",
+            "tart",
+            "baked",
+            "stewed",
+            "dried",
+            "desiccated",
+            "bruised",
+            "jammy",
+            "juicy",
+            "flamboyant",
+            "fleshy",
+            "extracted",
+            "plummy"
+          ]
+        },
+        {
+          "category": "non-fruit",
+          "tags": [
+            "vegetal",
+            "herbal",
+            "spice",
+            "animal",
+            "barn",
+            "petrol",
+            "fermentation"
+          ]
+        },
+        {
+          "category": "floral",
+          "tags": [
+            "white flowers",
+            "violet",
+            "perfumed",
+            "lavender",
+            "rose",
+            "citrus blossom",
+            "geranium"
+          ]
+        },
+        {
+          "category": "earth",
+          "tags": [
+            "forest floor",
+            "compost",
+            "mushrooms",
+            "potting soil"
+          ]
+        },
+        {
+          "category": "mineral",
+          "tags": [
+            "mineral",
+            "wet stone",
+            "limestone",
+            "chalk",
+            "slate",
+            "flint"
+          ]
+        },
+        {
+          "category": "wood",
+          "tags": [
+            "none",
+            "old vs new",
+            "large vs small",
+            "french vs american"
+          ]
+        }
+      ]
+    }
+  ]
+}

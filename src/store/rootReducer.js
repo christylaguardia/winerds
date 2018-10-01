@@ -1,11 +1,18 @@
 import { combineReducers } from 'redux';
-import { loading, errors } from '../components/App/reducers';
-import { user, RESET_STORE } from '../components/Auth/reducers';
+import { loading, errors, user, RESET_STORE } from '../components/App/reducers';
+import {
+  profileNames,
+  profiles,
+  tastings
+} from '../components/Tasting/reducers';
 
 const appReducer = combineReducers({
   loading,
   errors,
   user,
+  profileNames,
+  profiles,
+  tastings
 });
 
 const rootReducer = (state, action) => {
