@@ -1,5 +1,11 @@
 language: node_js
-deploy:
-  provider: firebase
-  token:
-    secure: mKOukkqg4ingmydSZBTeLu5qGCSS3eqwKEa6H7K+Qv58Bm/l3h1WxCW8b+YPspHMjXNvCb1xlQZIKOfT93NeNOuKwXE3KWb6ehbnA6Pa40Gw4ODOskC7lesP4PvLPevovYDyRgFfUxek5QOo/QozxbNvu8J6YFr13smbNzpX4/Z7BVK8x0c3iqOx5WYGub7q9N7wyFto8AVOctnnp4sxwAv3//w7UhmcJhH8/gJIacpjWbpBhjL9KAZH4xMJ6Eze2NYicwwDPKecanDHeHDiZWV5QmZGl49q4LT+5vKgmFuED6qUPXAyrfs/4fRi+HMO7lpLKEUi0bHWBteUlyugj+qKkbv+43xK5Pm3t9UW53MJEcrcNwzKAZyiMzI7wjwOKzLRMEDKWAftk669OwgGtZuJpYb9EMDc/l6snBc0enKOlKy+WZkgF+fE0IuumZyow1SCZe8gIWbHt/FsD42LZH6+nbWTuODpv983dIjrhNcMCW8vu2EG2ZiB5acfFAAchXhnIf7kSdXcx7/5GQ4zLlsdF1ORbMwFXC1YsIjEn1EB/5ANv/z1ALgf9BIy07pppDHKkT1QliZXvbUy35VwmfULupXhvYVAr6f3NtE2JICkb0AE5J2v475LAoaiIl3gNZ6Cj4O/ed0vsai4lGppvBoijbM9GljNSpcpbJsK5sg=
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+script:
+  - npm test
+  - npm run build
+on:
+  branch: master

@@ -21,3 +21,6 @@ yarn-error.log*
 # old files
 src/old
 *.old
+
+# api keys
+google-credentials.json
