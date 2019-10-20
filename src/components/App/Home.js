@@ -19,7 +19,7 @@ const Home = ({ classes, isAuthenticated }) => {
     <div>
       <Hero
         title="winerds"
-        subtitle="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        subtitle="Nerd out on wine tasting."
       />
       <Grid container spacing={16} justify="center">
         <Grid item>
