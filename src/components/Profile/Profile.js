@@ -8,7 +8,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import History from "./History";
-import { getUser, saveUser } from "./actions";
+// import { getUser, saveUser } from "./actions";
 import { layout } from "../../muiTheme";
 
 const styles = theme => ({
@@ -47,7 +47,7 @@ class Profile extends React.Component {
   componentWillMount() {
     const { user, getUser } = this.props;
 
-    if (!user.data) getUser();
+    // if (!user.data) getUser();
   }
 
   componentDidMount() {
@@ -81,7 +81,7 @@ class Profile extends React.Component {
       experience,
       uid: this.props.user.uid
     };
-    this.props.saveUser(user);
+    // this.props.saveUser(user);
   };
 
   render() {
@@ -90,11 +90,11 @@ class Profile extends React.Component {
 
     return (
       <div className={classes.layout}>
-        <Typography variant="title" align="center" gutterBottom>
+        <Typography variant="h3" align="center" gutterBottom>
           {user.providerData[0].displayName}
         </Typography>
 
-        <Grid container spacing={16} justify="center">
+        <Grid container spacing={8} justify="center">
           <Grid item>
             {editorOff ? (
               <Button
@@ -190,5 +190,5 @@ Profile.propTypes = {
 
 export default connect(
   ({ user }) => ({ user }),
-  { getUser, saveUser }
+  null, // { getUser, saveUser }
 )(withStyles(styles)(Profile));

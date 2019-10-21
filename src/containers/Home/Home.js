@@ -18,7 +18,7 @@ const Home = ({ isAuthenticated }) => {
   return (
     <div>
       <Hero title="Wine Tasting Guide" />
-      <Grid container spacing={16} justify="center">
+      <Grid container spacing={8} justify="center">
         <Grid item>
           <Login />
         </Grid>

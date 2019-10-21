@@ -13,7 +13,7 @@ import TastingWineLabel from "./TastingLabel";
 import TastingSection from "./TastingSection";
 import TastingMenu from "./TastingMenu";
 import TastingNotes from "./TastingNotes";
-import { fetchProfile, saveTasting } from "./actions";
+// import { fetchProfile, saveTasting } from "./actions";
 
 const TabContainer = ({ children, dir }) => (
   <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
@@ -222,7 +222,7 @@ class Tasting extends React.PureComponent {
 
   handleSave = () => {
     console.log("saveTasting", this.state.userInput);
-    this.props.saveTasting(this.state.userInput);
+    // this.props.saveTasting(this.state.userInput);
   };
 
   render() {
@@ -312,5 +312,5 @@ const styledTasting = withStyles(styles, { withTheme: true })(Tasting);
 
 export default connect(
   ({ profiles }) => ({ profiles }),
-  { fetchProfile, saveTasting }
+  null, // { fetchProfile, saveTasting }
 )(styledTasting);
