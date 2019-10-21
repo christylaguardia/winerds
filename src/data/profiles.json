@@ -1,5 +1,6 @@
 {
   "classic": {
+    "description": "The standard",
     "sight": ["clarity", "concentration", "color"],
     "nose": [
       "fruit",
@@ -20,10 +21,12 @@
     ]
   },
   "easy": {
+    "description": "The quick",
     "sight": ["clarity"],
     "palate": ["sweetness"]
   },
   "advanced": {
+    "description": "For the sit down tastings",
     "sight": ["clarity", "concentration", "color"],
     "nose": [
       "fruit",

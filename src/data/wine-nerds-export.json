@@ -1,0 +1,536 @@
+{
+  "flamelink" : {
+    "environments" : {
+      "production" : {
+        "content" : {
+          "blog" : {
+            "en-US" : {
+              "1532338106729" : {
+                "__meta__" : {
+                  "createdBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+                  "createdDate" : "2018-07-23T09:28:26.729Z",
+                  "lastModifiedBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+                  "lastModifiedDate" : "2018-07-23T09:28:31.517Z"
+                },
+                "article" : "# Lorem ipsum dolor amet sartorial affogato cornhole offal literally occupy hoodie flexitarian.\n\nBeard readymade 90's migas. Cardigan sriracha asymmetrical meh air plant. Tumeric next level listicle tbh lyft readymade aesthetic shabby chic beard lumbersexual.\n\nFlexitarian kinfolk succulents mustache. Artisan bushwick drinking vinegar franzen man braid disrupt, pork belly retro scenester. Farm-to-table etsy la croix freegan brooklyn, chartreuse forage pickled locavore poke. Next level celiac hexagon, freegan 3 wolf moon waistcoat shaman unicorn bushwick farm-to-table sriracha adaptogen mixtape blue bottle disrupt.\n\n## Lomo vegan hot chicken chartreuse crucifix shabby chic umami offal photo booth asymmetrical williamsburg cliche fashion axe health goth neutra.\n\nCraft beer you probably haven't heard of them deep v readymade fam pinterest af shaman authentic dreamcatcher tote bag gluten-free twee seitan bicycle rights.\n\nFreegan hella drinking vinegar, locavore literally cardigan four dollar toast. Franzen tumeric lomo narwhal cloud bread tousled. Artisan helvetica unicorn gluten-free tumeric kogi whatever jean shorts master cleanse mixtape kombucha pour-over. Actually fanny pack plaid shoreditch bitters vice mlkshk everyday carry ennui taxidermy. Microdosing snackwave air plant activated charcoal.",
+                "created" : "2018-07-23T02:27:14-07:00",
+                "id" : 1532338106729,
+                "publish" : true,
+                "title" : "Hipster Ipsum"
+              },
+              "1532338189411" : {
+                "__meta__" : {
+                  "createdBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+                  "createdDate" : "2018-07-23T09:29:49.413Z",
+                  "lastModifiedBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+                  "lastModifiedDate" : "2018-07-23T09:30:25.875Z"
+                },
+                "article" : "\n# Liquorice bonbon danish candy canes sweet roll. Sweet roll fruitcake chupa chups oat cake apple pie.\n\n## Pastry tootsie roll sesame snaps biscuit halvah jelly.\n\nMarzipan lemon drops bear claw dragée pastry gummies marshmallow candy gingerbread. Bonbon jelly beans gummies gummies. Gummi bears ice cream chocolate cake icing gingerbread oat cake gummi bears muffin dessert. Biscuit candy canes danish jelly beans biscuit.\n\nJelly-o biscuit tiramisu muffin tart. Dragée chocolate chocolate carrot cake cookie tiramisu chocolate cake. Tiramisu halvah marshmallow. Sweet powder liquorice chocolate.\n\n> Chocolate cake candy canes cookie muffin bear claw sweet cupcake macaroon.\n\nTootsie roll candy canes toffee. Sweet roll fruitcake gummies bonbon powder apple pie tootsie roll sesame snaps. Sugar plum cookie pie toffee cupcake.\n\nSugar plum wafer bear claw jelly-o powder tart chocolate cake icing. Jelly beans icing candy soufflé dragée wafer. Gingerbread cookie gummi bears lollipop.",
+                "created" : "2018-07-23T02:28:44-07:00",
+                "id" : 1532338189411,
+                "publish" : true,
+                "title" : "Cupcake Ipsum"
+              },
+              "1532338332231" : {
+                "__meta__" : {
+                  "createdBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+                  "createdDate" : "2018-07-23T09:32:12.231Z"
+                },
+                "article" : "# Bacon ipsum dolor amet beef capicola doner, leberkas tail t-bone turducken porchetta sausage.\n\nMeatball pork capicola porchetta kevin. Rump tri-tip jerky, hamburger alcatra turkey biltong cupim corned beef ground round chuck tenderloin pork loin ham pastrami. _Ground round kielbasa pastrami short ribs tongue spare ribs picanha turkey jerky shoulder corned beef._\n\nLandjaeger salami sirloin porchetta bresaola hamburger leberkas andouille corned beef spare ribs buffalo. Shoulder buffalo landjaeger hamburger, jerky pancetta doner shank chicken ball tip tri-tip drumstick leberkas sausage. Cow pancetta t-bone beef strip steak landjaeger doner ball tip tri-tip ham swine. Cow leberkas shankle tongue cupim pancetta sausage burgdoggen porchetta fatback turducken landjaeger pork spare ribs ball tip. Hamburger beef kevin spare ribs pastrami.\n\n## Ground round t-bone pork loin doner brisket.\n\nPork loin beef ribs alcatra ham short loin rump sirloin meatloaf hamburger chicken. Venison prosciutto biltong bacon pastrami, turducken short ribs spare ribs tenderloin turkey.\n\n> Flank boudin cupim porchetta, kielbasa shank swine pork belly pig sirloin.\n\nSirloin ground round buffalo andouille brisket landjaeger, capicola salami beef ribs pork belly boudin chuck burgdoggen. Beef short loin tail biltong.\n\n## Porchetta landjaeger pig, t-bone jerky capicola chicken pork chop leberkas ham hock alcatra bacon short ribs swine.\n\n**Beef jowl meatloaf bacon, ribeye pork leberkas tongue cow.** Beef burgdoggen filet mignon, shank ball tip tail pig venison sausage salami chuck turkey chicken corned beef short ribs. Porchetta chuck swine bacon andouille beef tenderloin, drumstick rump sausage bresaola.\n\nChuck cupim tail, frankfurter brisket meatloaf pork chop kevin fatback tri-tip capicola pork loin ground round rump flank. Venison jowl capicola shankle landjaeger frankfurter. Short loin shank porchetta venison pork chop cupim. Corned beef pastrami strip steak leberkas, salami brisket kevin.",
+                "created" : "2018-07-23T02:30:28-07:00",
+                "id" : 1532338332231,
+                "publish" : true,
+                "title" : "Bacon Ipsum"
+              }
+            }
+          },
+          "descriptors" : {
+            "en-US" : {
+              "1532338893380" : {
+                "__meta__" : {
+                  "createdBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+                  "createdDate" : "2018-07-23T09:41:33.381Z"
+                },
+                "category" : "Berry",
+                "descriptors" : [ {
+                  "name" : "Strawberry",
+                  "uniqueKey" : "0Uwpw28L8"
+                }, {
+                  "name" : "Raspberry",
+                  "uniqueKey" : "HkJoLacRn"
+                }, {
+                  "name" : "Cherry",
+                  "uniqueKey" : "IUE29wPil"
+                }, {
+                  "name" : "Blueberry",
+                  "uniqueKey" : "Nwk37PdVs"
+                }, {
+                  "name" : "Blackberry",
+                  "uniqueKey" : "0unrcaS-z"
+                } ],
+                "id" : 1532338893380
+              },
+              "1532339036099" : {
+                "__meta__" : {
+                  "createdBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+                  "createdDate" : "2018-07-23T09:43:56.102Z"
+                },
+                "category" : "Mineral",
+                "descriptors" : [ {
+                  "name" : "Mineral",
+                  "uniqueKey" : "pbd7d-wDV"
+                }, {
+                  "name" : "Wet Stone",
+                  "uniqueKey" : "8uK2SwKIT"
+                }, {
+                  "name" : "Limestone",
+                  "uniqueKey" : "A0PTfvcHw"
+                }, {
+                  "name" : "Chalk",
+                  "uniqueKey" : "-mZYGWv1H"
+                }, {
+                  "name" : "Slate",
+                  "uniqueKey" : "_IRL4mA_T"
+                }, {
+                  "name" : "Flint",
+                  "uniqueKey" : "9SVW_p0yk"
+                } ],
+                "id" : 1532339036099
+              },
+              "1532339110627" : {
+                "__meta__" : {
+                  "createdBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+                  "createdDate" : "2018-07-23T09:45:10.627Z"
+                },
+                "category" : "Sweetness",
+                "descriptors" : [ {
+                  "name" : "Bone Dry",
+                  "uniqueKey" : "FicPcBnQd"
+                }, {
+                  "name" : "Dry",
+                  "uniqueKey" : "GcZFURnBm"
+                }, {
+                  "name" : "Off-Dry",
+                  "uniqueKey" : "jATAzbwQ2"
+                }, {
+                  "name" : "Medium Sweet",
+                  "uniqueKey" : "oh8bBHKSG"
+                }, {
+                  "name" : "Sweet",
+                  "uniqueKey" : "VL48QW9hk"
+                }, {
+                  "name" : "Lusciously Sweet",
+                  "uniqueKey" : "_36DID-Lf"
+                } ],
+                "id" : 1532339110627
+              },
+              "1532339299023" : {
+                "__meta__" : {
+                  "createdBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+                  "createdDate" : "2018-07-23T09:48:19.023Z"
+                },
+                "category" : "Fruit",
+                "descriptors" : [ {
+                  "name" : "Apple",
+                  "uniqueKey" : "4pAZX4qQs"
+                } ],
+                "id" : 1532339299023,
+                "subcategory" : [ {
+                  "category" : 1532338893380,
+                  "uniqueKey" : "vulNYqswC"
+                } ]
+              }
+            }
+          }
+        },
+        "schemas" : {
+          "blog" : {
+            "__meta__" : {
+              "createdBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+              "createdDate" : "2018-07-23T09:26:47.704Z"
+            },
+            "description" : "Blog articles",
+            "enabled" : true,
+            "fields" : [ {
+              "defaultValue" : "",
+              "description" : "",
+              "gridColumns" : {
+                "lg" : 12,
+                "md" : 12,
+                "sm" : 12,
+                "xs" : 12
+              },
+              "id" : 1532337872251,
+              "key" : "title",
+              "show" : false,
+              "title" : "Title",
+              "type" : "text"
+            }, {
+              "defaultValue" : "",
+              "description" : "",
+              "gridColumns" : {
+                "lg" : 12,
+                "md" : 12,
+                "sm" : 12,
+                "xs" : 12
+              },
+              "id" : 1532337934385,
+              "key" : "publish",
+              "show" : false,
+              "title" : "Publish",
+              "type" : "switch"
+            }, {
+              "defaultValue" : "",
+              "description" : "",
+              "displayFormat" : "DD/MM/YYYY",
+              "gridColumns" : {
+                "lg" : 12,
+                "md" : 12,
+                "sm" : 12,
+                "xs" : 12
+              },
+              "id" : 1532337922142,
+              "key" : "created",
+              "show" : false,
+              "title" : "Created",
+              "type" : "date"
+            }, {
+              "defaultValue" : "",
+              "description" : "",
+              "gridColumns" : {
+                "lg" : 12,
+                "md" : 12,
+                "sm" : 12,
+                "xs" : 12
+              },
+              "id" : 1532337965713,
+              "key" : "article",
+              "show" : false,
+              "title" : "Article",
+              "type" : "markdown-editor"
+            } ],
+            "group" : "Group Name",
+            "icon" : "",
+            "id" : "blog",
+            "sortable" : true,
+            "title" : "Blog",
+            "type" : "collection"
+          },
+          "descriptors" : {
+            "__meta__" : {
+              "createdBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+              "createdDate" : "2018-07-23T09:34:56.840Z",
+              "lastModifiedBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+              "lastModifiedDate" : "2018-07-23T09:47:56.164Z"
+            },
+            "description" : "",
+            "enabled" : true,
+            "fields" : [ {
+              "defaultValue" : "",
+              "description" : "",
+              "gridColumns" : {
+                "lg" : 12,
+                "md" : 12,
+                "sm" : 12,
+                "xs" : 12
+              },
+              "id" : 1532338458724,
+              "key" : "category",
+              "show" : false,
+              "title" : "Category",
+              "type" : "text"
+            }, {
+              "description" : "",
+              "gridColumns" : {
+                "lg" : 12,
+                "md" : 12,
+                "sm" : 12,
+                "xs" : 12
+              },
+              "id" : 1532338592106,
+              "key" : "descriptors",
+              "layout" : "table",
+              "options" : [ {
+                "defaultValue" : "",
+                "description" : "",
+                "gridColumns" : {
+                  "lg" : 12,
+                  "md" : 12,
+                  "sm" : 12,
+                  "xs" : 12
+                },
+                "id" : 1532338604169,
+                "key" : "name",
+                "show" : false,
+                "title" : "Name",
+                "type" : "text"
+              } ],
+              "show" : false,
+              "title" : "Descriptors",
+              "type" : "repeater"
+            }, {
+              "description" : "",
+              "gridColumns" : {
+                "lg" : 12,
+                "md" : 12,
+                "sm" : 12,
+                "xs" : 12
+              },
+              "id" : 1532339212587,
+              "key" : "subcategory",
+              "layout" : "table",
+              "options" : [ {
+                "description" : "",
+                "fieldSeparator" : " - ",
+                "gridColumns" : {
+                  "lg" : 12,
+                  "md" : 12,
+                  "sm" : 12,
+                  "xs" : 12
+                },
+                "id" : 1532339258114,
+                "key" : "category",
+                "multiple" : false,
+                "relation" : "descriptors",
+                "relationalFieldsToShow" : [ "category" ],
+                "show" : false,
+                "title" : "Category",
+                "type" : "select-relational"
+              } ],
+              "show" : false,
+              "title" : "Subcategory",
+              "type" : "repeater"
+            } ],
+            "group" : "Group Name",
+            "icon" : "",
+            "id" : "descriptors",
+            "sortable" : true,
+            "title" : "Descriptors",
+            "type" : "collection"
+          }
+        }
+      }
+    },
+    "media" : {
+      "files" : {
+        "1532337025194" : {
+          "__meta__" : {
+            "createdBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+            "createdDate" : "2018-07-23T09:10:30.246Z"
+          },
+          "contentType" : "image/jpeg",
+          "file" : "1532337025194_StockSnap_SISS0KP1ZS_square.jpg",
+          "folderId" : 1532336087472,
+          "id" : 1532337025194,
+          "sizes" : [ {
+            "height" : 9999,
+            "path" : "375_9999_100",
+            "quality" : 1,
+            "width" : 375
+          }, {
+            "height" : 9999,
+            "path" : "667_9999_100",
+            "quality" : 1,
+            "width" : 667
+          }, {
+            "height" : 9999,
+            "path" : "900_9999_100",
+            "quality" : 1,
+            "width" : 900
+          }, {
+            "height" : 9999,
+            "path" : "1080_9999_100",
+            "quality" : 1,
+            "width" : 1080
+          }, {
+            "height" : 9999,
+            "path" : "1440_9999_100",
+            "quality" : 1,
+            "width" : 1440
+          }, {
+            "height" : 9999,
+            "path" : "1920_9999_100",
+            "quality" : 1,
+            "width" : 1920
+          } ],
+          "type" : "images"
+        },
+        "1532337025197" : {
+          "__meta__" : {
+            "createdBy" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+            "createdDate" : "2018-07-23T09:10:45.883Z"
+          },
+          "contentType" : "image/jpeg",
+          "file" : "1532337025197_StockSnap_SISS0KP1ZS.jpg",
+          "folderId" : 1532336087472,
+          "id" : 1532337025197,
+          "sizes" : [ {
+            "height" : 9999,
+            "path" : "375_9999_100",
+            "quality" : 1,
+            "width" : 375
+          }, {
+            "height" : 9999,
+            "path" : "667_9999_100",
+            "quality" : 1,
+            "width" : 667
+          }, {
+            "height" : 9999,
+            "path" : "900_9999_100",
+            "quality" : 1,
+            "width" : 900
+          }, {
+            "height" : 9999,
+            "path" : "1080_9999_100",
+            "quality" : 1,
+            "width" : 1080
+          }, {
+            "height" : 9999,
+            "path" : "1440_9999_100",
+            "quality" : 1,
+            "width" : 1440
+          }, {
+            "height" : 9999,
+            "path" : "1920_9999_100",
+            "quality" : 1,
+            "width" : 1920
+          } ],
+          "type" : "images"
+        }
+      },
+      "folders" : {
+        "1532336087472" : {
+          "id" : 1532336087472,
+          "name" : "Root",
+          "order" : 0,
+          "parentId" : 0
+        }
+      }
+    },
+    "permissions" : [ null, {
+      "content" : {
+        "blog" : {
+          "create" : true,
+          "delete" : true,
+          "update" : true,
+          "view" : true
+        },
+        "descriptors" : {
+          "create" : true,
+          "delete" : true,
+          "update" : true,
+          "view" : true
+        }
+      },
+      "id" : 1,
+      "modules" : {
+        "media" : {
+          "create" : true,
+          "delete" : true,
+          "update" : true,
+          "view" : true
+        },
+        "navigation" : {
+          "create" : true,
+          "delete" : true,
+          "update" : true,
+          "view" : true
+        },
+        "permissions" : {
+          "create" : true,
+          "delete" : true,
+          "update" : true,
+          "view" : true
+        },
+        "schemas" : {
+          "create" : true,
+          "delete" : true,
+          "update" : true,
+          "view" : true
+        },
+        "users" : {
+          "create" : true,
+          "delete" : true,
+          "update" : true,
+          "view" : true
+        }
+      },
+      "name" : "Super Admin",
+      "settings" : {
+        "backups" : {
+          "create" : true,
+          "delete" : true,
+          "update" : true,
+          "view" : true
+        },
+        "environments" : {
+          "create" : true,
+          "delete" : true,
+          "update" : true,
+          "view" : true
+        },
+        "general" : {
+          "create" : true,
+          "delete" : true,
+          "update" : true,
+          "view" : true
+        },
+        "globals" : {
+          "create" : true,
+          "delete" : true,
+          "update" : true,
+          "view" : true
+        },
+        "locales" : {
+          "create" : true,
+          "delete" : true,
+          "update" : true,
+          "view" : true
+        }
+      }
+    } ],
+    "settings" : {
+      "environments" : [ "production" ],
+      "general" : {
+        "defaultPermissionsGroup" : "1",
+        "imageSizes" : [ {
+          "height" : 9999,
+          "quality" : 1,
+          "width" : 375
+        }, {
+          "height" : 9999,
+          "quality" : 1,
+          "width" : 667
+        }, {
+          "height" : 9999,
+          "quality" : 1,
+          "width" : 900
+        }, {
+          "height" : 9999,
+          "quality" : 1,
+          "width" : 1080
+        }, {
+          "height" : 9999,
+          "quality" : 1,
+          "width" : 1440
+        }, {
+          "height" : 9999,
+          "quality" : 1,
+          "width" : 1920
+        } ]
+      },
+      "locales" : [ "en-US" ]
+    },
+    "users" : {
+      "UivGQR1Ph5exN7gQkRHZpw9b3My2" : {
+        "email" : "christinelaguardia@gmail.com",
+        "enabled" : "Yes",
+        "firstName" : "Christine",
+        "flamelink" : "Yes",
+        "id" : "UivGQR1Ph5exN7gQkRHZpw9b3My2",
+        "lastName" : "La Guardia",
+        "permissions" : 1
+      }
+    }
+  }
+}
