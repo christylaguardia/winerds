@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import Container from "@material-ui/core/Container";
 import Loading from '../../components/Loading/Loading';
 import MenuAppBar from '../../components/Nav/MenuAppBar';
 import BottomNavBar from '../../components/Nav/BottomNavBar';
@@ -18,7 +19,9 @@ class App extends React.Component {
         <div>
           <MenuAppBar isAuthenticated={isAuthenticated} />
           {loading && <Loading />}
-          <Routes isAuthenticated={isAuthenticated} />
+          <Container maxWidth="sm">
+            <Routes isAuthenticated={isAuthenticated} />
+          </Container>
           {isAuthenticated && <BottomNavBar />}
         </div>
       </BrowserRouter>
