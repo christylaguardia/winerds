@@ -1,4 +1,4 @@
-import { SAVED_USER, FETCHED_USER } from '../App/reducers';
+import { SAVED_USER, FETCHED_USER } from '../../containers/App/reducers';
 import { FETCHED_TASTINGS } from '../Tasting/reducers';
 import usersApi from '../../services/winerdsApi/users';
 import tastingsApi from '../../services/winerdsApi/tastings';

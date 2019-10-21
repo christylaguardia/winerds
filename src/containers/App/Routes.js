@@ -2,13 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
-import Home from './Home';
-import About from './About';
-import Login from './Login';
-import Tasting from '../Tasting/Tasting';
-import Profile from '../Profile/Profile';
-import Configure from '../Configure/Configure';
-import Stats from '../Stats/Stats';
+import Home from '../Home/Home';
+import Tasting from '../../components/Tasting/Tasting';
+import Profile from '../../components/Profile/Profile';
+import Configure from '../../components/Configure/Configure';
+import Stats from '../../components/Stats/Stats';
 
 const Placeholder = ({ text }) => (
   <Typography variant="display1" gutterBottom>
@@ -35,8 +33,6 @@ const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => (
 const Routes = ({ isAuthenticated }) => (
   <Switch>
     <Route exact path="/" render={() => <Home isAuthenticated={isAuthenticated} />} />
-    <Route exact path="/about" component={About} />
-    <Route exact path="/login" component={Login} />
     <PrivateRoute
       path="/profile"
       component={Profile}

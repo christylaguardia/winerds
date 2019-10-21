@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 // import Chip from '@material-ui/core/Chip';
-import { layout } from '../App/muiTheme';
+import { layout } from '../../muiTheme';
 import { fetchTastings } from './actions';
 
 const styles = {

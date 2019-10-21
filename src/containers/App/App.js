@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import Loading from './Loading';
-import Routes from './Routes';
-import MenuAppBar from '../Nav/MenuAppBar';
-import BottomNavBar from '../Nav/BottomNavBar';
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import { theme } from './muiTheme';
+import Loading from '../../components/Loading/Loading';
+import MenuAppBar from '../../components/Nav/MenuAppBar';
+import BottomNavBar from '../../components/Nav/BottomNavBar';
+import Routes from './Routes';
+import { theme } from '../../muiTheme';
 
 class App extends React.Component {
   render() {

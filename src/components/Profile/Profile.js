@@ -9,7 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import History from './History';
 import { getUser, saveUser } from './actions';
-import { layout } from '../App/muiTheme';
+import { layout } from '../../muiTheme';
 
 const styles = theme => ({
   layout: layout,

@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Tag from './Tag';
-import { layout } from '../App/muiTheme';
+import { layout } from '../../muiTheme';
 
 const styles = theme => ({
   layout,
