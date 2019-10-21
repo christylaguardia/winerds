@@ -4,13 +4,13 @@ node_js:
 cache:
   directories:
     - node_modules
+before_script:
+  - npm install firebase-tools -g
+  - npm install
 script:
   - npm test
   - npm run build
-deploy:
-  provider: firebase
-  token:
-    secure: "ISfG/Ds1xM/TedNepnNt7RUnJMUETA+Gizo5JCGAJDUpRFhm0+Kh6OYwipZ9OwyrDa3DjN3+VJo1CuxaFUziaDIe1uUsTypH42XeUD0Ln1XllNaV6lP8zF4InNyrdet4Nij2ZyXB4ni8iTWBgdYEAwy6D4MsLEQBNqA84KDuS5FLhMlw81diQotGRrv+xhrUifj8UlcM9xg1l/kvhitItflSRqle89PS5sQH356NDchUg5E7XqmYEKetXfLQWUngC/QVd/zFSLKiccXHLNJZdQ8C06v/iheZrFI1Uf22Z1pMM5+IOAZc0IpLpQNiXAwJI0mAuzCmBA9bZx1NoUiB8pdoih0vzoQfrhksPqmdklwxaKQ4wuhNU/chWlH/nGL96w63iAiblpyKPONufVP8HoaGn46L5WqHTQmiT5kl/uSgP4ok1RKDc+TvrmljGoleKQaEshOz8O1Tk00cmwW0eJmeXDStqnbl+LoopkADaylO8pRGfmtHvpLdD25xsCje1wpdAMlo3FkxNKjMWjATgi8QQNwx+4T2c7su0lVivwqdm9yqXP1H0jqOciOJgTr2bch6QoY4rsU9jQ7db/7XnC2Pn5gTPSsEU8BZDCjSy96AEtVJP9SsBguZO9DooN/4Q34Qh+qTec7sHHJuuBASyWXdehiWA95nGfNgktRxAhg="
-  skip_cleanup: true
+after_success:
+  - firebase deploy --token $FIREBASE_TOKEN --non-interactive
 on:
   branch: master
