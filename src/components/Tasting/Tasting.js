@@ -1,19 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import SwipeableViews from 'react-swipeable-views';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
-import TastingWineLabel from './TastingLabel';
-import TastingSection from './TastingSection';
-import TastingMenu from './TastingMenu';
-import TastingNotes from './TastingNotes';
-import { fetchProfile, saveTasting } from './actions';
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import SwipeableViews from "react-swipeable-views";
+import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import SaveIcon from "@material-ui/icons/Save";
+import TastingWineLabel from "./TastingLabel";
+import TastingSection from "./TastingSection";
+import TastingMenu from "./TastingMenu";
+import TastingNotes from "./TastingNotes";
+import { fetchProfile, saveTasting } from "./actions";
 
 const TabContainer = ({ children, dir }) => (
   <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
@@ -29,13 +29,13 @@ TabContainer.propTypes = {
 const styles = theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: '100%',
-    marginBottom: theme.spacing.unit * 8 // large margin for the bottom nav
+    width: "100%",
+    marginBottom: theme.spacing(0) * 8 // large margin for the bottom nav
   },
   fab: {
-    position: 'fixed',
-    bottom: theme.spacing.unit * 8,
-    right: theme.spacing.unit * 2
+    position: "fixed",
+    bottom: theme.spacing(0) * 8,
+    right: theme.spacing(0) * 2
   }
 });
 
@@ -43,14 +43,14 @@ class Tasting extends React.PureComponent {
   state = {
     value: 0,
     userInput: {
-      profileId: '',
-      type: '',
-      winery: '',
-      vintage: '',
-      style: '',
-      location: '',
+      profileId: "",
+      type: "",
+      winery: "",
+      vintage: "",
+      style: "",
+      location: "",
       descriptors: {},
-      notes: ''
+      notes: ""
     }
   };
 
@@ -64,13 +64,13 @@ class Tasting extends React.PureComponent {
   };
 
   handleUserInputTag = (section, tag, isAdding) => {
-    console.log('>>>handleUserInputTag', isAdding);
+    console.log(">>>handleUserInputTag", isAdding);
     if (isAdding) this.handleUserInputAddTag(section, tag);
     else this.handleUserInputRemoveTag(section, tag);
-  }
+  };
 
   handleUserInputAddTag = (section, tag) => {
-    console.log('>>>> handleUserInputAddTag', section, tag);
+    console.log(">>>> handleUserInputAddTag", section, tag);
     this.setState(prevState => {
       let newTags = [];
 
@@ -90,14 +90,14 @@ class Tasting extends React.PureComponent {
         }
       };
 
-      console.log('>>>> handleUserInputAddTag', newState);
+      console.log(">>>> handleUserInputAddTag", newState);
 
       return newState;
     });
   };
 
   handleUserInputRemoveTag = (section, tag) => {
-    console.log('>>>> handleUserInputRemoveTag', section, tag);
+    console.log(">>>> handleUserInputRemoveTag", section, tag);
     this.setState(prevState => {
       const index = prevState.userInput.descriptors[section].indexOf(tag);
       const newTags = prevState.userInput.descriptors[section];
@@ -221,7 +221,7 @@ class Tasting extends React.PureComponent {
   };
 
   handleSave = () => {
-    console.log('saveTasting', this.state.userInput);
+    console.log("saveTasting", this.state.userInput);
     this.props.saveTasting(this.state.userInput);
   };
 
@@ -229,11 +229,11 @@ class Tasting extends React.PureComponent {
     const { classes, theme, profiles } = this.props;
     const { value, userInput } = this.state;
 
-    if (userInput.profileId === '' || !profiles)
+    if (userInput.profileId === "" || !profiles)
       return <TastingMenu handleClick={this.handleClick} />;
 
     const lastIndex = profiles[userInput.profileId].sections.length;
-    console.log('lastIndex', lastIndex);
+    console.log("lastIndex", lastIndex);
 
     return (
       <div className={classes.root}>
@@ -254,7 +254,7 @@ class Tasting extends React.PureComponent {
           </Tabs>
         </AppBar>
         <SwipeableViews
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
           index={this.state.value}
           onChangeIndex={this.handleChangeIndex}
         >

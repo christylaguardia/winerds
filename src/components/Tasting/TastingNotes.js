@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import TextField from "@material-ui/core/TextField";
 
 const styles = theme => ({
   textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginLeft: theme.spacing(0),
+    marginRight: theme.spacing(0),
     width: 300 // TODO: can't get this to be auto
   }
 });
@@ -26,7 +26,7 @@ const TastingNotes = ({ classes, notes, handleUserInput }) => (
           rowsMax="12"
           value={notes}
           placeholder="final thoughts..."
-          onChange={event => handleUserInput('notes', event.target.value)}
+          onChange={event => handleUserInput("notes", event.target.value)}
           className={classes.textField}
           margin="normal"
         />

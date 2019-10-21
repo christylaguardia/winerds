@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 // import Typography from '@material-ui/core/Typography';
-import { layout } from '../../muiTheme';
+import { layout } from "../../muiTheme";
 
 const styles = theme => ({
   layout,
   heroButtons: {
-    marginTop: theme.spacing.unit * 4
+    marginTop: theme.spacing(0) * 4
   }
 });
 
@@ -18,12 +18,22 @@ const Configure = ({ classes }) => (
   <div className={classes.heroButtons}>
     <Grid container spacing={16} justify="center">
       <Grid item>
-        <Button component={Link} to="/configure/new" variant="contained" color="primary">
+        <Button
+          component={Link}
+          to="/configure/new"
+          variant="contained"
+          color="primary"
+        >
           Main call to action
         </Button>
       </Grid>
       <Grid item>
-        <Button component={Link} to="/configure/edit" variant="outlined" color="primary">
+        <Button
+          component={Link}
+          to="/configure/edit"
+          variant="outlined"
+          color="primary"
+        >
           Secondary action
         </Button>
       </Grid>
@@ -45,7 +55,6 @@ Configure.propTypes = {
 };
 
 export default withStyles(styles)(Configure);
-
 
 // import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 // import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
