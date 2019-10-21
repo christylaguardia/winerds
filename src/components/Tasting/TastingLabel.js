@@ -34,7 +34,7 @@ class TastingLabel extends React.Component {
   };
 
   render() {
-    const { classes, show, handleUserInput, type, winery, vintage, style, location } = this.props;
+    const { classes, handleUserInput, type, winery, vintage, style, location } = this.props;
     const typeOptions = [
       { value: 'red', label: 'red' },
       { value: 'white', label: 'white' },
@@ -50,8 +50,6 @@ class TastingLabel extends React.Component {
       { value: 'vineyard', label: 'vineyard' },
       { value: 'winery', label: 'winery' },
     ];
-
-    if (!show) return null;
 
     return <Grid container spacing={16} justify="center">
       <Grid item>
@@ -130,7 +128,6 @@ class TastingLabel extends React.Component {
 
 TastingLabel.propTypes = {
   classes: PropTypes.object.isRequired,
-  show: PropTypes.bool.isRequired
 };
 
 export default withStyles(styles)(TastingLabel);
