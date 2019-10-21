@@ -7,9 +7,10 @@ import Button from "@material-ui/core/Button";
 import { getCurrentUser, updateDisplayName, updateEmail } from "./actions";
 
 const styles = theme => ({
-  container: {
+  root: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    marginTop: theme.spacing(2)
   },
   button: {
     margin: theme.spacing(0)
@@ -64,7 +65,7 @@ class Profile extends React.Component {
     const { displayName, email } = this.state;
 
     return (
-      <form className={classes.container} noValidate autoComplete="off">
+      <form className={classes.root} noValidate autoComplete="off">
         <TextField
           id="displayName"
           name="displayName"

@@ -25,3 +25,6 @@ src/old
 # api keys
 google-credentials.json
 firebaseConfig.js
+
+#firebase
+.firebase/*

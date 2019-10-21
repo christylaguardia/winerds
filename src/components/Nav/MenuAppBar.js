@@ -1,26 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Chip from '@material-ui/core/Chip';
-import { logout } from './actions';
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+import Chip from "@material-ui/core/Chip";
+import { logout } from "./actions";
 
 const styles = {
-  root: {
-    flexGrow: 1,
-  },
   grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
+    flexGrow: 1
+  }
 };
 
 const MenuAppBar = ({ classes, isAuthenticated, logout }) => (
@@ -31,20 +23,12 @@ const MenuAppBar = ({ classes, isAuthenticated, logout }) => (
           Winerds
         </Button>
       </div>
-      <Typography variant="caption" color="inherit" className={classes.grow}>
-        <Chip
-          label="BETA"
-          color="secondary"
-        />
-      </Typography>
       {isAuthenticated ? (
         <Button color="inherit" onClick={logout}>
           Logout
         </Button>
       ) : (
-        <Button to="/login" component={Link} color="inherit">
-          Login
-        </Button>
+        <Chip label="BETA" color="secondary" />
       )}
     </Toolbar>
   </AppBar>
@@ -59,4 +43,4 @@ MenuAppBar.propTypes = {
 export default connect(
   null,
   { logout }
-)(withStyles(styles)(MenuAppBar)); 
+)(withStyles(styles)(MenuAppBar));
