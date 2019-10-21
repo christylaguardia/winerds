@@ -6,7 +6,7 @@ import Home from '../Home/Home';
 import TastingProfiles from '../../components/Tasting/TastingProfiles';
 import Profile from '../../components/Profile/Profile';
 import Configure from '../../components/Configure/Configure';
-import Stats from '../../components/Stats/Stats';
+import Data from '../../components/Data/Data';
 
 const Placeholder = ({ text }) => (
   <Typography variant="display1" gutterBottom>
@@ -35,7 +35,7 @@ const Routes = ({ isAuthenticated }) => (
     <Route exact path="/" render={() => <Home isAuthenticated={isAuthenticated} />} />
     <PrivateRoute
       path="/data"
-      component={Stats}
+      component={Data}
       isAuthenticated={isAuthenticated}
     />
     <PrivateRoute
