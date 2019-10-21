@@ -35,9 +35,9 @@ class BottomNavBar extends React.PureComponent {
 
     return <div className={classes.root}>
       <BottomNavigation value={value} onChange={this.handleChange} showLabels className={classes.bottomNav}>
-        <BottomNavigationAction to="/profile" component={Link} label="Profile" icon={<FaceIcon />} />
+        <BottomNavigationAction to="/data" component={Link} label="Data" icon={<BubbleChartIcon />} />
         <BottomNavigationAction to="/tasting" component={Link} label="Tasting" icon={<AddCircleIcon />} />
-        <BottomNavigationAction to="/stats" component={Link} label="Data" icon={<BubbleChartIcon />} />
+        <BottomNavigationAction to="/profile" component={Link} label="Profile" icon={<FaceIcon />} />
       </BottomNavigation>
     </div>;
   }

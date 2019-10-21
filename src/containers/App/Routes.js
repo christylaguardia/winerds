@@ -44,7 +44,7 @@ const Routes = ({ isAuthenticated }) => (
       isAuthenticated={isAuthenticated}
     />
     <PrivateRoute
-      path="/stats"
+      path="/data"
       component={Stats}
       isAuthenticated={isAuthenticated}
     />

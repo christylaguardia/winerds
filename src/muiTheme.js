@@ -19,6 +19,7 @@ export const theme = createMuiTheme({
   // }
 });
 
+// TODO: is this still needed? Use Container instead
 export const layout = {
   width: "auto",
   marginTop: theme.spacing(0) * 3,

@@ -1,19 +1,21 @@
-import { SAVED_USER, FETCHED_USER } from '../../containers/App/reducers';
-import { FETCHED_TASTINGS } from '../Tasting/reducers';
-// import usersApi from '../../services/winerdsApi/users';
-// import tastingsApi from '../../services/winerdsApi/tastings';
+import {
+  FETCHED_USER,
+  UPDATED_DISPLAY_NAME,
+  UPDATED_EMAIL
+} from "../../containers/App/reducers";
+import firebaseAuthApi from "../../services/firebase/auth";
 
-export const getUser = () => ({
+export const getCurrentUser = () => ({
   type: FETCHED_USER,
-  payload: null // usersApi.getUser()
+  payload: firebaseAuthApi.getCurrentUser()
 });
 
-export const saveUser = user => ({
-  type: SAVED_USER,
-  payload: null // usersApi.saveUser(user)
+export const updateDisplayName = displayName => ({
+  type: UPDATED_DISPLAY_NAME,
+  payload: firebaseAuthApi.updateDisplayName(displayName)
 });
 
-export const fetchTastings = () => ({
-  type: FETCHED_TASTINGS,
-  payload: null // tastingsApi.getTastings()
+export const updateEmail = email => ({
+  type: UPDATED_EMAIL,
+  payload: firebaseAuthApi.updateEmail(email)
 });

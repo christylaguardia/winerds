@@ -62,6 +62,7 @@ firebase.auth().onAuthStateChanged(user => {
   }
 });
 
+// TODO:
 // Reset passoword
 // auth.sendPasswordResetEmail(emailAddress).then(function () {
 //   // Email sent.
@@ -76,4 +77,58 @@ firebase.auth().onAuthStateChanged(user => {
 //   // An error happened.
 // });
 
+export const getCurrentUser = () => {
+  const user = auth.currentUser;
+
+  if (user == null) {
+    // TODO:
+    console.log("Could not get current user.");
+  } else {
+    return {
+      displayName: user.displayName,
+      email: user.email,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified,
+      uid: user.uid
+    };
+  }
+};
+
+export const updateDisplayName = ({ displayName }) => {
+  const user = auth.currentUser;
+
+  user
+    .updateProfile({ displayName })
+    .then(function() {
+      // TODO:
+      console.log("Update successful.");
+    })
+    .catch(function(error) {
+      // TODO:
+      console.log("An error happened.", error);
+    });
+};
+
+export const updateEmail = ({ email }) => {
+  const user = auth.currentUser;
+
+  user
+    .updateEmail({ email })
+    .then(function() {
+      // TODO:
+      console.log("Update successful.");
+    })
+    .catch(function(error) {
+      // TODO:
+      console.log("An error happened.", error);
+    });
+};
+
 export const doSignOut = () => auth.signOut();
+
+export default {
+  getCurrentUser,
+  updateDisplayName,
+  updateEmail,
+  doSignOut
+};
