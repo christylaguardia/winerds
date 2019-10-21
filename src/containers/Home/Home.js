@@ -13,7 +13,7 @@ const styles = theme => ({
 });
 
 const Home = ({ isAuthenticated }) => {
-  if (isAuthenticated) return <Redirect to="/profile" />;
+  if (isAuthenticated) return <Redirect to="/tasting" />;
 
   return (
     <div>

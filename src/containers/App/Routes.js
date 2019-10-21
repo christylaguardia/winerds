@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Home from '../Home/Home';
-import Tasting from '../../components/Tasting/Tasting';
+import TastingProfiles from '../../components/Tasting/TastingProfiles';
 import Profile from '../../components/Profile/Profile';
 import Configure from '../../components/Configure/Configure';
 import Stats from '../../components/Stats/Stats';
@@ -34,18 +34,18 @@ const Routes = ({ isAuthenticated }) => (
   <Switch>
     <Route exact path="/" render={() => <Home isAuthenticated={isAuthenticated} />} />
     <PrivateRoute
+      path="/data"
+      component={Stats}
+      isAuthenticated={isAuthenticated}
+    />
+    <PrivateRoute
       path="/profile"
       component={Profile}
       isAuthenticated={isAuthenticated}
     />
     <PrivateRoute
       path="/tasting"
-      component={Tasting}
-      isAuthenticated={isAuthenticated}
-    />
-    <PrivateRoute
-      path="/data"
-      component={Stats}
+      component={TastingProfiles}
       isAuthenticated={isAuthenticated}
     />
     <PrivateRoute

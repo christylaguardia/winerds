@@ -8,7 +8,7 @@ export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const twitterProvider = new firebase.auth.TwitterAuthProvider();
 export const facebookProvider = new firebase.auth.FacebookAuthProvider();
 export const uiConfig = {
-  signInSuccessUrl: "/profile",
+  signInSuccessUrl: "/tasting",
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
