@@ -1,37 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import { layout } from '../../muiTheme';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import { layout } from "../../muiTheme";
 
 const styles = theme => ({
   layout,
   heroContent: {
     maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
+    margin: "0 auto",
+    padding: `${theme.spacing(0) * 8}px 0 ${theme.spacing(0) * 6}px`
   }
 });
 
 const Hero = ({ classes, title, subtitle }) => (
   <div className={classes.layout}>
     <div className={classes.heroContent}>
-      <Typography
-        variant="display3"
-        align="center"
-        color="textPrimary"
-        gutterBottom
-      >
+      <Typography variant="h1" align="center" color="textPrimary" gutterBottom>
         {title}
       </Typography>
-      <Typography
-        variant="title"
-        align="center"
-        color="textSecondary"
-        component="p"
-      >
-        {subtitle}
-      </Typography>
+      {subtitle && (
+        <Typography
+          variant="h3"
+          align="center"
+          color="textSecondary"
+          component="p"
+        >
+          {subtitle}
+        </Typography>
+      )}
     </div>
   </div>
 );
@@ -39,7 +36,7 @@ const Hero = ({ classes, title, subtitle }) => (
 Hero.propTypes = {
   classes: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired
+  subtitle: PropTypes.string
 };
 
 export default withStyles(styles)(Hero);
