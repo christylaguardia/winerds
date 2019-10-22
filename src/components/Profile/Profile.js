@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { getCurrentUser, updateDisplayName, updateEmail } from "./actions";
@@ -10,7 +11,8 @@ const styles = theme => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(2),
+    marginBottom: '64px' // offset the bottom nav
   },
   button: {
     margin: theme.spacing(0)
@@ -65,48 +67,50 @@ class Profile extends React.Component {
     const { displayName, email } = this.state;
 
     return (
-      <form className={classes.root} noValidate autoComplete="off">
-        <TextField
-          id="displayName"
-          name="displayName"
-          label="name"
-          value={displayName}
-          placeholder="your name"
-          fullWidth
-          margin="normal"
-          onChange={this.handleChange}
-        />
-        <Button
-          variant="contained"
-          color="primary"
-          className={classes.button}
-          onClick={this.handleUpdateDisplayName}
-        >
-          update
-        </Button>
-        <TextField
-          id="email"
-          name="email"
-          label="email"
-          type="email"
-          value={email}
-          placeholder="email"
-          fullWidth
-          margin="normal"
-          onChange={this.handleChange}
-        />
-        <Button
-          variant="contained"
-          color="primary"
-          className={classes.button}
-          onClick={this.handleUpdateEmail}
-          disabled={true}
-          // TODO: disabling email until verificaiton is setup
-        >
-          update
-        </Button>
-        <p>Updating email is not available at this time.</p>
-      </form>
+      <Container maxWidth="sm">
+        <form className={classes.root} noValidate autoComplete="off">
+          <TextField
+            id="displayName"
+            name="displayName"
+            label="name"
+            value={displayName}
+            placeholder="your name"
+            fullWidth
+            margin="normal"
+            onChange={this.handleChange}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            onClick={this.handleUpdateDisplayName}
+          >
+            update
+          </Button>
+          <TextField
+            id="email"
+            name="email"
+            label="email"
+            type="email"
+            value={email}
+            placeholder="email"
+            fullWidth
+            margin="normal"
+            onChange={this.handleChange}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            onClick={this.handleUpdateEmail}
+            disabled={true}
+            // TODO: disabling email until verificaiton is setup
+          >
+            update
+          </Button>
+          <p>Updating email is not available at this time.</p>
+        </form>
+      </Container>
     );
   }
 }

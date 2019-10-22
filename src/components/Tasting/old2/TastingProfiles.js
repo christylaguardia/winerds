@@ -54,7 +54,7 @@ class TastingProfiles extends React.Component {
     return (
       <>
         {Object.keys(tastingProfiles).map(profile => (
-          <Card className={classes.card}>
+          <Card key={profile} className={classes.card}>
             <CardContent>
               <Typography variant="h5" component="h2">
                 {profile}

@@ -9,12 +9,9 @@ import FaceIcon from "@material-ui/icons/Face";
 import BubbleChartIcon from "@material-ui/icons/BubbleChart";
 
 const styles = theme => ({
-  root: {
+  bottomNav: {
     position: "fixed",
     bottom: "0",
-    width: "100%"
-  },
-  bottomNav: {
     width: "100%"
   }
 });
@@ -45,33 +42,31 @@ class BottomNavBar extends React.PureComponent {
     const { value } = this.state;
 
     return (
-      <div className={classes.root}>
-        <BottomNavigation
-          value={value}
-          onChange={this.handleChange}
-          showLabels
-          className={classes.bottomNav}
-        >
-          <BottomNavigationAction
-            to="/data"
-            component={Link}
-            label="Data"
-            icon={<BubbleChartIcon />}
-          />
-          <BottomNavigationAction
-            to="/tasting"
-            component={Link}
-            label="Tasting"
-            icon={<AddCircleIcon />}
-          />
-          <BottomNavigationAction
-            to="/profile"
-            component={Link}
-            label="Profile"
-            icon={<FaceIcon />}
-          />
-        </BottomNavigation>
-      </div>
+      <BottomNavigation
+        value={value}
+        onChange={this.handleChange}
+        showLabels
+        className={classes.bottomNav}
+      >
+        <BottomNavigationAction
+          to="/data"
+          component={Link}
+          label="Data"
+          icon={<BubbleChartIcon />}
+        />
+        <BottomNavigationAction
+          to="/tasting"
+          component={Link}
+          label="Tasting"
+          icon={<AddCircleIcon />}
+        />
+        <BottomNavigationAction
+          to="/profile"
+          component={Link}
+          label="Profile"
+          icon={<FaceIcon />}
+        />
+      </BottomNavigation>
     );
   }
 }

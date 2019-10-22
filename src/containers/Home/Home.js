@@ -31,7 +31,6 @@ const Home = ({ classes, isAuthenticated }) => {
 
 Home.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
-  theme: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(Home);
