@@ -1,18 +1,12 @@
-import { FETCHED_PROFILE_NAMES, FETCHED_PROFILE, SAVED_TASTING } from './reducers';
-// import profilesApi from '../../services/winerdsApi/profiles';
-// import tastingsApi from '../../services/winerdsApi/tastings';
+import { SAVED_TASTING, FETCHED_TASTINGS } from "./reducers";
+import firebaseDatabaseApi from "../../services/firebase/database";
 
-export const fetchProfiles = () => ({
-  type: FETCHED_PROFILE_NAMES,
-  payload: null // profilesApi.getProfiles()
-});
-
-export const fetchProfile = id => ({
-  type: FETCHED_PROFILE,
-  payload: null // profilesApi.getProfileById(id)
-});
-
-export const saveTasting = tasting => ({
+export const saveTasting = ({ style, label, selectedTags }) => ({
   type: SAVED_TASTING,
-  payload: null // tastingsApi.saveTasting(tasting)
+  payload: firebaseDatabaseApi.saveTasting({ style, label, selectedTags })
+});
+
+export const fetchTastings = () => ({
+  type: FETCHED_TASTINGS,
+  payload: firebaseDatabaseApi.getTastings()
 });

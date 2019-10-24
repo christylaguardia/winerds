@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Chip from "@material-ui/core/Chip";
 import { withStyles } from "@material-ui/core/styles";
-import Tag from "./Tag";
 
 const styles = theme => ({
   root: {
@@ -14,17 +14,24 @@ const styles = theme => ({
   }
 });
 
-const TagPicker = ({ classes, tags, handleAddTag }) => (
+const TagPicker = ({ classes, tags, selectedTags, handleTagClick }) => (
   <div className={classes.root}>
     {tags.map((tag, tagIndex) => (
-      <Tag
-        key={tagIndex}
-        label={tag}
-        // TODO: value
-        handleAddTag={() => handleAddTag(tag)}
-      />
+      <span onClick={() => handleTagClick(tag)}>
+        <Chip
+          key={tagIndex}
+          label={tag}
+          color={selectedTags.includes(tag) ? "primary" : "secondary"}
+        />
+      </span>
     ))}
   </div>
 );
+
+TagPicker.propTypes = {
+  classes: PropTypes.object.isRequired,
+  tags: PropTypes.array.isRequired,
+  handleTagClick: PropTypes.func.isRequired
+};
 
 export default withStyles(styles, { withTheme: true })(TagPicker);

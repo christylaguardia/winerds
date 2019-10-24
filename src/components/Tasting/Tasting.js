@@ -1,327 +1,185 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
 import Container from "@material-ui/core/Container";
 import MenuItem from "@material-ui/core/MenuItem";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
-import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
-import TastingSection from "./TastingSection";
-
-import TASTING_PROFILE from "../../data/classic.json";
-
-const TYPE_OPTIONS = [
-  { value: "red", label: "red" },
-  { value: "white", label: "white" },
-  { value: "rose", label: "rose" },
-  { value: "sparkling", label: "sparkling" },
-  { value: "dessert", label: "dessert" }
-];
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <Typography
-      component="div"
-      role="tabpanel"
-      hidden={value !== index}
-      id={`vertical-tabpanel-${index}`}
-      aria-labelledby={`vertical-tab-${index}`}
-      {...other}
-    >
-      <Box p={3}>{children}</Box>
-    </Typography>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired
-};
-
-function a11yProps(index) {
-  return {
-    id: `vertical-tab-${index}`,
-    "aria-controls": `vertical-tabpanel-${index}`
-  };
-}
+import TagPicker from "./TagPicker";
+import { saveTasting } from "./actions";
+import { STYLE_OPTIONS } from "./constants";
+import { getTags } from "./helpers";
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     marginBottom: "64px" // offset the bottom nav
-  },
-  tabs: {
-    borderRight: `1px solid ${theme.palette.divider}`
-  },
-  tabPanel: {
-    marginBottom: "100px"
-  },
-  button: {
-    margin: theme.spacing(1)
   }
 });
 
+const initialState = {
+  error: null,
+  style: "",
+  label: "",
+  styleDisabled: false,
+  tags: [],
+  selectedTags: []
+};
+
 class Tasting extends React.Component {
-  state = {
-    activeTabValue: 0,
-    type: "",
-    label: "",
-    sight: [],
-    nose: [],
-    palate: [],
-    finish: ""
-  };
+  // TODO: should this state should go in redux?
+  state = initialState;
 
-  handleTabChange = (event, newValue) => {
-    this.setState({ activeTabValue: newValue });
-  };
-
-  handleNextTab = () => {
-    this.setState(prevState => ({
-      activeTabValue: prevState.activeTabValue + 1
-    }));
+  handleTypeSelect = event => {
+    const { value } = event.target;
+    const tags = getTags(value);
+    if (!tags || !tags.length) {
+      this.setState({ error: "please select another style" });
+    } else {
+      this.setState({ style: value, styleDisabled: true, tags });
+    }
   };
 
   handleChange = event => {
     const { name, value } = event.target;
-    console.log(name, value);
     this.setState({ [name]: value });
   };
 
-  handleAddTag = ({ section, category, tag }) => {
-    console.log(">>>> handleAddTag", section, category, tag);
+  handleToggleTag = tag => {
+    // TODO: handle primary, secondary and tertiary levels
     this.setState(prevState => {
-      const newState = {
-        [section]: {
-          ...prevState[section],
-          [category]: [...prevState[section][category], tag]
-        }
-      };
+      let newState;
+
+      if (prevState.selectedTags.includes(tag)) {
+        const newSelectedTags = prevState.selectedTags.filter(
+          selectedTag => selectedTag !== tag
+        );
+        newState = {
+          ...prevState,
+          selectedTags: newSelectedTags
+        };
+      } else {
+        newState = {
+          ...prevState,
+          selectedTags: [...prevState.selectedTags, tag]
+        };
+      }
 
       return newState;
     });
+  };
 
-    // this.setState(prevState => {
-    //   let newTags = [];
+  handleSave = () => {
+    const { saveTasting } = this.props;
+    const { style, label, selectedTags } = this.state;
+    saveTasting({ style, label, selectedTags });
+    // TODO: handle redirect or update?
+  };
 
-    // // if (prevState.[section]) {
-    // //   newTags = [...prevState.userInput.descriptors[section], tag];
-    // // } else {
-    // //   newTags = [tag];
-    // }
-
-    // const newState = {
-    //   [section]: {
-    //     ...prevState[section],
-    //     descriptors: {
-    //       ...prevState[section].descriptors,
-    //       [section]: newTags
-    //     }
-    //   }
-    // };
-
-    // console.log(">>>> handleUserInputAddTag", newState);
-
-    // return newState;
-    // });
+  handleReset = () => {
+    // TODO: confirm if unsaved
+    this.setState(initialState);
   };
 
   render() {
     const { classes } = this.props;
     const {
-      activeTabValue,
-      type,
+      error,
+      style,
       label,
-      sight,
-      nose,
-      palate,
-      finish
+      styleDisabled,
+      tags,
+      selectedTags
     } = this.state;
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
-          <Tabs
-            value={activeTabValue}
-            onChange={this.handleTabChange}
-            aria-label="wine tasting tabs"
-            centered
+        <Container maxWidth="sm">
+          <TextField
+            name="style"
+            helperText="select the style of your wine"
+            label="style"
+            select
+            value={style}
+            onChange={this.handleTypeSelect}
+            fullWidth
+            margin="normal"
+            // variant="outlined"
+            disabled={styleDisabled}
+            required
           >
-            <Tab label="Label" {...a11yProps(0)} />
-            <Tab label="Sight" {...a11yProps(1)} />
-            <Tab label="Nose" {...a11yProps(2)} />
-            <Tab label="Pallet" {...a11yProps(3)} />
-            <Tab label="Finish" {...a11yProps(4)} />
-          </Tabs>
-        </AppBar>
-        <TabPanel value={activeTabValue} index={0}>
-          <Container maxWidth="sm" className={styles.tabPanel}>
-            <TextField
-              name="type"
-              select
-              label="type"
-              value={type}
-              onChange={this.handleChange}
-              fullWidth
-              margin="normal"
-            >
-              {TYPE_OPTIONS.map(option => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-            <TextField
-              name="label"
-              fullWidth
-              multiline
-              rows="12"
-              rowsMax="12"
-              value={label}
-              onChange={this.handleChange}
-              margin="normal"
-              variant="outlined"
-            />
-            <Button
-              variant="contained"
-              color="secondary"
-              className={classes.button}
-              onClick={this.handleNextTab}
-            >
-              Next
-            </Button>
-          </Container>
-        </TabPanel>
-        <TabPanel value={activeTabValue} index={1}>
-          <Container maxWidth="sm" className={styles.tabPanel}>
-            <TastingSection
-              tags={sight}
-              categories={TASTING_PROFILE.sight}
-              handleAddTag={(category, tag) => this.handleAddTag('sight', category, tag)}
-            />
-            <Button
-              variant="contained"
-              color="secondary"
-              className={classes.button}
-              onClick={this.handleNextTab}
-            >
-              Next
-            </Button>
-          </Container>
-        </TabPanel>
-        <TabPanel value={activeTabValue} index={2}>
-          <Container maxWidth="sm" className={styles.tabPanel}>
-            <TastingSection
-              tags={nose}
-              categories={TASTING_PROFILE.nose}
-              handleAddTag={(category, tag) => this.handleAddTag('nose', category, tag)}
-            />
-            <Button
-              variant="contained"
-              color="secondary"
-              className={classes.button}
-              onClick={this.handleNextTab}
-            >
-              Next
-            </Button>
-          </Container>
-        </TabPanel>
-        <TabPanel value={activeTabValue} index={3}>
-          <Container maxWidth="sm" className={styles.tabPanel}>
-            <TastingSection
-              tags={palate}
-              categories={TASTING_PROFILE.palate}
-              handleAddTag={(category, tag) => this.handleAddTag('palate', category, tag)}
-            />
-            <Button
-              variant="contained"
-              color="secondary"
-              className={classes.button}
-              onClick={this.handleNextTab}
-            >
-              Next
-            </Button>
-          </Container>
-        </TabPanel>
-        <TabPanel value={activeTabValue} index={4}>
-          <Container maxWidth="sm" className={styles.tabPanel}>
-            <TextField
-              name="finish"
-              fullWidth
-              multiline
-              rows="12"
-              rowsMax="12"
-              value={finish}
-              onChange={this.handleChange}
-              margin="normal"
-              variant="outlined"
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.button}
-            >
-              Save
-            </Button>
-          </Container>
-        </TabPanel>
+            {STYLE_OPTIONS.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+
+          {error && (
+            <Typography color="textPrimary" component="p">
+              {error}
+            </Typography>
+          )}
+
+          {styleDisabled && (
+            <>
+              <TextField
+                name="label"
+                label="label"
+                helperText="enter the wine label info (maker, vintage)"
+                type="text"
+                value={label}
+                placeholder="label"
+                fullWidth
+                margin="normal"
+                // variant="outlined"
+                onChange={this.handleChange}
+                required
+              />
+              <Typography variant="body2" color="textSecondary" component="p">
+                find your tasting notes
+              </Typography>
+              <TagPicker
+                tags={tags}
+                selectedTags={selectedTags}
+                handleTagClick={this.handleToggleTag}
+              />
+
+              {/* TODO: use fab */}
+              <br />
+
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+                onClick={this.handleSave}
+              >
+                Save
+              </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+                onClick={this.handleReset}
+              >
+                Reset
+              </Button>
+            </>
+          )}
+        </Container>
       </div>
     );
-
-    // return (
-    //   <div className={classes.root}>
-    //     <AppBar position="static">
-    //       <Tabs
-    //         // orientation="vertical"
-    //         // variant="scrollable"
-    //         value={activeTabValue}
-    //         onChange={this.handleTabChange}
-    //         aria-label="Vertical tabs example"
-    //         // className={classes.tabs}
-    //       >
-    //         <Tab label="Label" {...a11yProps(0)} />
-    //         <Tab label="Sight" {...a11yProps(1)} />
-    //         <Tab label="Nose" {...a11yProps(2)} />
-    //         <Tab label="Pallet" {...a11yProps(3)} />
-    //         <Tab label="Finish" {...a11yProps(4)} />
-    //       </Tabs>
-    //     </AppBar>
-    //     <TabPanel value={activeTabValue} index={0}>
-    //       <Container maxWidth="sm">
-    //         <TextInput
-    //           name="label"
-    //           value={label}
-    //           handleChange={this.handleChange}
-    //         />
-    //       </Container>
-    //     </TabPanel>
-    //     <TabPanel value={activeTabValue} index={1}>
-    //       <TastingSection categories={TASTING_PROFILE.sight} />
-    //     </TabPanel>
-    //     <TabPanel value={activeTabValue} index={2}>
-    //       <TastingSection categories={TASTING_PROFILE.nose} />
-    //     </TabPanel>
-    //     <TabPanel value={activeTabValue} index={3}>
-    //       <TastingSection categories={TASTING_PROFILE.palate} />
-    //     </TabPanel>
-    //     <TabPanel value={activeTabValue} index={4}>
-    //       <TextInput
-    //         name="finish"
-    //         value={finish}
-    //         handleChange={this.handleChange}
-    //       />
-    //     </TabPanel>
-    //   </div>
-    // );
   }
 }
 
-export default withStyles(styles)(Tasting);
+Tasting.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default connect(
+  null,
+  { saveTasting }
+)(withStyles(styles, { withTheme: true })(Tasting));

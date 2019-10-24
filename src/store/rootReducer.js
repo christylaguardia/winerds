@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { loading, errors, user, RESET_STORE } from '../containers/App/reducers';
 import {
-  profileNames,
-  profiles,
+  // profileNames,
+  // profiles,
   tastings
 } from '../components/Tasting/reducers';
 
@@ -10,8 +10,8 @@ const appReducer = combineReducers({
   loading,
   errors,
   user,
-  profileNames,
-  profiles,
+  // profileNames,
+  // profiles,
   tastings
 });
 
