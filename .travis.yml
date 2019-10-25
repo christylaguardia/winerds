@@ -4,13 +4,14 @@ node_js:
 cache:
   directories:
   - node_modules
+before_script:
+- npm install firebase-tools -g
+- npm install
 script:
 - npm test
 - npm run build
-deploy:
-  provider: firebase
-  token:
-    secure: J0HrQexQ9lZO3ROJ5mncGeXaug4SOrTD95Qs31vicZwoa+ZdVs/dG20hawPmNR8seDb2fazgioCFpzImRNsDdN7Jhd069lbKgfx9aujEqqRKZjJgLw9j6zyiBXLrPxp7zGspgdKN8e3ZAcwrqDB8/lI2CTo6Jeo9fpuymyiccdh/LQnli6KenkVQa8gWouUvdWINNYj2lhKiVCv9pzDXpq36plMQyk4pTb+BDyNd1nszjSKzNSxtdWY0rzVnQ9aqIW6MaIPLhiR4IR/DEOdeK0jazMTv4cO7RywxGueWFRy7RUeHR8jc/g8dSh+9QTvrlOhXg2BHlSbYx6crQDiSR0rojkj7Y9EZxtVuTmCKfhW84REwqAx0TLUpPoS9OBzIHXw5Ad4qQpnO1ixf+3yPGv9ykIeN8K9LvSFaJU94e33PZh4a7C30Lo3zr4ok/I/akv5ViUn5pwlSbd/I4cfHFxjNqFZrswFNrZlbaUOarnSkxEPE13gRkujs18N+qF5cWN1Fb4zb+ZhclZ+MRtYfyXyi67TnfECJbmDzs4yv42nlrQ9C9f33r1JXJUf9zBu/0HAAv4FkqZq+9uiOPDJ5RYaZKcoZCcRh4HUVArPwSXSW2/QIl4pjkRyu4HjQDqj4gk8bD8tfYAoybQwTht1L6vCLGIdbbRt0GWnX5eHC3MA=
+after_success:
+- firebase deploy --token $FIREBASE_TOKEN --non-interactive
 true:
   branch: master
 env:

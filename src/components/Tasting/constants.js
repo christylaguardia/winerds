@@ -1,6 +1,7 @@
 // TODO: label tasting source wine folly
 
 // https://winefolly.com/review/everything-you-need-to-know-about-wine-in-9-bottles/
+// TODO: secondary and tertiary flavors
 
 export const STYLE_OPTIONS = [
   { value: "sparkling", label: "Sparkling Wine" },
@@ -28,13 +29,12 @@ export const VARIETIES = {
 
 export const CATEGORIES = {
   herbal_floral: "herbal/floral",
-  fruit_tree: "tree fruit",
-  mellon: "mellon",
   citrus: "citrus",
+  fruit_tree_mellon: "tree fruit/mellon",
   fruit_red: "red fruit",
   fruit_dried: "dried fruit",
-  earth: "earth",
-  other: "other",
+  fruit_tropical: "tropical fruit",
+  earth_other: "earth/other",
   yeast: "yeast",
   oak: "oak",
 }
@@ -50,10 +50,19 @@ export const TAGS = [
     }
   },
   {
+    name: "orange blossom",
+    categories: [CATEGORIES.herbal_floral],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
     name: "honeysuckle",
     categories: [CATEGORIES.herbal_floral],
     varieties: {
-      primary: [VARIETIES.sparkling],
+      primary: [VARIETIES.sparkling, VARIETIES.white_light],
       secondary: [],
       tertiary: [],
     }
@@ -77,10 +86,64 @@ export const TAGS = [
     }
   },
   {
+    name: "acacia",
+    categories: [CATEGORIES.herbal_floral],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "mace",
+    categories: [CATEGORIES.herbal_floral],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "clove",
+    categories: [CATEGORIES.herbal_floral],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "pepper",
+    categories: [CATEGORIES.herbal_floral],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "ginger",
+    categories: [CATEGORIES.herbal_floral],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
     name: "lime",
     categories: [CATEGORIES.citrus],
     varieties: {
-      primary: [VARIETIES.sparkling],
+      primary: [VARIETIES.sparkling, VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "lemon",
+    categories: [CATEGORIES.citrus],
+    varieties: {
+      primary: [VARIETIES.white_light],
       secondary: [],
       tertiary: [],
     }
@@ -89,7 +152,16 @@ export const TAGS = [
     name: "citrus zest",
     categories: [CATEGORIES.citrus],
     varieties: {
-      primary: [VARIETIES.sparkling],
+      primary: [VARIETIES.sparkling, VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "tangerine",
+    categories: [CATEGORIES.citrus],
+    varieties: {
+      primary: [VARIETIES.white_light],
       secondary: [],
       tertiary: [],
     }
@@ -105,16 +177,16 @@ export const TAGS = [
   },
   {
     name: "quince",
-    categories: [CATEGORIES.fruit_tree],
+    categories: [CATEGORIES.fruit_tree_mellon],
     varieties: {
-      primary: [VARIETIES.sparkling],
+      primary: [VARIETIES.sparkling, VARIETIES.white_light],
       secondary: [],
       tertiary: [],
     }
   },
   {
     name: "green apple",
-    categories: [CATEGORIES.fruit_tree],
+    categories: [CATEGORIES.fruit_tree_mellon],
     varieties: {
       primary: [VARIETIES.sparkling],
       secondary: [],
@@ -123,16 +195,16 @@ export const TAGS = [
   },
   {
     name: "yellow apple",
-    categories: [CATEGORIES.fruit_tree],
+    categories: [CATEGORIES.fruit_tree_mellon],
     varieties: {
-      primary: [VARIETIES.sparkling],
+      primary: [VARIETIES.sparkling, VARIETIES.white_light],
       secondary: [],
       tertiary: [],
     }
   },
   {
     name: "bruised apple",
-    categories: [CATEGORIES.fruit_tree],
+    categories: [CATEGORIES.fruit_tree_mellon],
     varieties: {
       primary: [VARIETIES.sparkling],
       secondary: [],
@@ -140,8 +212,35 @@ export const TAGS = [
     }
   },
   {
+    name: "mellon",
+    categories: [CATEGORIES.fruit_tree_mellon],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "asian pair",
+    categories: [CATEGORIES.fruit_tree_mellon],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "nectarine",
+    categories: [CATEGORIES.fruit_tree_mellon],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
     name: "unripe pair",
-    categories: [CATEGORIES.fruit_tree],
+    categories: [CATEGORIES.fruit_tree_mellon],
     varieties: {
       primary: [VARIETIES.sparkling],
       secondary: [],
@@ -150,9 +249,18 @@ export const TAGS = [
   },
   {
     name: "apricot",
-    categories: [CATEGORIES.fruit_tree],
+    categories: [CATEGORIES.fruit_tree_mellon],
     varieties: {
-      primary: [VARIETIES.sparkling],
+      primary: [VARIETIES.sparkling, VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "peach",
+    categories: [CATEGORIES.fruit_tree_mellon],
+    varieties: {
+      primary: [VARIETIES.white_light],
       secondary: [],
       tertiary: [],
     }
@@ -185,8 +293,53 @@ export const TAGS = [
     }
   },
   {
+    name: "kiwi",
+    categories: [CATEGORIES.fruit_tropical],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "guava",
+    categories: [CATEGORIES.fruit_tropical],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "green papaya",
+    categories: [CATEGORIES.fruit_tropical],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "pineapple",
+    categories: [CATEGORIES.fruit_tropical],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "banana",
+    categories: [CATEGORIES.fruit_tropical],
+    varieties: {
+      primary: [],
+      secondary: [VARIETIES.white_light],
+      tertiary: [],
+    }
+  },
+  {
     name: "chalk",
-    categories: [CATEGORIES.other],
+    categories: [CATEGORIES.earth_other],
     varieties: {
       primary: [VARIETIES.sparkling],
       secondary: [],
@@ -195,10 +348,64 @@ export const TAGS = [
   },
   {
     name: "sea shell",
-    categories: [CATEGORIES.earth],
+    categories: [CATEGORIES.earth_other],
     varieties: {
       primary: [VARIETIES.sparkling],
       secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "honey",
+    categories: [CATEGORIES.earth_other],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "quinine",
+    categories: [CATEGORIES.earth_other],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "gravel",
+    categories: [CATEGORIES.earth_other],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "wet concrete",
+    categories: [CATEGORIES.earth_other],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "graphite",
+    categories: [CATEGORIES.earth_other],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "cream",
+    categories: [CATEGORIES.earth_other],
+    varieties: {
+      primary: [],
+      secondary: [VARIETIES.white_light],
       tertiary: [],
     }
   },
@@ -209,6 +416,24 @@ export const TAGS = [
       primary: [VARIETIES.sparkling],
       secondary: [],
       tertiary: [],
+    }
+  },
+  {
+    name: "toast",
+    categories: [CATEGORIES.yeast],
+    varieties: {
+      primary: [],
+      secondary: [],
+      tertiary: [VARIETIES.sparkling],
+    }
+  },
+  {
+    name: "brioche",
+    categories: [CATEGORIES.yeast],
+    varieties: {
+      primary: [],
+      secondary: [],
+      tertiary: [VARIETIES.sparkling],
     }
   },
   {
@@ -247,14 +472,31 @@ export const TAGS = [
       tertiary: [],
     }
   },
-  // TODO: tertiary flavors
-  // {
-  //   name: "",
-  //   categories: [CATEGORIES.],
-  //   varieties: {
-  //     primary: [VARIETIES.sparkling],
-  //     secondary: [],
-  //     tertiary: [],
-  //   }
-  // },
+  {
+    name: "almond",
+    categories: [CATEGORIES.oak],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [VARIETIES.sparkling],
+    }
+  },
+  {
+    name: "fresh coconut",
+    categories: [CATEGORIES.oak],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
+  {
+    name: "vanilla",
+    categories: [CATEGORIES.oak],
+    varieties: {
+      primary: [VARIETIES.white_light],
+      secondary: [],
+      tertiary: [],
+    }
+  },
 ];
