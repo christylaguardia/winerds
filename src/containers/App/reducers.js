@@ -10,14 +10,16 @@ export const UPDATED_DISPLAY_NAME = "UPDATED_DISPLAY_NAME";
 export const UPDATED_EMAIL = "UPDATED_EMAIL";
 
 export function loading(state = false, { type }) {
-  switch (type) {
-    case LOADING:
-      return true;
-    case LOADED:
-      return false;
-    default:
-      return state;
-  }
+  const matches = /(.*)_(REQUEST|SUCCESS|FAILURE)/.exec(type);
+
+  // not a *_REQUEST / *_SUCCESS /  *_FAILURE actions, so we ignore them
+  if (!matches) return state;
+
+  const [, requestName, requestState] = matches;
+  return {
+    ...state,
+    [requestName]: requestState === 'REQUEST',
+  };
 }
 
 export function errors(state = null, { type, payload }) {

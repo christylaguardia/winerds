@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import TagPicker from "./TagPicker";
-import { saveTasting } from "./actions";
+import { createTasting } from "./actions";
 import { STYLE_OPTIONS } from "./constants";
 import { getTags } from "./helpers";
 
@@ -73,9 +73,9 @@ class Tasting extends React.Component {
   };
 
   handleSave = () => {
-    const { saveTasting } = this.props;
+    const { createTasting } = this.props;
     const { style, label, selectedTags } = this.state;
-    saveTasting({ style, label, selectedTags });
+    createTasting({ style, label, selectedTags });
     // TODO: handle redirect or update?
   };
 
@@ -181,5 +181,5 @@ Tasting.propTypes = {
 
 export default connect(
   null,
-  { saveTasting }
+  { createTasting }
 )(withStyles(styles, { withTheme: true })(Tasting));

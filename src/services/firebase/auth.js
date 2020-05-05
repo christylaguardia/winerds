@@ -6,8 +6,6 @@ import { firebaseApp } from "./firebase";
 export const auth = firebaseApp.auth();
 
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
-export const twitterProvider = new firebase.auth.TwitterAuthProvider();
-export const facebookProvider = new firebase.auth.FacebookAuthProvider();
 
 export const uiConfig = {
   signInSuccessUrl: "/tasting",

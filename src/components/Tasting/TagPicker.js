@@ -17,9 +17,8 @@ const styles = theme => ({
 const TagPicker = ({ classes, tags, selectedTags, handleTagClick }) => (
   <div className={classes.root}>
     {tags.map((tag, tagIndex) => (
-      <span onClick={() => handleTagClick(tag)}>
+      <span key={tagIndex} onClick={() => handleTagClick(tag)}>
         <Chip
-          key={tagIndex}
           label={tag}
           color={selectedTags.includes(tag) ? "primary" : "secondary"}
         />

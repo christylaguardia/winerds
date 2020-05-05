@@ -7,11 +7,11 @@ const database = firebaseApp.database();
 // Get a reference to the database collection
 // const tastingsRef = database.ref("tastings/");
 
-export const saveTasting = ({ style, label, selectedTags: tags }) => {
+export const createTasting = ({ style, label, selectedTags: tags }) => {
   const { uid } = getCurrentUser();
   const timestamp = new Date().getTime();
 
-  database
+  return database
     .ref(`${uid}/${timestamp}/`)
     .set({ style, label, tags }, function(error) {
       if (error) {
@@ -27,19 +27,20 @@ export const saveTasting = ({ style, label, selectedTags: tags }) => {
 export const getTastings = () => {
   const { uid } = getCurrentUser();
 
-  database
+  return database
     .ref(`${uid}`)
     .once("value")
     .then(function(snapshot) {
       // TODO: handle error
       if (snapshot) {
-        console.log("Data saved successfully!");
+        console.log("Data fetched successfully!");
+        // TODO: this is not working
         return snapshot;
       }
     });
 };
 
 export default {
-  saveTasting,
+  createTasting,
   getTastings
 };
